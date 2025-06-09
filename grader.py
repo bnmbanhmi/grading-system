@@ -8,6 +8,8 @@ import shutil # For cleaning up dummy data
 from dotenv import load_dotenv
 import time  # For rate limiting
 import zipfile
+import csv
+from datetime import datetime
 
 # Load environment variables from .env file
 load_dotenv()
@@ -600,6 +602,159 @@ def display_grading_results(results: dict):
     print(f"\nTotal Score: {total_score}/100")
 
 
+def generate_csv_report():
+    """
+    Generates a CSV file containing all grading results from JSON files.
+    """
+    results_dir = "grading_results"
+    
+    if not os.path.exists(results_dir):
+        print(f"Error: Results directory '{results_dir}' not found.")
+        return None
+    
+    # Get all JSON files in the results directory
+    json_files = [f for f in os.listdir(results_dir) if f.endswith('_grading_results.json')]
+    
+    if not json_files:
+        print(f"No grading result files found in '{results_dir}'.")
+        return None
+    
+    print(f"Found {len(json_files)} grading result files.")
+    
+    # Prepare CSV data
+    csv_data = []
+    
+    for json_file in json_files:
+        json_path = os.path.join(results_dir, json_file)
+        
+        try:
+            with open(json_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            
+            group_name = data.get('group_name', 'Unknown')
+            total_score = data.get('total_score', 0)
+            
+            # Video assessment
+            video_assessment = data.get('video_assessment', {})
+            video_score = video_assessment.get('score', 0)
+            video_comment = video_assessment.get('comment', '').replace('\n', ' ').replace('\r', ' ')
+            
+            # Coding assessment
+            coding_assessment = data.get('coding_assessment', {})
+            coding_score = coding_assessment.get('score', 0)
+            coding_comment = coding_assessment.get('comment', '').replace('\n', ' ').replace('\r', ' ')
+            
+            # Component assessments
+            component_assessments = data.get('component_assessments', [])
+            
+            # Initialize component scores and comments
+            project_desc_score = 0
+            project_desc_comment = ""
+            individual_contrib_score = 0
+            individual_contrib_comment = ""
+            testing_score = 0
+            testing_comment = ""
+            asset_mgmt_score = 0
+            asset_mgmt_comment = ""
+            
+            # Extract component data
+            for component in component_assessments:
+                comp_name = component.get('component', '')
+                comp_score = component.get('score', 0)
+                comp_comment = component.get('comment', '').replace('\n', ' ').replace('\r', ' ')
+                
+                if 'Project Description' in comp_name or 'Design & Development' in comp_name:
+                    project_desc_score = comp_score
+                    project_desc_comment = comp_comment
+                elif 'Individual Contribution' in comp_name:
+                    individual_contrib_score = comp_score
+                    individual_contrib_comment = comp_comment
+                elif 'Testing' in comp_name or 'Validation' in comp_name:
+                    testing_score = comp_score
+                    testing_comment = comp_comment
+                elif 'Asset Management' in comp_name or 'Supporting Asset' in comp_name:
+                    asset_mgmt_score = comp_score
+                    asset_mgmt_comment = comp_comment
+            
+            # Create row for CSV
+            row = {
+                'Group Name': group_name,
+                'Total Score': total_score,
+                'Video Score (/35)': video_score,
+                'Video Comment': video_comment,
+                'Coding Score (/20)': coding_score,
+                'Coding Comment': coding_comment,
+                'Project Description Score (/20)': project_desc_score,
+                'Project Description Comment': project_desc_comment,
+                'Individual Contribution Score (/10)': individual_contrib_score,
+                'Individual Contribution Comment': individual_contrib_comment,
+                'Testing & Validation Score (/10)': testing_score,
+                'Testing & Validation Comment': testing_comment,
+                'Asset Management Score (/5)': asset_mgmt_score,
+                'Asset Management Comment': asset_mgmt_comment
+            }
+            
+            csv_data.append(row)
+            print(f"✓ Processed {group_name}: Total Score {total_score}/100")
+            
+        except Exception as e:
+            print(f"Error processing {json_file}: {e}")
+            continue
+    
+    if not csv_data:
+        print("No valid data found to export.")
+        return None
+    
+    # Sort by group name
+    csv_data.sort(key=lambda x: x['Group Name'])
+    
+    # Generate CSV filename with timestamp
+    from datetime import datetime
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    csv_filename = f"grading_results_summary_{timestamp}.csv"
+    csv_path = os.path.join(os.getcwd(), csv_filename)
+    
+    # Write CSV file
+    try:
+        with open(csv_path, 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = [
+                'Group Name', 'Total Score',
+                'Video Score (/35)', 'Video Comment',
+                'Coding Score (/20)', 'Coding Comment',
+                'Project Description Score (/20)', 'Project Description Comment',
+                'Individual Contribution Score (/10)', 'Individual Contribution Comment',
+                'Testing & Validation Score (/10)', 'Testing & Validation Comment',
+                'Asset Management Score (/5)', 'Asset Management Comment'
+            ]
+            
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(csv_data)
+        
+        print(f"\n✅ CSV report generated successfully!")
+        print(f"📄 File: {csv_filename}")
+        print(f"📁 Location: {csv_path}")
+        print(f"📊 Contains {len(csv_data)} group results")
+        
+        # Print summary statistics
+        if csv_data:
+            total_scores = [row['Total Score'] for row in csv_data]
+            avg_score = sum(total_scores) / len(total_scores)
+            max_score = max(total_scores)
+            min_score = min(total_scores)
+            
+            print(f"\n📈 Summary Statistics:")
+            print(f"   Average Score: {avg_score:.1f}/100")
+            print(f"   Highest Score: {max_score}/100")
+            print(f"   Lowest Score: {min_score}/100")
+        
+        return csv_path
+        
+    except Exception as e:
+        print(f"Error writing CSV file: {e}")
+        return None
+
+
 def get_available_groups():
     """
     Gets list of available organized group folders.
@@ -642,18 +797,19 @@ def check_existing_results(group_name: str):
 
 def choose_grading_mode():
     """
-    Allows user to choose between batch grading mode and interactive mode.
+    Allows user to choose between batch grading mode, interactive mode, or CSV export.
     
     Returns:
-        str: 'batch' for batch mode, 'interactive' for interactive mode
+        str: 'batch' for batch mode, 'interactive' for interactive mode, 'csv' for CSV export, 'quit' to exit
     """
-    print("\n=== GRADING MODE SELECTION ===")
-    print("1. Interactive Mode: Confirm after each group (recommended for careful review)")
-    print("2. Batch Mode: Process all groups without interruption")
-    print("3. Quit")
+    print("\n=== GRADING SYSTEM MENU ===")
+    print("1. Interactive Mode: Grade groups with confirmation after each (recommended)")
+    print("2. Batch Mode: Grade all groups without interruption")
+    print("3. Export CSV Report: Generate CSV file from existing grading results")
+    print("4. Quit")
     
     while True:
-        choice = input("\nSelect grading mode (1/2/3): ").strip()
+        choice = input("\nSelect option (1/2/3/4): ").strip()
         
         if choice == '1':
             print("✓ Interactive mode selected - you'll be prompted after each group")
@@ -662,10 +818,13 @@ def choose_grading_mode():
             print("✓ Batch mode selected - all groups will be processed automatically")
             return 'batch'
         elif choice == '3':
+            print("✓ CSV export selected - generating report from existing results")
+            return 'csv'
+        elif choice == '4':
             print("Exiting grading system.")
             return 'quit'
         else:
-            print("Invalid choice. Please enter 1, 2, or 3.")
+            print("Invalid choice. Please enter 1, 2, 3, or 4.")
 
 
 def main():
@@ -698,6 +857,15 @@ def main():
     # Choose grading mode
     grading_mode = choose_grading_mode()
     if grading_mode == 'quit':
+        return
+    elif grading_mode == 'csv':
+        # Generate CSV report and exit
+        csv_path = generate_csv_report()
+        if csv_path:
+            print(f"\n✅ CSV report successfully generated!")
+            print(f"You can now open: {os.path.basename(csv_path)}")
+        else:
+            print("❌ Failed to generate CSV report.")
         return
     
     # Process each group
