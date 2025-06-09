@@ -9,12 +9,12 @@ This is an automated grading system for AR projects using the Gemini API.
 4. Set up your .env file with GEMINI_API_KEY
 
 ## Usage
-- Run `python assignment_organizer.py` to organize submissions
-- Run `python grading.py` to grade organized assignments
+- Run `python organizer.py` to organize submissions
+- Run `python grader.py` to grade organized assignments
 
 ## Project Structure
-- `grading.py` - Main grading script
-- `assignment_organizer.py` - Organizes submissions
+- `grader.py` - Main grading script
+- `organizer.py` - Organizes submissions
 - `organized_assignments/` - Organized submission folders
 - `grading_results/` - Generated grading results
 

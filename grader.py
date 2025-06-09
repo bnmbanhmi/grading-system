@@ -313,10 +313,10 @@ def grade_coding_quality(client: genai.Client, code_files: list):
     Give me a score based on the following criteria:
 
     Coding Quality (/20 pts)
-    - Excellent (15.1 to 20 pts): Code is well-structured, readable, and follows best practices (e.g., comments, modularity). .zip file is organised and functional. No major bugs.
-    - Good (11.1 to 15 pts): Code is functional and mostly readable but has minor issues (e.g., inconsistent comments, less modularity). .zip file is organised.
-    - Satisfactory (7.1 to 11 pts): Code works but lacks structure, readability, or has moderate issues. .zip file is somewhat disorganised.
-    - Needs Improvement (0.1 to 7 pts) : Code is poorly written, unreadable, or non-functional. .zip file is missing or unusable.
+    - Excellent (15.1 to 20 pts): Code is well-structured, readable, and follows best practices (e.g., comments, modularity). .zip file is organised and functional. No major bugs. 
+    - Good (11.1 to 15 pts): Code is functional and mostly readable but has minor issues (e.g., inconsistent comments, less modularity). .zip file is organised. 
+    - Satisfactory (7.1 to 11 pts): Code works but lacks structure, readability, or has moderate issues. .zip file is somewhat disorganised. 
+    - Needs Improvement (0.1 to 7 pts) : Code is poorly written, unreadable, or non-functional. .zip file is missing or unusable. 
     - No Evidence (0 pts): No Evidence
     
     The output should be a JSON object with 'score' (integer or float) and 'comment' (string).
@@ -334,10 +334,10 @@ def grade_video_presentation(client: genai.Client, image_files: list):
     Assume the video includes a voice-over and sound.
     
     - Video Presentation (/35 pts)
-    + Excellent (27.1 to 35 pts): Video is clear, engaging, and within 3 minutes. Effectively showcases the prototype’s key features and functionality with smooth execution. High production quality (audio, visuals).
-    + Good (20.1 to 27 pts): Video is clear and within the time limit. Shows most key features but may have minor polish issues or clarity issues. Good production quality.
-    + Satisfactory (13.1 to 20 pts): Video is somewhat clear but exceeds the time limit or misses some features. Functionality is partially demonstrated. Average production quality.
-    + Needs Improvement (0.1 to 13 pts): Video is unclear, significantly over/under time, or fails to demonstrate prototype functionality. Poor production quality.
+    + Excellent (27.1 to 35 pts): Video is clear, engaging, and within 3 minutes. Effectively showcases prototype’s key features and functionality with smooth execution. High production quality (audio, visuals). 
+    + Good (20.1 to 27 pts): Video is clear and within time limit. Shows most key features but may lack polish or minor clarity issues. Good production quality. 
+    + Satisfactory (13.1 to 20 pts): Video is somewhat clear but exceeds time limit or misses some features. Functionality is partially demonstrated. Average production quality. 
+    + Needs Improvement (0.1 to 13 pts): Video is unclear, significantly over/under time, or fails to demonstrate prototype functionality. Poor production quality. 
     + No Evidence (0 pts): No submission
 
     The output should be a JSON object with 'score' (integer or float) and 'comment' (string).
@@ -371,34 +371,36 @@ def grade_all_components(client: genai.Client, project_files: list, video_score_
     Provide a score (integer or float) and detailed feedback (string) for each of the following criteria:
 
     ## 1. Project Description, Design & Development Process (/20 pts)
-    - Excellent (15.1-20 pts): Comprehensive project description with clear objectives, well-documented design process, detailed development methodology, and thorough documentation
-    - Good (11.1-15 pts): Clear project description with good design documentation and development process explanation
-    - Satisfactory (7.1-11 pts): Basic project description with some design and development documentation
-    - Needs Improvement (0.1-7 pts): Poor or incomplete project description and documentation
-    - No Evidence (0 pts): No project description or documentation
+    + Excellent (15.1 to 20 pts): In-class presentation clearly articulates project purpose, design rationale, and development process with strong technical detail. Delivery is engaging, well-paced, and professional within 10 minutes. Visual aids (e.g., PowerPoint) are effective. Q&A responses are confident, accurate, and relevant. 
+    + Good (11.1 to 15 pts): Presentation covers purpose, design, and process but lacks some depth or clarity. Delivery is clear but less engaging. Visual aids are used but may be less effective. Q&A responses are mostly accurate but may lack depth. 
+    + Satisfactory (7.1 to 11 pts) : Presentation addresses purpose, design, and process minimally, with limited detail. Delivery is rushed, slightly over/under time, or lacks engagement. Visual aids are basic or poorly organised. Q&A responses are vague or partially relevant. 
+    + Needs Improvement (0.1 to 7 pts): Presentation is vague, lacks technical detail, or fails to explain design/development. Delivery is disorganised, significantly off-time, or unprofessional. Visual aids are minimal or absent. Q&A responses are inaccurate or absent. 
+    + No Presentation (0 pts):  
 
     ## 2. Individual Contribution (/10 pts)
-    - Excellent (7.6-10 pts): Clear evidence of individual contributions, well-documented roles and responsibilities, individual reflection on learning
-    - Good (5.6-7.5 pts): Good documentation of individual contributions with some evidence of personal involvement
-    - Satisfactory (3.6-5.5 pts): Basic documentation of individual contributions
-    - Needs Improvement (0.1-3.5 pts): Unclear or minimal individual contribution documentation
-    - No Evidence (0 pts): No individual contribution documentation
+    + Excellent (7.1 to 10 pts) : Each team member’s role and contributions are clearly defined and significant, with evidence of balanced workload. 
+    + Good (5.1 to 7 pts): Contributions are defined but uneven or lack some detail. Most members show involvement. 
+    + Satisfactory (3.1 to 5 pts): Contributions are vaguely described, with unclear roles for some members. Uneven workload evident. 
+    + Needs Improvement (0.1 to 3 pts): Contributions are not described or significantly unbalanced. Minimal evidence of involvement. 
+    + No Evidence (0 pts): No Evidence 
 
     ## 3. Testing & Validation (/10 pts)
-    - Excellent (7.6-10 pts): Comprehensive testing plan, systematic validation, user testing results, performance analysis
-    - Good (5.6-7.5 pts): Good testing approach with validation evidence
-    - Satisfactory (3.6-5.5 pts): Basic testing and validation documentation
-    - Needs Improvement (0.1-3.5 pts): Minimal or poor testing documentation
-    - No Evidence (0 pts): No testing or validation evidence
+    - Excellent (7.1 to 10 pt): Testing methodology is thorough, well-documented, and clearly presented. Validation confirms prototype functionality with evidence (e.g., test results). 
+    - Good (5.1 to 7 pts): Testing is adequate with some documentation. Validation is shown but may lack depth or clarity. 
+    - Satisfactory (1.1 to 5 pts) : Testing is minimal or poorly documented. Validation is incomplete or unclear. 
+    - Needs Improvement (0.1 to 1 pts): Testing and validation are absent or insufficiently addressed. 
+    - No Evidence (0 pts): No Evidence
 
     ## 4. Supporting Asset Management (/5 pts)
-    - Excellent (3.8-5 pts): Well-organized assets, proper file structure, comprehensive asset documentation
-    - Good (2.8-3.7 pts): Good asset organization with documentation
-    - Satisfactory (1.8-2.7 pts): Basic asset management
-    - Needs Improvement (0.1-1.7 pts): Poor asset organization
-    - No Evidence (0 pts): No asset management
+    - Excellent (3.1 to 5 pts): Asset register is complete, well-organised, and clearly documents all project assets (e.g., images, libraries). 
+    - Good (2.1 to 3 pts): Asset register is mostly complete but may have minor gaps or organisation issues 
+    - Satisfactory (1.1 to 2 pts): Asset register is incomplete or poorly organised, with missing assets. 
+    - Needs Improvement (0.1 to 1 pts): Asset register is missing or severely lacking in detail. 
+    - No Evidence (0 pts): No Evidence 
 
     The output should be a JSON object containing a list of dictionaries, where each dictionary has 'component' (string), 'score' (integer or float), and 'comment' (string). Ensure you assess these 4 remaining components only.
+
+    I want to have the total score range of all 6 components in distributional mode of 65, with highest score lower not exceed than 90, and lowest score not below 55
     """
     response_json = call_gemini_api(client, prompt, files=project_files)
     
