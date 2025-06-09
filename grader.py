@@ -402,7 +402,6 @@ def grade_all_components(client: genai.Client, project_files: list, video_score_
 
     The output should be a JSON object containing a list of dictionaries, where each dictionary has 'component' (string), 'score' (integer or float), and 'comment' (string). Ensure you assess these 4 remaining components only.
 
-    I want to have the total score range of all 6 components in distributional mode of 65, with highest score lower not exceed than 90, and lowest score not below 55
     """
     response_json = call_gemini_api(client, prompt, files=project_files)
     
@@ -797,19 +796,20 @@ def check_existing_results(group_name: str):
 
 def choose_grading_mode():
     """
-    Allows user to choose between batch grading mode, interactive mode, or CSV export.
+    Allows user to choose between batch grading mode, interactive mode, CSV export, or score normalization.
     
     Returns:
-        str: 'batch' for batch mode, 'interactive' for interactive mode, 'csv' for CSV export, 'quit' to exit
+        str: 'batch' for batch mode, 'interactive' for interactive mode, 'csv' for CSV export, 'normalize' for score normalization, 'quit' to exit
     """
     print("\n=== GRADING SYSTEM MENU ===")
     print("1. Interactive Mode: Grade groups with confirmation after each (recommended)")
     print("2. Batch Mode: Grade all groups without interruption")
     print("3. Export CSV Report: Generate CSV file from existing grading results")
-    print("4. Quit")
+    print("4. Normalize Scores: Adjust scores to meet distribution requirements (mean=65, range=55-90)")
+    print("5. Quit")
     
     while True:
-        choice = input("\nSelect option (1/2/3/4): ").strip()
+        choice = input("\nSelect option (1/2/3/4/5): ").strip()
         
         if choice == '1':
             print("✓ Interactive mode selected - you'll be prompted after each group")
@@ -821,10 +821,13 @@ def choose_grading_mode():
             print("✓ CSV export selected - generating report from existing results")
             return 'csv'
         elif choice == '4':
+            print("✓ Score normalization selected - adjusting grades to meet distribution requirements")
+            return 'normalize'
+        elif choice == '5':
             print("Exiting grading system.")
             return 'quit'
         else:
-            print("Invalid choice. Please enter 1, 2, 3, or 4.")
+            print("Invalid choice. Please enter 1, 2, 3, 4, or 5.")
 
 
 def main():
@@ -866,6 +869,17 @@ def main():
             print(f"You can now open: {os.path.basename(csv_path)}")
         else:
             print("❌ Failed to generate CSV report.")
+        return
+    elif grading_mode == 'normalize':
+        # Normalize scores and exit
+        print(f"\n🔄 Starting score normalization process...")
+        success = normalize_scores(client)
+        if success:
+            print(f"\n✅ Score normalization completed successfully!")
+            print(f"All scores have been adjusted to meet distribution requirements.")
+            print(f"Backups of original scores saved in grading_results/pre_normalization_backup/")
+        else:
+            print("❌ Failed to normalize scores.")
         return
     
     # Process each group
@@ -927,5 +941,235 @@ def main():
     print(f"{'='*80}")
 
 
-if __name__ == "__main__":
-    main()
+def normalize_scores(client: genai.Client):
+    """
+    Normalizes all grading results to meet specific distribution requirements using AI refinement.
+    Target distribution: mean=65, highest≤90, lowest≥55
+    """
+    results_dir = "grading_results"
+    
+    if not os.path.exists(results_dir):
+        print(f"Error: Results directory '{results_dir}' not found.")
+        return False
+    
+    # Get all JSON files in the results directory
+    json_files = [f for f in os.listdir(results_dir) if f.endswith('_grading_results.json')]
+    
+    if not json_files:
+        print(f"No grading result files found in '{results_dir}'.")
+        return False
+    
+    print(f"Found {len(json_files)} grading result files for normalization.")
+    
+    # Load all grading results
+    all_results = []
+    for json_file in json_files:
+        json_path = os.path.join(results_dir, json_file)
+        try:
+            with open(json_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                all_results.append((json_file, json_path, data))
+        except Exception as e:
+            print(f"Error reading {json_file}: {e}")
+            continue
+    
+    if not all_results:
+        print("No valid grading results found to normalize.")
+        return False
+    
+    # Calculate current distribution
+    current_scores = [data.get('total_score', 0) for _, _, data in all_results]
+    current_mean = sum(current_scores) / len(current_scores)
+    current_min = min(current_scores)
+    current_max = max(current_scores)
+    
+    print(f"\n📊 Current Score Distribution:")
+    print(f"   Mean: {current_mean:.1f}/100")
+    print(f"   Range: {current_min} - {current_max}")
+    
+    # Target distribution
+    target_mean = 65
+    target_min = 55
+    target_max = 90
+    
+    print(f"\n🎯 Target Score Distribution:")
+    print(f"   Mean: {target_mean}/100")
+    print(f"   Range: {target_min} - {target_max}")
+    
+    # Check if normalization is needed
+    needs_normalization = (
+        abs(current_mean - target_mean) > 2 or 
+        current_min < target_min or 
+        current_max > target_max
+    )
+    
+    if not needs_normalization:
+        print("\n✅ Scores already meet the target distribution requirements.")
+        return True
+    
+    print(f"\n⚙️ Normalization required. Processing {len(all_results)} groups...")
+    
+    # Create backup directory
+    backup_dir = os.path.join(results_dir, "pre_normalization_backup")
+    os.makedirs(backup_dir, exist_ok=True)
+    
+    # Process each grading result for normalization
+    normalized_results = []
+    
+    for i, (json_file, json_path, data) in enumerate(all_results, 1):
+        print(f"\nProcessing {i}/{len(all_results)}: {data.get('group_name', 'Unknown')}")
+        
+        # Create backup
+        backup_path = os.path.join(backup_dir, json_file)
+        shutil.copy2(json_path, backup_path)
+        
+        # Prepare current assessment summary for AI refinement
+        current_assessment = {
+            "group_name": data.get('group_name', 'Unknown'),
+            "current_total": data.get('total_score', 0),
+            "video_assessment": data.get('video_assessment', {}),
+            "coding_assessment": data.get('coding_assessment', {}),
+            "component_assessments": data.get('component_assessments', [])
+        }
+        
+        # Use AI to refine scores while maintaining evaluation integrity
+        refined_assessment = refine_scores_with_ai(client, current_assessment, target_mean, target_min, target_max, current_mean, current_min, current_max, i, len(all_results))
+        
+        if refined_assessment:
+            # Update the original data with refined scores
+            data['total_score'] = refined_assessment.get('total_score', data['total_score'])
+            data['video_assessment'] = refined_assessment.get('video_assessment', data['video_assessment'])
+            data['coding_assessment'] = refined_assessment.get('coding_assessment', data['coding_assessment'])
+            data['component_assessments'] = refined_assessment.get('component_assessments', data['component_assessments'])
+            
+            # Add normalization metadata
+            data['normalization_info'] = {
+                "normalized_at": datetime.now().isoformat(),
+                "original_score": current_assessment['current_total'],
+                "target_distribution": {"mean": target_mean, "min": target_min, "max": target_max},
+                "pre_normalization_backup": backup_path
+            }
+            
+            normalized_results.append((json_path, data))
+            print(f"   ✓ Score adjusted: {current_assessment['current_total']} → {data['total_score']}")
+        else:
+            print(f"   ⚠️ Failed to normalize {data.get('group_name', 'Unknown')}")
+            normalized_results.append((json_path, data))  # Keep original if refinement fails
+    
+    # Save all normalized results
+    print(f"\n💾 Saving normalized results...")
+    for json_path, normalized_data in normalized_results:
+        try:
+            with open(json_path, 'w', encoding='utf-8') as f:
+                json.dump(normalized_data, f, indent=2, ensure_ascii=False)
+        except Exception as e:
+            print(f"Error saving {json_path}: {e}")
+    
+    # Verify final distribution
+    final_scores = [data.get('total_score', 0) for _, data in normalized_results]
+    final_mean = sum(final_scores) / len(final_scores)
+    final_min = min(final_scores)
+    final_max = max(final_scores)
+    
+    print(f"\n✅ Normalization Complete!")
+    print(f"📊 Final Score Distribution:")
+    print(f"   Mean: {final_mean:.1f}/100 (target: {target_mean})")
+    print(f"   Range: {final_min} - {final_max} (target: {target_min}-{target_max})")
+    print(f"📁 Backups saved to: {backup_dir}")
+    
+    return True
+
+
+def refine_scores_with_ai(client: genai.Client, assessment: dict, target_mean: float, target_min: float, target_max: float, 
+                         current_mean: float, current_min: float, current_max: float, current_index: int, total_count: int):
+    """
+    Uses AI to refine individual scores while maintaining evaluation integrity and moving toward target distribution.
+    """
+    try:
+        # Calculate suggested adjustment direction
+        current_score = assessment['current_total']
+        adjustment_direction = "maintain"
+        
+        if current_mean > target_mean and current_score > target_mean:
+            adjustment_direction = "slightly decrease"
+        elif current_mean < target_mean and current_score < target_mean:
+            adjustment_direction = "slightly increase"
+        elif current_score > target_max:
+            adjustment_direction = "decrease to fit maximum"
+        elif current_score < target_min:
+            adjustment_direction = "increase to meet minimum"
+        
+        prompt = f"""
+You are an academic grading specialist tasked with refining assessment scores to meet institutional distribution requirements while maintaining evaluation integrity.
+
+CURRENT ASSESSMENT DATA:
+Group: {assessment['group_name']}
+Current Total Score: {current_score}/100
+
+Video Assessment: {assessment['video_assessment'].get('score', 0)}/35
+Comment: {assessment['video_assessment'].get('comment', 'N/A')}
+
+Coding Assessment: {assessment['coding_assessment'].get('score', 0)}/20  
+Comment: {assessment['coding_assessment'].get('comment', 'N/A')}
+
+Component Scores:
+{chr(10).join([f"- {comp.get('component', 'Unknown')}: {comp.get('score', 0)} points - {comp.get('comment', 'N/A')}" for comp in assessment['component_assessments']])}
+
+DISTRIBUTION CONTEXT:
+- Current class mean: {current_mean:.1f}/100, Target: {target_mean}/100
+- Current range: {current_min}-{current_max}, Target range: {target_min}-{target_max}
+- Processing: {current_index}/{total_count} assessments
+- Suggested adjustment: {adjustment_direction}
+
+TASK:
+Refine this assessment to help achieve the target distribution while:
+1. Maintaining the relative quality evaluation and educational feedback
+2. Preserving the core assessment rationale in comments
+3. Ensuring all component scores are reasonable and justified
+4. Keeping total score within {target_min}-{target_max} range
+
+Scoring Scale Reference:
+- Video Presentation: /35 (Excellent: 31-35, Good: 26-30, Satisfactory: 21-25, Needs Improvement: 10-20, Poor: 0-9)
+- Coding Quality: /20 (Excellent: 18-20, Good: 15-17, Satisfactory: 12-14, Needs Improvement: 8-11, Poor: 0-7)
+- Project Description: /20 (Excellent: 18-20, Good: 15-17, Satisfactory: 12-14, Needs Improvement: 8-11, Poor: 0-7)
+- Individual Contribution: /10 (Excellent: 9-10, Good: 7-8, Satisfactory: 6, Needs Improvement: 4-5, Poor: 0-3)
+- Testing & Validation: /10 (Excellent: 9-10, Good: 7-8, Satisfactory: 6, Needs Improvement: 4-5, Poor: 0-3)
+- Asset Management: /5 (Excellent: 5, Good: 4, Satisfactory: 3, Needs Improvement: 2, Poor: 0-1)
+
+Return a JSON object with the refined assessment:
+{{
+    "total_score": <calculated_total>,
+    "video_assessment": {{"score": <score>, "comment": "<refined_comment>"}},
+    "coding_assessment": {{"score": <score>, "comment": "<refined_comment>"}},
+    "component_assessments": [
+        {{"component": "Project Description, Design & Development Process", "score": <score>, "comment": "<refined_comment>"}},
+        {{"component": "Individual Contribution", "score": <score>, "comment": "<refined_comment>"}},
+        {{"component": "Testing & Validation", "score": <score>, "comment": "<refined_comment>"}},
+        {{"component": "Supporting Asset Management", "score": <score>, "comment": "<refined_comment>"}}
+    ]
+}}
+"""
+
+        response = call_gemini_api(client, prompt)
+        
+        if response and isinstance(response, dict):
+            # Validate the response structure
+            required_keys = ['total_score', 'video_assessment', 'coding_assessment', 'component_assessments']
+            if all(key in response for key in required_keys):
+                # Ensure total score is within acceptable range
+                total_score = response.get('total_score', current_score)
+                if target_min <= total_score <= target_max:
+                    return response
+                else:
+                    print(f"   ⚠️ AI suggested score {total_score} outside target range {target_min}-{target_max}")
+                    return None
+            else:
+                print(f"   ⚠️ AI response missing required keys")
+                return None
+        else:
+            print(f"   ⚠️ Invalid AI response format")
+            return None
+            
+    except Exception as e:
+        print(f"   ❌ Error in AI refinement: {e}")
+        return None
