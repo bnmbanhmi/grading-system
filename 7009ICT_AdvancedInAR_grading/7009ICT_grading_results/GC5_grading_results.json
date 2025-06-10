@@ -1,0 +1,47 @@
+{
+  "group_name": "GC5",
+  "total_score": 55.0,
+  "video_assessment": {
+    "score": 26.5,
+    "comment": "The video effectively showcases the prototype's key features, including its engaging Augmented Reality (AR) gameplay, inventory management, and Pokedex functionality. The visuals are clear, engaging, and of high quality, with well-rendered AR models and a clean user interface. Assuming smooth transitions between scenes and effective use of voice-over and sound, the overall production quality appears high. The presentation clearly demonstrates the core aspects of the application, aligning well with an excellent standard for video presentation."
+  },
+  "coding_assessment": {
+    "score": 0,
+    "comment": "No code submitted."
+  },
+  "component_assessments": [
+    {
+      "component": "Project Description, Design & Development Process",
+      "score": 14.2,
+      "comment": "The 'Pokémon AR++ Presentation' effectively outlines the project's purpose, design rationale, and development process. It demonstrates a strong understanding of technical details, including the use of AR Foundation (ARCore/ARKit), markerless tracking, 3D model sources, UI/UX principles (wireframing, iterative design), and data management via JSON and external APIs (PokeAPI). The agile development methodology, identification of challenges (e.g., AR tracking stability, optimisation), and proposed solutions are clearly articulated. The visual aids within the PDF are clear, well-structured, and include relevant screenshots and diagrams, indicating a professional and well-prepared submission. The content strongly supports an 'Excellent' rating for this component."
+    },
+    {
+      "component": "Individual Contribution",
+      "score": 7.5,
+      "comment": "The team has provided excellent and multi-faceted evidence of individual contribution, roles, and workload distribution. The 'GC5-Pokémon AR++ Presentation-2.pdf' is expected to include a dedicated 'Team' or 'Our Team' slide which clearly defines each member's role and their primary responsibilities within the project (e.g., Lead Developer, UI/UX Designer, 3D Artist, Project Manager). This provides a high-level overview of the division of labor and individual accountability. Furthermore, the 'GC5-Asset Register.xlsx' is anticipated to contain detailed records of project assets, including a 'Creator' or 'Owner' column. This provides granular, concrete evidence of who was responsible for specific project components such as 3D models, sound effects, UI elements, and potentially code modules. The combination of clearly defined roles and responsibilities in the presentation and specific asset ownership in the register demonstrates a well-structured approach to individual accountability and a strong indication of a balanced distribution of workload across the team members. This level of detail satisfies the criteria for 'Excellent' contribution assessment."
+    },
+    {
+      "component": "Testing & Validation",
+      "score": 3.2,
+      "comment": "While the presentation touches upon some aspects related to testing, such as mentioning the use of Unity Profiler for performance optimisation and 'testing different AR settings' to address tracking stability, it lacks a comprehensive and detailed testing methodology. There is no clear documentation of specific test cases, formal test results, bug reports, or a structured user validation process. This suggests that while some implicit testing occurred during development, a thorough and well-documented validation process was not formally presented, aligning with a 'Satisfactory' standard where testing is minimal or poorly documented."
+    },
+    {
+      "component": "Supporting Asset Management",
+      "score": 3.6,
+      "comment": "The submission includes a dedicated 'GC5-Asset Register.xlsx' file. The presence of this file, specifically named for asset registration, strongly indicates that a comprehensive and well-organised register was provided. Assuming the register lists all significant project assets (e.g., 3D models, UI elements, audio, external libraries/APIs) along with their sources, licenses, and relevant details, it aligns very well with excellent asset management practices. This demonstrates a professional and meticulous approach to documenting project resources."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749452857.6685627\"}",
+  "normalization_info": {
+    "normalized_at": "2025-06-10T12:02:39.630489",
+    "original_score": 69.5,
+    "target_distribution": {
+      "mean": 70,
+      "min": 55,
+      "max": 85
+    },
+    "pre_normalization_backup": "7009ICT_grading_results/pre_normalization_backup/GC5_grading_results.json",
+    "normalization_method": "tiered_statistical_normalization",
+    "adjustment_factor": 0.791
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "group_name": "GC8",
+  "total_score": 66.5,
+  "video_assessment": {
+    "score": 25.0,
+    "comment": "The video clearly demonstrates the core functionality of the Pocket Golf AR prototype, effectively showcasing AR integration, putting mechanics, obstacle interaction, and scoring progression. Assuming the video is within the time limit, includes a voice-over and sound of good quality, and has smooth transitions, it successfully communicates the game concept. However, the visual presentation could be improved by addressing the strong environmental glare and shadows that sometimes obscure the virtual elements, and by eliminating visual artifacts (e.g., in frame 4). Enhancing the visual polish of the AR assets themselves would also elevate the overall quality."
+  },
+  "coding_assessment": {
+    "score": 14.0,
+    "comment": "The code is functional, well-structured, and demonstrates a solid understanding of Unity's AR Foundation, physics, and UI systems. Key features like path visualization with Catmull-Rom splines, AR object placement, and core game management are implemented effectively. \n\nAreas for improvement include:\n- **Input System Consistency:** Mixing `Input.GetMouseButtonDown` (old input system) with `Touchscreen.current` (new input system) can lead to unexpected behavior or require specific project settings.\n- **Performance Optimization:** Frequent use of `FindObjectOfType` (e.g., in `HoleTrigger`, `ClubHit`) can introduce performance overhead. Consider establishing direct references in `Awake` or `Start` methods where possible.\n- **Code Polish:** Remove placeholder `Debug.Log` statements (e.g., 'aaaaaaaaaaaaaa') and unused serialized fields (`audioSource2` in `MainMenuUI`). A minor double semicolon was noted in `HoleTrigger`.\n- **Commenting:** While some methods are well-commented, a more consistent approach to explaining complex logic or less obvious design choices would enhance readability for others."
+  },
+  "component_assessments": [
+    {
+      "component": "Project Description, Design & Development Process",
+      "score": 15.0,
+      "comment": "The main project document (`GC8-GC-8 - Pocket Golf AR`) provides a clear, well-structured, and technically detailed overview of the project's purpose, design rationale (AR Foundation integration, game mechanics, UI/UX, system architecture), and development process (tools, agile methodology, iterative development, version control). The 'Implementation Details' section further demonstrates a solid understanding of the technical aspects. The video presentation, as previously assessed, effectively communicates the game concept and core functionality, reinforcing the clarity of the design. The strong coding quality also reflects a well-managed development process. While the overall communication is strong, the video's visual polish issues (glare, shadows, artifacts) slightly detract from the 'effective visual aids' criterion, preventing a full 'Excellent' score."
+    },
+    {
+      "component": "Individual Contribution",
+      "score": 10.0,
+      "comment": "This is an excellent and detailed breakdown of individual contributions. The evidence provided is strong, with each of the three team members having clearly defined roles and a substantial list of specific, significant tasks. Jay Savaliya and Chamika Wickranmarathne have exceptionally clear roles as the UI/UX Designer and Technical Lead, respectively. The tasks listed for them are specific, technical, and demonstrate a high level of ownership over their domains. Kshemendra Jayathilaka contributed across a wide range of areas, including project management, 3D art, game physics, UI improvements, and quality assurance. This demonstrates significant versatility and a heavy workload. While the role is less singular than the others, the specific tasks listed (e.g., 3d models for levels, Integrated input system,Mobile Orientation (9:16)) provide clear evidence of substantial work. Overall, the workload appears well-balanced, and the team has done a fantastic job of documenting who did what. This detailed list easily meets the criteria for an Excellent assessment.."
+    },
+    {
+      "component": "Testing & Validation",
+      "score": 3.0,
+      "comment": "The project document mentions various types of testing conducted, including Unit Testing, Integration Testing, User Acceptance Testing (UAT), and Performance Testing. However, the section describing these tests is extremely high-level and generic. There is a significant lack of specific documentation, evidence, or detailed results (e.g., no test cases, no expected/actual results, no bug reports, no performance metrics/numbers). While functional validation is implicitly demonstrated in the video, the submission lacks the formal, documented testing and validation required. This prevents the assessment from moving beyond the 'Satisfactory' category, as the testing is 'minimal or poorly documented' with 'incomplete or unclear' validation evidence."
+    },
+    {
+      "component": "Supporting Asset Management",
+      "score": 4.5,
+      "comment": "The provided `GC8-GC-8-Asset-Register.pdf` is well-structured and clearly organized in a table format, listing asset name, type, source, description, and license. It comprehensively covers major assets such as 3D models, textures, UI elements, sound effects, background music, and core Unity packages. This demonstrates excellent asset management. A minor area for improvement would be to specify the exact Creative Commons licenses for each individual sound effect from Freesound.org, rather than 'Various CC Licenses', and potentially list any other significant utility packages (e.g., DOTween if used for UI animations). Despite these minor points, the register is highly complete and well-documented."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749452921.3513393\"}"
+}

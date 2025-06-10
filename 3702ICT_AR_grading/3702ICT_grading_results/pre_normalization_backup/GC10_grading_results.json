@@ -1,0 +1,40 @@
+{
+  "group_name": "GC10",
+  "total_score": 55,
+  "video_assessment": {
+    "score": 15,
+    "comment": "The video adequately demonstrates a system developed in Unity, showing an airplane flying within a 3D environment. The screen recording quality itself appears clear and legible. However, the demonstration is significantly impacted by visible robustness issues and visual glitches within the Unity scene, such as the abrupt appearance and disappearance of large black blocks (e.g., frames 3-5) and potentially unhandled collisions or rendering artifacts. While the assumed voice-over and sound would enhance the presentation and the transitions are assumed to be smooth, the noted errors in the system's visual fidelity detract from a fully polished demonstration."
+  },
+  "coding_assessment": {
+    "score": 0,
+    "comment": "The code structure seems unclear, with too many unorganized files."
+  },
+  "component_assessments": [
+    {
+      "component": "XR/Game App Overview",
+      "score": 8,
+      "comment": "The submission provides a clear and consistent overview of the gamified AR wayfinding application. It effectively maps the unique 'flying plane' design concept to the system's goal of supporting campus wayfinding, detailing its core functionalities and target audience."
+    },
+    {
+      "component": "XR/Game Dev Process",
+      "score": 6,
+      "comment": "The documentation outlines an adequate iterative development process with distinct stages from concept to testing and documentation. While the use of tools like Unity and AR Foundation is noted, the description of the process lacks detailed examples of how practices were applied and integrated into the implementation, and version control mention is superficial."
+    },
+    {
+      "component": "Demo of Individual Element/Levels",
+      "score": 15,
+      "comment": "The documentation clearly defines and details multiple key components of the XR/Game application, including the AR environment setup, plane model integration, custom movement mechanics, the target and navigation system (with specific script functionalities), and the user interface elements. It effectively explains how these individual components are designed to integrate and function together within the application's intended high-fidelity prototype."
+    },
+    {
+      "component": "Testing",
+      "score": 7,
+      "comment": "The documentation presents a good overview of testing procedures, including structured unit testing for key scripts, integration testing for component interactions, and a limited scope of user acceptance testing conducted by peers. The identification of specific issues during testing indicates a practical application of these procedures."
+    },
+    {
+      "component": "Asset Register",
+      "score": 4,
+      "comment": "The asset register is good, categorizing key assets like 3D models, UI elements, and custom scripts. It accurately identifies their sources (e.g., Unity Asset Store, self-created) and notes license information where relevant, demonstrating a mostly complete and organized approach to asset documentation."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749521655.5289743\"}"
+}

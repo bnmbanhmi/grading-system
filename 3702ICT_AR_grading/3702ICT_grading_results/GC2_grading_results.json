@@ -1,0 +1,52 @@
+{
+  "group_name": "GC2",
+  "total_score": 84.8,
+  "video_assessment": {
+    "score": 22.6,
+    "comment": "The video presents a highly professional and well-structured demonstration of the 'Marker Based Navigator' system. It effectively utilizes clear section titles, beginning with a comprehensive overview and progressing to detailed aspects such as marker design. The live demonstrations of both regular and accessible navigation, showcasing physical marker scanning and AR overlays, provide strong evidence of a working and robust system. The inclusion and clear presentation of the 'Badges' feature further demonstrate a comprehensive implementation with additional functionality. The overall structure, clear visuals, and evident demonstration of a well-implemented system contribute to an excellent and professional video presentation."
+  },
+  "coding_assessment": {
+    "score": 12.6,
+    "comment": "The code demonstrates excellent structure and modularity, with clear separation of concerns across different Unity scripts. The use of XML documentation comments for classes, fields, and public methods is extensive and highly beneficial for readability and maintainability. `[Tooltip]` attributes are consistently used for serialized fields, enhancing usability within the Unity Editor. Naming conventions are consistent (e.g., `m_` prefix for private fields). The code effectively utilizes Unity-specific features, event handling, and conditional compilation. While there are a few minor areas for refinement (e.g., some hardcoded dictionary keys, reliance on deprecated APIs in certain scripts), the overall quality is very high, showing a strong understanding of C# and Unity best practices."
+  },
+  "component_assessments": [
+    {
+      "component": "XR/Game App Overview",
+      "score": 9.0,
+      "comment": "The documentation provides an excellent and comprehensive overview of the 'Marker Based Navigator' system. It clearly articulates the project's objectives, identifies target user personas, presents a high-level system architecture, and details key features, all within the context of supporting campus wayfinding. This section effectively maps the design to the overall system goals and aims, setting a strong foundation for understanding the project."
+    },
+    {
+      "component": "XR/Game Dev Process",
+      "score": 9.0,
+      "comment": "The development process is excellently detailed, showcasing a strong adherence to an iterative and agile methodology. The documentation provides specific examples of user-centered design, modular component development, and the use of version control. The 'Challenges & Solutions' section particularly stands out, offering clear insights into how issues like AR tracking stability and performance optimization were addressed through applied processes, demonstrating a mature and reflective development approach."
+    },
+    {
+      "component": "Demo of Individual Element/Levels",
+      "score": 18.1,
+      "comment": "The documentation provides an excellent and comprehensive walkthrough of each core feature, including Marker-Based Navigation, Accessible Navigation, and the Badges system. Each element is described in detail with clear explanations of its functionality, how it integrates with the overall application, and supporting screenshots. This section effectively demonstrates the individual components' contributions and their seamless integration into a robust and cohesive AR wayfinding system, mirroring the high quality seen in the video demonstration."
+    },
+    {
+      "component": "Testing",
+      "score": 9.0,
+      "comment": "The documentation presents an excellent and comprehensive testing strategy, covering unit, integration, system, and usability testing. Crucially, it provides concrete examples of test cases for key functionalities (marker detection, navigation accuracy, accessible cues) along with their expected and actual results. This clearly demonstrates a strong understanding of Validation & Verification (V&V), ensuring the system's functional robustness and user-centric design."
+    },
+    {
+      "component": "Asset Register",
+      "score": 4.5,
+      "comment": "The asset register is excellent and comprehensive. It meticulously lists all significant assets used in the project, categorizing them by type, clearly stating their source, usage, and critically, providing license or attribution information for each. This level of detail ensures completeness, accuracy, and strong relevance to the project's components, demonstrating meticulous organization."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749519676.9004009\"}",
+  "normalization_info": {
+    "normalized_at": "2025-06-10T12:05:56.204256",
+    "original_score": 94,
+    "target_distribution": {
+      "mean": 70,
+      "min": 55,
+      "max": 85
+    },
+    "pre_normalization_backup": "3702ICT_grading_results/pre_normalization_backup/GC2_grading_results.json",
+    "normalization_method": "tiered_statistical_normalization",
+    "adjustment_factor": 0.903
+  }
+}

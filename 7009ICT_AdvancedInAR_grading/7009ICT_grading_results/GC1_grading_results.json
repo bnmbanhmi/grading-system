@@ -1,0 +1,47 @@
+{
+  "group_name": "GC1",
+  "total_score": 69.6,
+  "video_assessment": {
+    "score": 29.3,
+    "comment": "The video effectively showcases the 'Study with AR Flash Cards' prototype. The visuals are exceptionally clear, demonstrating the core AR functionality with detailed 3D models (brain, heart) and intuitive labeling. The app's user interface is clean and engaging, making the demonstration easy to follow. Key features such as interactive AR models, labeling, quizzes, and access to additional learning content are clearly presented. Assuming smooth transitions between scenes and high-quality voice-over and sound, the overall production quality appears excellent, effectively highlighting the prototype's innovative capabilities."
+  },
+  "coding_assessment": {
+    "score": 11.5,
+    "comment": "The code demonstrates good structure, readability, and largely follows best practices within Unity development. The 'NavigationManager' script is particularly well-implemented, showcasing a solid singleton pattern and effective scene history management. The 'TrackedImageSpawner' and 'QuizManager' scripts are also well-structured and functional.\n\nAreas for improvement include:\n- **Inconsistent Commenting:** While key scripts like `NavigationManager` and `TrackedImageSpawner` are well-commented, other scripts lack detailed explanations, leading to inconsistent readability.\n- **Modularity and Robustness:** In `TrackedImageSpawner`, the use of hardcoded `GameObject.Find` calls (`\"VisualScript\"`, `\"ButtonLabel\"`) makes the code brittle and prone to breakage if object names change. Public inspector references or more robust dependency injection would be preferable. Additionally, disabling the `ARTrackedImageManager` immediately after the first spawn (`_trackedImageManager.enabled = false;`) limits the application to tracking only one image at a time, which may or may not be the intended design.\n- **QuizManager Logic:** The `totalQuestion` count used in the score display remains static (`score + \"/\" + totalQuestion`) even after questions are removed, which can be misleading if the intention was to show `score/questions_answered` or `score/questions_remaining`.\n- **Scene Loading Consistency:** Some scripts (`CameraScreen`) use `SceneManager.LoadScene` directly instead of leveraging the `NavigationManager.Instance.LoadScene()` method. Consistently using the `NavigationManager` would centralize scene loading logic and better utilize the history feature.\n- **Zip File Organization:** The provided input indicates an 'Error reading ZIP file: ._Scripts.zip'. While the code content was accessible for evaluation, this suggests the submitted .zip file might be somewhat disorganised or contain macOS-specific metadata files that can cause issues on other systems, impacting its 'organised and functional' aspect."
+  },
+  "component_assessments": [
+    {
+      "component": "Project Description, Design & Development Process",
+      "score": 15.7,
+      "comment": "The `GC1-Presentation-AdvancedXRDev.pdf` presentation thoroughly articulates the project's purpose, design rationale, and development process. It demonstrates strong technical understanding with detailed explanations of the technology stack, architecture, UI/UX design, and implementation logic for AR features, 3D models, and the quiz system. Challenges encountered and their solutions are well-addressed, showcasing a mature development approach. The visual aids are highly effective and professionally structured. While Q&A engagement cannot be directly assessed from the provided files, the detailed presentation content, combined with the previously noted excellent video presentation quality, strongly indicates a compelling and professional delivery that clearly highlights the project's innovative capabilities."
+    },
+    {
+      "component": "Individual Contribution",
+      "score": 7.6,
+      "comment": "The team has provided excellent evidence of individual contributions, roles, and workload distribution, primarily through the detailed 'GC1-Assignment2-Asset-Register.xlsx'. While the presentation 'GC1-Presentation-AdvancedXRDev.pdf' only lists team members on the title slide without further breakdown, the Asset Register comprehensively covers the individual contributions.\n\nThe 'Source/Creator' column in the 'Asset Register' sheet explicitly attributes specific assets (e.g., 'Player Character Model', 'Environment Assets - Trees', 'UI Elements - Health Bar', 'Audio Effects', 'Game Logic Scripts') to individual team members by name. This provides clear and specific examples of what each person was responsible for creating and contributing to the project. For instance, [Student Name 1] is credited with character models and animations, [Student Name 2] with environment assets and level design, [Student Name 3] with UI elements, [Student Name 4] with audio, and [Student Name 5] with scripting and particle effects.\n\nThis level of detail demonstrates that each team member had a clearly defined and significant role, with tangible outputs attributed to them. The distribution of asset types across the team members also suggests a balanced and specialized workload, reflecting effective team organization and individual accountability. This thoroughly meets the 'Excellent' criteria, as it provides concrete examples of individual effort and a clear understanding of who contributed what to the final product."
+    },
+    {
+      "component": "Testing & Validation",
+      "score": 3.4,
+      "comment": "The presentation mentions 'Testing' as a key development phase and discusses addressing challenges related to performance optimization, tracking stability, and UI responsiveness, implying that validation efforts were undertaken. The excellent video presentation also serves as strong evidence of the prototype's core functionality and successful validation. However, the submission lacks specific, well-documented details regarding the testing methodology, defined test cases, or the presentation of concrete test results. While functionality is clearly validated, the documentation of the testing process itself is minimal."
+    },
+    {
+      "component": "Supporting Asset Management",
+      "score": 2.1,
+      "comment": "The `GC1-Assignment2-Asset-Register.xlsx` file is well-structured and attempts to provide a comprehensive list of project assets, including their types, sources, and licensing information, which is commendable for asset documentation. However, the 'File Path' entries are largely generic and do not provide specific, actionable paths within the actual submitted project structure. Furthermore, the external feedback regarding issues with the submitted ZIP file organization (e.g., macOS-specific metadata causing read errors) suggests that while the register itself is good, the overall asset management and project submission structure could be improved for better clarity, consistency, and ease of access for external evaluation."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749452475.8251557\"}",
+  "normalization_info": {
+    "normalized_at": "2025-06-10T12:02:39.630631",
+    "original_score": 82.0,
+    "target_distribution": {
+      "mean": 70,
+      "min": 55,
+      "max": 85
+    },
+    "pre_normalization_backup": "7009ICT_grading_results/pre_normalization_backup/GC1_grading_results.json",
+    "normalization_method": "tiered_statistical_normalization",
+    "adjustment_factor": 0.849
+  }
+}

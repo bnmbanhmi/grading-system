@@ -1,15 +1,18 @@
 import base64
 import os
 import cv2
+import numpy as np
 import google.genai as genai
 from google.genai import types
 import json
+import os
 import shutil # For cleaning up dummy data
 from dotenv import load_dotenv
 import time  # For rate limiting
 import zipfile
 import csv
 from datetime import datetime
+from comment_refiner import refine_all_assessment_comments, batch_refine_existing_results
 
 # Load environment variables from .env file
 load_dotenv()
@@ -23,6 +26,10 @@ load_dotenv()
 
 # Define the model to be used for API calls
 MODEL_NAME = "gemini-2.5-flash-preview-05-20"
+
+# Get the directory where this script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+RESULTS_DIR = os.path.join(SCRIPT_DIR, "7009ICT_grading_results")
 
 # --- Helper Functions ---
 
@@ -492,7 +499,7 @@ def grade_all_components(client: genai.Client, project_files: list, video_score_
         # Return a mock structure with Individual Contribution included if the API doesn't return a list
         return [
             {"component": "Project Description, Design & Development Process", "score": 0, "comment": response_json.get('comment', 'API response format error.')},
-            {"component": "Individual Contribution", "score": 0, "comment": "No specific feedback due to API response format."},
+            {"component": "Individual Contribution", "score": individual_contribution_result.get('score', 0), "comment": individual_contribution_result.get('comment', 'Enhanced assessment completed separately.')},
             {"component": "Testing & Validation", "score": 0, "comment": "No specific feedback due to API response format."},
             {"component": "Supporting Asset Management", "score": 0, "comment": "No specific feedback due to API response format."}
         ]
@@ -641,10 +648,9 @@ def save_grading_results(group_name: str, results: dict):
     """
     Saves grading results to a JSON file.
     """
-    results_dir = "grading_results"
-    os.makedirs(results_dir, exist_ok=True)
+    os.makedirs(RESULTS_DIR, exist_ok=True)
     
-    results_file = os.path.join(results_dir, f"{group_name}_grading_results.json")
+    results_file = os.path.join(RESULTS_DIR, f"{group_name}_grading_results.json")
     
     with open(results_file, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
@@ -686,17 +692,15 @@ def generate_csv_report():
     """
     Generates a CSV file containing all grading results from JSON files.
     """
-    results_dir = "grading_results"
-    
-    if not os.path.exists(results_dir):
-        print(f"Error: Results directory '{results_dir}' not found.")
+    if not os.path.exists(RESULTS_DIR):
+        print(f"Error: Results directory '{RESULTS_DIR}' not found.")
         return None
     
     # Get all JSON files in the results directory
-    json_files = [f for f in os.listdir(results_dir) if f.endswith('_grading_results.json')]
+    json_files = [f for f in os.listdir(RESULTS_DIR) if f.endswith('_grading_results.json')]
     
     if not json_files:
-        print(f"No grading result files found in '{results_dir}'.")
+        print(f"No grading result files found in '{RESULTS_DIR}'.")
         return None
     
     print(f"Found {len(json_files)} grading result files.")
@@ -705,7 +709,7 @@ def generate_csv_report():
     csv_data = []
     
     for json_file in json_files:
-        json_path = os.path.join(results_dir, json_file)
+        json_path = os.path.join(RESULTS_DIR, json_file)
         
         try:
             with open(json_path, 'r', encoding='utf-8') as f:
@@ -870,8 +874,7 @@ def check_existing_results(group_name: str):
     """
     Checks if grading results already exist for a group.
     """
-    results_dir = "grading_results"
-    results_file = os.path.join(results_dir, f"{group_name}_grading_results.json")
+    results_file = os.path.join(RESULTS_DIR, f"{group_name}_grading_results.json")
     return os.path.exists(results_file)
 
 
@@ -962,7 +965,7 @@ def main():
         if success:
             print(f"\n✅ Score normalization completed successfully!")
             print(f"All scores have been adjusted to meet distribution requirements.")
-            print(f"Backups of original scores saved in grading_results/pre_normalization_backup/")
+            print(f"Backups of original scores saved in {os.path.join(RESULTS_DIR, 'pre_normalization_backup')}/")
         else:
             print("❌ Failed to normalize scores.")
         return
@@ -970,14 +973,14 @@ def main():
         # Refine comments and exit
         print(f"\n✨ Starting comment refinement process...")
         print("This will make all feedback sound more natural and human-like...")
-        print("Note: This is for the legacy unified system (mixed undergraduate/graduate level)")
+        print("Note: This is for graduate-level (7009ICT) course feedback")
         
         try:
-            batch_refine_existing_results(client, "grading_results", "graduate")
+            batch_refine_existing_results(client, RESULTS_DIR, "graduate")
             print(f"\n✅ Comment refinement completed successfully!")
             print(f"All feedback has been refined to sound more natural and professorial.")
-            print(f"📁 Refined results saved to: grading_results/refined_comments/")
-            print(f"📋 Original files preserved in: grading_results/")
+            print(f"📁 Refined results saved to: {os.path.join(RESULTS_DIR, 'refined_comments')}/")
+            print(f"📋 Original files preserved in: {RESULTS_DIR}/")
         except Exception as e:
             print(f"❌ Failed to refine comments: {e}")
         return
@@ -1037,7 +1040,7 @@ def main():
     
     print(f"\n{'='*80}")
     print("GRADING SESSION COMPLETE")
-    print(f"Results saved in: grading_results/")
+    print(f"Results saved in: {RESULTS_DIR}/")
     print(f"{'='*80}")
 
 
@@ -1047,15 +1050,13 @@ def normalize_scores(client: genai.Client):
     Target distribution: mean=70, highest≤85, lowest≥55
     Prioritizes files from pre_normalization_backup folder if available.
     """
-    results_dir = "grading_results"
-    
-    if not os.path.exists(results_dir):
-        print(f"Error: Results directory '{results_dir}' not found.")
+    if not os.path.exists(RESULTS_DIR):
+        print(f"Error: Results directory '{RESULTS_DIR}' not found.")
         return False
     
     # Check if backup folder exists and has files - prioritize these for normalization
-    backup_dir = os.path.join(results_dir, "pre_normalization_backup")
-    source_dir = results_dir
+    backup_dir = os.path.join(RESULTS_DIR, "pre_normalization_backup")
+    source_dir = RESULTS_DIR
     
     if os.path.exists(backup_dir):
         backup_files = [f for f in os.listdir(backup_dir) if f.endswith('_grading_results.json')]
@@ -1081,7 +1082,7 @@ def normalize_scores(client: genai.Client):
     for json_file in json_files:
         source_path = os.path.join(source_dir, json_file)
         # Always prepare to save back to main results directory
-        target_path = os.path.join(results_dir, json_file)
+        target_path = os.path.join(RESULTS_DIR, json_file)
         try:
             with open(source_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
@@ -1128,16 +1129,16 @@ def normalize_scores(client: genai.Client):
     print(f"\n⚙️ Normalization required. Processing {len(all_results)} groups...")
     
     # Create backup directory and backups only if we're reading from main results (not from backup)
-    backup_dir = os.path.join(results_dir, "pre_normalization_backup")
+    backup_dir = os.path.join(RESULTS_DIR, "pre_normalization_backup")
     
-    if source_dir == results_dir:  # Only create backups if reading from main directory
+    if source_dir == RESULTS_DIR:  # Only create backups if reading from main directory
         os.makedirs(backup_dir, exist_ok=True)
         print(f"📋 Creating backups of original scores in: {backup_dir}")
         
         # Create backups for all files first
         for json_file, json_path, data in all_results:
             backup_path = os.path.join(backup_dir, json_file)
-            source_path = os.path.join(results_dir, json_file)
+            source_path = os.path.join(RESULTS_DIR, json_file)
             shutil.copy2(source_path, backup_path)
     else:
         print(f"📋 Reading from backup folder - no new backups needed")
@@ -1223,7 +1224,7 @@ def normalize_scores(client: genai.Client):
                 "original_score": original_total,
                 "target_distribution": {"mean": target_mean, "min": target_min, "max": target_max},
                 "pre_normalization_backup": backup_path,
-                "normalization_method": "proportional_adjustment",
+                "normalization_method": "tiered_statistical_normalization",
                 "adjustment_factor": round(adjustment_factor, 3)
             }
             
@@ -1238,7 +1239,7 @@ def normalize_scores(client: genai.Client):
     
     # Save normalized results directly to the main grading results folder 
     # (backups are already created in pre_normalization_backup/)
-    print(f"\n💾 Saving normalized results to {results_dir}...")
+    print(f"\n💾 Saving normalized results to {RESULTS_DIR}...")
     for json_path, normalized_data in normalized_results:
         try:
             # Save directly to the original file path
@@ -1261,6 +1262,119 @@ def normalize_scores(client: genai.Client):
     print(f"📁 Backups saved to: {backup_dir}")
     
     return True
+
+
+def statistical_normalize_scores(original_scores, target_mean, target_min, target_max):
+    """
+    Performs tiered statistical normalization that rewards top performers with smaller adjustments.
+    Top performers (90th percentile+) get minimal adjustments to preserve their excellence.
+    
+    Args:
+        original_scores: List of original scores
+        target_mean: Target mean score
+        target_min: Target minimum score
+        target_max: Target maximum score
+    
+    Returns:
+        List of normalized scores with preserved relative rankings and top performer protection
+    """
+    import numpy as np
+    
+    original_scores = np.array(original_scores)
+    current_mean = np.mean(original_scores)
+    current_min = np.min(original_scores)
+    current_max = np.max(original_scores)
+    
+    print(f"📊 Tiered Statistical Normalization (Top Performer Protection):")
+    print(f"   Original: mean={current_mean:.1f}, range={current_min}-{current_max}")
+    print(f"   Target: mean={target_mean:.1f}, range={target_min}-{target_max}")
+    
+    if current_max == current_min:
+        # All scores are the same - set all to target mean
+        return [target_mean] * len(original_scores)
+    
+    # Define performance tiers based on percentiles
+    percentile_90 = np.percentile(original_scores, 90)
+    percentile_75 = np.percentile(original_scores, 75)
+    percentile_25 = np.percentile(original_scores, 25)
+    
+    print(f"   Performance Tiers:")
+    print(f"     🏆 Exceptional (90th+): {percentile_90:.1f}+ (minimal adjustment)")
+    print(f"     🥈 Good (75-90th): {percentile_75:.1f}-{percentile_90:.1f} (light adjustment)")
+    print(f"     📊 Average (25-75th): {percentile_25:.1f}-{percentile_75:.1f} (standard adjustment)")
+    print(f"     📈 Needs Help (<25th): <{percentile_25:.1f} (stronger adjustment)")
+    
+    # Calculate what the linear normalization would produce
+    normalized_01 = (original_scores - current_min) / (current_max - current_min)
+    target_range = target_max - target_min
+    linear_scaled = normalized_01 * target_range + target_min
+    current_scaled_mean = np.mean(linear_scaled)
+    mean_adjustment = target_mean - current_scaled_mean
+    linear_final = np.clip(linear_scaled + mean_adjustment, target_min, target_max)
+    
+    # Apply tiered adjustments
+    tiered_scores = np.zeros_like(original_scores, dtype=float)
+    
+    for i, original_score in enumerate(original_scores):
+        linear_score = linear_final[i]
+        adjustment_needed = linear_score - original_score
+        
+        # Determine tier and adjustment factor
+        if original_score >= percentile_90:
+            # Exceptional: Only 20% of the adjustment (protect excellence)
+            tier_factor = 0.2
+            tier = "🏆 Exceptional"
+        elif original_score >= percentile_75:
+            # Good: 50% of the adjustment
+            tier_factor = 0.5
+            tier = "🥈 Good"
+        elif original_score >= percentile_25:
+            # Average: 100% of the adjustment
+            tier_factor = 1.0
+            tier = "📊 Average"
+        else:
+            # Needs Help: 130% of the adjustment (extra boost)
+            tier_factor = 1.3
+            tier = "📈 Needs Help"
+        
+        # Apply tiered adjustment
+        tiered_adjustment = adjustment_needed * tier_factor
+        tiered_scores[i] = original_score + tiered_adjustment
+        
+        # Ensure bounds
+        tiered_scores[i] = max(target_min, min(target_max, tiered_scores[i]))
+        
+        print(f"     {tier}: {original_score:.1f} → {tiered_scores[i]:.1f} (factor: {tier_factor:.1f})")
+    
+    # Fine-tune to achieve exact target mean
+    current_tiered_mean = np.mean(tiered_scores)
+    final_adjustment = target_mean - current_tiered_mean
+    
+    # Apply final adjustment proportionally, but protect top performers more
+    for i in range(len(tiered_scores)):
+        if original_scores[i] >= percentile_90:
+            # Top performers get minimal final adjustment
+            tiered_scores[i] += final_adjustment * 0.1
+        elif original_scores[i] >= percentile_75:
+            # Good performers get moderate final adjustment
+            tiered_scores[i] += final_adjustment * 0.5
+        else:
+            # Others get full final adjustment
+            tiered_scores[i] += final_adjustment
+    
+    # Final bounds check
+    tiered_scores = np.clip(tiered_scores, target_min, target_max)
+    
+    # Verify and report
+    final_mean = np.mean(tiered_scores)
+    final_min = np.min(tiered_scores)
+    final_max = np.max(tiered_scores)
+    
+    print(f"   Result: mean={final_mean:.1f}, range={final_min:.1f}-{final_max:.1f}")
+    print(f"   🏆 Top performers protected from excessive normalization")
+    print(f"   📈 Relative rankings preserved with performance-based adjustments")
+    
+    return tiered_scores.tolist()
 
 
 def normalize_all_scores_with_ai(client: genai.Client, all_assessments: list, target_mean: float, target_min: float, target_max: float,
@@ -1428,291 +1542,100 @@ FINAL VALIDATION CHECKLIST:
         return None
 
 
-def statistical_normalize_scores(original_scores, target_mean, target_min, target_max):
+def refine_scores_with_ai(client: genai.Client, assessment: dict, target_mean: float, target_min: float, target_max: float, 
+                         current_mean: float, current_min: float, current_max: float, current_index: int, total_count: int):
     """
-    Performs statistical normalization using linear transformation to preserve relative rankings.
-    This is fairer than AI-based normalization as it maintains consistent relative differences.
-    
-    Args:
-        original_scores: List of original scores
-        target_mean: Target mean score
-        target_min: Target minimum score
-        target_max: Target maximum score
-    
-    Returns:
-        List of normalized scores with preserved relative rankings
+    Uses AI to refine individual scores while maintaining evaluation integrity and moving toward target distribution.
+    NOTE: This function is kept for backward compatibility but collective normalization is preferred.
     """
-    import numpy as np
-    
-    original_scores = np.array(original_scores)
-    current_mean = np.mean(original_scores)
-    current_min = np.min(original_scores)
-    current_max = np.max(original_scores)
-    
-    print(f"📊 Statistical Normalization:")
-    print(f"   Original: mean={current_mean:.1f}, range={current_min}-{current_max}")
-    print(f"   Target: mean={target_mean:.1f}, range={target_min}-{target_max}")
-    
-    # Method 1: Linear transformation to fit target range while preserving relative positions
-    if current_max != current_min:  # Avoid division by zero
-        # First, normalize to 0-1 scale based on current range
-        normalized_01 = (original_scores - current_min) / (current_max - current_min)
+    try:
+        # Calculate suggested adjustment direction
+        current_score = assessment['current_total']
+        adjustment_direction = "maintain"
         
-        # Then scale to target range
-        target_range = target_max - target_min
-        scaled_scores = normalized_01 * target_range + target_min
+        if current_mean > target_mean and current_score > target_mean:
+            adjustment_direction = "slightly decrease"
+        elif current_mean < target_mean and current_score < target_mean:
+            adjustment_direction = "slightly increase"
+        elif current_score > target_max:
+            adjustment_direction = "decrease to fit maximum"
+        elif current_score < target_min:
+            adjustment_direction = "increase to meet minimum"
         
-        # Adjust to achieve exact target mean
-        current_scaled_mean = np.mean(scaled_scores)
-        mean_adjustment = target_mean - current_scaled_mean
-        final_scores = scaled_scores + mean_adjustment
-        
-        # Ensure scores stay within bounds
-        final_scores = np.clip(final_scores, target_min, target_max)
-        
-        # Verify and report
-        final_mean = np.mean(final_scores)
-        final_min = np.min(final_scores)
-        final_max = np.max(final_scores)
-        
-        print(f"   Result: mean={final_mean:.1f}, range={final_min:.1f}-{final_max:.1f}")
-        print(f"   📈 Relative rankings preserved with fair linear transformation")
-        
-        return final_scores.tolist()
-    else:
-        # All scores are the same - set all to target mean
-        return [target_mean] * len(original_scores)
+        prompt = f"""
+You are an academic grading specialist tasked with refining assessment scores to meet institutional distribution requirements while maintaining evaluation integrity.
 
+CURRENT ASSESSMENT DATA:
+Group: {assessment['group_name']}
+Current Total Score: {current_score}/100
 
-# --- Comment Refinement Functions ---
+Video Assessment: {assessment['video_assessment'].get('score', 0)}/35
+Comment: {assessment['video_assessment'].get('comment', 'N/A')}
 
-def refine_comment_tone(client: genai.Client, original_comment: str, component_name: str, score: float, course_level: str = "graduate"):
-    """
-    Refines a single comment to sound more natural and human-like while preserving all technical content.
-    
-    Args:
-        client: Gemini API client
-        original_comment: The original AI-generated comment
-        component_name: Name of the assessment component
-        score: The score for this component
-        course_level: "undergraduate" or "graduate" to adjust tone appropriately
-    
-    Returns:
-        str: Refined comment that sounds more professorial and natural
-    """
-    
-    # Determine appropriate tone based on course level
-    if course_level == "graduate":
-        tone_guidance = """
-        - Use sophisticated academic language appropriate for graduate students
-        - Focus on research methodology, innovation, and advanced technical concepts
-        - Emphasize critical analysis and scholarly contribution
-        - Sound like a professor reviewing graduate research work
-        """
-        professor_persona = "an experienced professor reviewing graduate-level research in Augmented Reality"
-    else:  # undergraduate
-        tone_guidance = """
-        - Use encouraging yet professional academic language for undergraduate students
-        - Focus on learning outcomes, practical implementation, and skill development
-        - Balance constructive feedback with recognition of effort
-        - Sound like a supportive professor guiding undergraduate learning
-        """
-        professor_persona = "a supportive professor teaching undergraduate Augmented Reality courses"
-    
-    prompt = f"""
-You are {professor_persona}. Your task is to rewrite the following assessment comment to sound more natural, human-like, and professorial while preserving ALL technical content and maintaining the same evaluation level.
+Coding Assessment: {assessment['coding_assessment'].get('score', 0)}/20  
+Comment: {assessment['coding_assessment'].get('comment', 'N/A')}
 
-ORIGINAL COMMENT:
-"{original_comment}"
+Component Scores:
+{chr(10).join([f"- {comp.get('component', 'Unknown')}: {comp.get('score', 0)} points - {comp.get('comment', 'N/A')}" for comp in assessment['component_assessments']])}
 
-COMPONENT: {component_name}
-SCORE: {score} points
-COURSE LEVEL: {course_level.title()}
+DISTRIBUTION CONTEXT:
+- Current class mean: {current_mean:.1f}/100, Target: {target_mean}/100
+- Current range: {current_min}-{current_max}, Target range: {target_min}-{target_max}
+- Processing: {current_index}/{total_count} assessments
+- Suggested adjustment: {adjustment_direction}
 
-REFINEMENT GUIDELINES:
-{tone_guidance}
+TASK:
+Refine this assessment to help achieve the target distribution while:
+1. Maintaining the relative quality evaluation and educational feedback
+2. Preserving the core assessment rationale in comments
+3. Ensuring all component scores are reasonable and justified
+4. Keeping total score within {target_min}-{target_max} range
 
-ESSENTIAL REQUIREMENTS:
-1. **Preserve ALL technical content** - Don't remove any specific technical details, examples, or findings
-2. **Maintain the same evaluation level** - Don't make it more positive or negative than the original
-3. **Keep the same length approximately** - Don't significantly shorten or lengthen
-4. **Sound like a human professor** - Use natural academic language, not robotic AI phrasing
-5. **Use conversational academic tone** - Replace phrases like "The documentation demonstrates..." with more natural alternatives
-6. **Add subtle personality** - Use varied sentence structures and natural transitions
-7. **Maintain professionalism** - Keep it academic and appropriate for formal assessment
+Scoring Scale Reference:
+- Video Presentation: /35 (Excellent: 31-35, Good: 26-30, Satisfactory: 21-25, Needs Improvement: 10-20, Poor: 0-9)
+- Coding Quality: /20 (Excellent: 18-20, Good: 15-17, Satisfactory: 12-14, Needs Improvement: 8-11, Poor: 0-7)
+- Project Description: /20 (Excellent: 18-20, Good: 15-17, Satisfactory: 12-14, Needs Improvement: 8-11, Poor: 0-7)
+- Individual Contribution: /10 (Excellent: 9-10, Good: 7-8, Satisfactory: 6, Needs Improvement: 4-5, Poor: 0-3)
+- Testing & Validation: /10 (Excellent: 9-10, Good: 7-8, Satisfactory: 6, Needs Improvement: 4-5, Poor: 0-3)
+- Asset Management: /5 (Excellent: 5, Good: 4, Satisfactory: 3, Needs Improvement: 2, Poor: 0-1)
 
-AVOID:
-- Robotic phrases like "The system demonstrates", "The implementation shows", "The documentation indicates"
-- Overly formal or repetitive sentence structures
-- AI-typical phrasing that sounds mechanical
-- Changing the technical assessment or adding/removing factual content
-
-REFINED COMMENT (maintain same technical depth but sound more human):
+Return a JSON object with the refined assessment:
+{{
+    "total_score": <calculated_total>,
+    "video_assessment": {{"score": <score>, "comment": "<refined_comment>"}},
+    "coding_assessment": {{"score": <score>, "comment": "<refined_comment>"}},
+    "component_assessments": [
+        {{"component": "Project Description, Design & Development Process", "score": <score>, "comment": "<refined_comment>"}},
+        {{"component": "Individual Contribution", "score": <score>, "comment": "<refined_comment>"}},
+        {{"component": "Testing & Validation", "score": <score>, "comment": "<refined_comment>"}},
+        {{"component": "Supporting Asset Management", "score": <score>, "comment": "<refined_comment>"}}
+    ]
+}}
 """
 
-    try:
-        response = client.models.generate_content(
-            model='gemini-2.0-flash-exp',
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                temperature=0.3,  # Slightly higher for more natural variation
-                max_output_tokens=1000,
-            )
-        )
+        response = call_gemini_api(client, prompt)
         
-        if response and response.text:
-            refined_comment = response.text.strip()
-            # Remove any quotes that might have been added
-            if refined_comment.startswith('"') and refined_comment.endswith('"'):
-                refined_comment = refined_comment[1:-1]
-            return refined_comment
+        if response and isinstance(response, dict):
+            # Validate the response structure
+            required_keys = ['total_score', 'video_assessment', 'coding_assessment', 'component_assessments']
+            if all(key in response for key in required_keys):
+                # Ensure total score is within acceptable range
+                total_score = response.get('total_score', 0)
+                if target_min <= total_score <= target_max:
+                    return response
+                else:
+                    print(f"   ⚠️ AI suggested score {total_score} outside target range {target_min}-{target_max}")
+                    return None
+            else:
+                print(f"   ⚠️ AI response missing required keys")
+                return None
         else:
-            print(f"   ⚠️ Empty response from AI for {component_name}")
-            return original_comment
+            print(f"   ⚠️ Invalid AI response format")
+            return None
             
     except Exception as e:
-        print(f"   ❌ Error refining comment for {component_name}: {e}")
-        return original_comment
-
-
-def refine_all_assessment_comments(client: genai.Client, assessment_data: dict, course_level: str = "graduate"):
-    """
-    Refines all comments in an assessment to sound more natural and human-like.
-    
-    Args:
-        client: Gemini API client
-        assessment_data: Complete assessment dictionary
-        course_level: "undergraduate" or "graduate"
-    
-    Returns:
-        dict: Assessment data with refined comments
-    """
-    
-    refined_data = assessment_data.copy()
-    
-    print(f"   🎨 Refining comments for {assessment_data.get('group_name', 'Unknown')} ({course_level} level)")
-    
-    # Refine video assessment comment
-    if 'video_assessment' in refined_data and 'comment' in refined_data['video_assessment']:
-        original_comment = refined_data['video_assessment']['comment']
-        score = refined_data['video_assessment'].get('score', 0)
-        print(f"      ✨ Refining Video Assessment comment...")
-        
-        refined_comment = refine_comment_tone(
-            client, original_comment, "Video Assessment", score, course_level
-        )
-        refined_data['video_assessment']['comment'] = refined_comment
-    
-    # Refine coding assessment comment  
-    if 'coding_assessment' in refined_data and 'comment' in refined_data['coding_assessment']:
-        original_comment = refined_data['coding_assessment']['comment']
-        score = refined_data['coding_assessment'].get('score', 0)
-        print(f"      ✨ Refining Coding Assessment comment...")
-        
-        refined_comment = refine_comment_tone(
-            client, original_comment, "Coding Assessment", score, course_level
-        )
-        refined_data['coding_assessment']['comment'] = refined_comment
-    
-    # Refine component assessment comments
-    if 'component_assessments' in refined_data and isinstance(refined_data['component_assessments'], list):
-        for i, component in enumerate(refined_data['component_assessments']):
-            if isinstance(component, dict) and 'comment' in component:
-                component_name = component.get('component', f'Component {i+1}')
-                original_comment = component['comment']
-                score = component.get('score', 0)
-                print(f"      ✨ Refining {component_name} comment...")
-                
-                refined_comment = refine_comment_tone(
-                    client, original_comment, component_name, score, course_level
-                )
-                refined_data['component_assessments'][i]['comment'] = refined_comment
-    
-    # Add refinement metadata
-    if 'refinement_info' not in refined_data:
-        refined_data['refinement_info'] = {}
-    
-    refined_data['refinement_info'].update({
-        "refined_at": datetime.now().isoformat(),
-        "course_level": course_level,
-        "refinement_version": "1.0"
-    })
-    
-    return refined_data
-
-
-def batch_refine_existing_results(client: genai.Client, results_dir: str, course_level: str = "graduate"):
-    """
-    Batch refines all existing grading results to make comments sound more natural and human-like.
-    
-    Args:
-        client: Gemini API client
-        results_dir: Directory containing grading results JSON files
-        course_level: "undergraduate" or "graduate"
-    """
-    
-    if not os.path.exists(results_dir):
-        print(f"❌ Results directory '{results_dir}' not found.")
-        return False
-    
-    # Find all grading result files
-    result_files = []
-    for file in os.listdir(results_dir):
-        if file.endswith('_grading_results.json'):
-            file_path = os.path.join(results_dir, file)
-            if os.path.isfile(file_path):
-                result_files.append((file, file_path))
-    
-    if not result_files:
-        print(f"❌ No grading result files found in '{results_dir}'.")
-        return False
-    
-    print(f"🎨 Found {len(result_files)} grading result files to refine")
-    
-    # Create refined comments directory
-    refined_dir = os.path.join(results_dir, "refined_comments")
-    os.makedirs(refined_dir, exist_ok=True)
-    print(f"📁 Saving refined comments to: {refined_dir}")
-    
-    success_count = 0
-    
-    for file_name, file_path in result_files:
-        try:
-            # Load current data
-            with open(file_path, 'r', encoding='utf-8') as f:
-                assessment_data = json.load(f)
-            
-            # Refine comments
-            print(f"   🔄 Refining comments for {file_name}...")
-            refined_data = refine_all_assessment_comments(client, assessment_data, course_level)
-            
-            # Add refinement metadata
-            refined_data['refinement_info'] = {
-                "refined_at": datetime.now().isoformat(),
-                "course_level": course_level,
-                "original_file": file_path,
-                "refinement_method": "ai_comment_refinement"
-            }
-            
-            # Save refined version in refined_comments folder
-            refined_file_path = os.path.join(refined_dir, file_name)
-            with open(refined_file_path, 'w', encoding='utf-8') as f:
-                json.dump(refined_data, f, indent=2, ensure_ascii=False)
-            
-            print(f"   ✅ Successfully refined {file_name}")
-            success_count += 1
-            
-        except Exception as e:
-            print(f"   ❌ Error processing {file_name}: {e}")
-    
-    print(f"\n🎉 Comment refinement completed!")
-    print(f"   ✅ Successfully refined: {success_count}/{len(result_files)} files")
-    print(f"   📁 Refined results saved to: {refined_dir}")
-    print(f"   📋 Original files preserved in: {results_dir}")
-    if success_count > 0:
-        print(f"   💡 Compare original vs refined files to see improvements!")
-    
-    return success_count == len(result_files)
+        print(f"   ❌ Error in AI refinement: {e}")
+        return None
 
 # Execute the main function when script is run directly
 if __name__ == "__main__":

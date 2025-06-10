@@ -445,20 +445,36 @@ class AssignmentOrganizer:
             print(f"Error extracting main zip: {e}")
             return
         
-        # Find group folders (direct subdirectories)
-        group_folders = [d for d in extract_dir.iterdir() 
-                        if d.is_dir() and not d.name.startswith('.')]
+        # Find the directory that actually contains group folders (handles nested structures)
+        course_dir = find_group_folders_directory(str(extract_dir))
+        course_path = Path(course_dir)
         
-        print(f"\nFound {len(group_folders)} group folders:")
+        # Find group folders using the robust pattern matching
+        all_subdirs = [d for d in course_path.iterdir() 
+                      if d.is_dir() and not d.name.startswith('.')]
+        
+        group_folders = [d for d in all_subdirs if is_group_folder(d.name)]
+        non_group_folders = [d for d in all_subdirs if not is_group_folder(d.name)]
+        
+        print(f"\nUsing course directory: {course_dir}")
+        print(f"Found {len(group_folders)} group folders:")
         for folder in group_folders:
             print(f"  - {folder.name}")
+        
+        if non_group_folders:
+            print(f"Found {len(non_group_folders)} non-group folders (ignored):")
+            for folder in non_group_folders:
+                print(f"  - {folder.name}")
         
         # Process each group folder
         for group_folder in group_folders:
             self.extract_group_zips(group_folder)
         
-        print(f"\n✅ Processing complete! Processed {len(group_folders)} groups.")
-        print(f"Files organized in: {extract_dir}")
+        print(f"\n✅ Extraction complete! Processed {len(group_folders)} groups.")
+        print(f"Files extracted to: {course_dir}")
+        
+        # Now organize the extracted files
+        self.organize_all_groups(course_path)
         print("Each group folder now contains all extracted files from any zip files that were inside.")
     
     def convert_presentation_to_pdf(self, presentation_path: Path, output_dir: Path, group_name: str) -> Path:
@@ -760,10 +776,132 @@ class AssignmentOrganizer:
                 skipped_files += 1
                 
         print(f"  ✓ Copied {copied_files} source files, skipped {skipped_files} unnecessary files")
-
+    
+    def organize_all_groups(self, course_dir: Path) -> None:
+        """Organize all group folders found in the course directory."""
+        print(f"\n🗂 Now organizing groups in: {course_dir}")
+        
+        # Find group folders using the robust pattern matching
+        all_subdirs = [d for d in course_dir.iterdir() 
+                      if d.is_dir() and not d.name.startswith('.')]
+        
+        group_folders = [d for d in all_subdirs if is_group_folder(d.name)]
+        
+        print(f"Found {len(group_folders)} groups to organize: {[f.name for f in group_folders]}")
+        
+        # Organize each group
+        for group_folder in group_folders:
+            try:
+                self.organize_group_folder(group_folder, course_dir)
+            except Exception as e:
+                print(f"Error organizing group {group_folder.name}: {e}")
+                continue
+        
+        print(f"\n✅ Organization complete! Organized {len(group_folders)} groups.")
+        print(f"Organized files are in: {course_dir / 'organized_assignments'}")
 
 # CONFIGURATION - Edit this path to point to your zip file
-ZIP_FILE_PATH = "7009ICT_AdvancedInAR.zip"
+ZIP_FILE_PATH = "/Users/mac/Library/CloudStorage/OneDrive-HanoiUniversityofScienceandTechnology/Study/Research/AIoT-Lab/grading-system/3702ICT_AR.zip"
+
+def is_group_folder(folder_name: str) -> bool:
+    """Check if a folder name matches typical group folder patterns."""
+    import re
+    
+    # Common group folder patterns:
+    # GC1, GC2, GC10, GC4_1, GC4_2, etc. (Group Course)
+    # OL1, OL2, etc. (Online)
+    # Group1, Group2, etc.
+    # Team1, Team2, etc.
+    patterns = [
+        r'^GC\d+(_\d+)?$',   # GC1, GC2, GC10, GC4_1, GC4_2, etc.
+        r'^OL\d+(_\d+)?$',   # OL1, OL2, OL1_1, etc.
+        r'^Group\d+$',       # Group1, Group2, etc.
+        r'^Team\d+$',        # Team1, Team2, etc.
+        r'^G\d+$',           # G1, G2, etc.
+        r'^T\d+$',           # T1, T2, etc.
+        r'^Group[\s\-_]*\d+$',  # "Group 1", "Group-1", "Group_1", etc.
+        r'^Team[\s\-_]*\d+$',   # "Team 1", "Team-1", "Team_1", etc.
+    ]
+    
+    # Clean folder name - remove extra spaces and normalize
+    clean_name = folder_name.strip()
+    
+    for pattern in patterns:
+        if re.match(pattern, clean_name, re.IGNORECASE):
+            return True
+    
+    # Additional check for common variations
+    # Check if folder name contains "group" or "team" followed by numbers
+    if re.search(r'(group|team)[\s\-_]*\d+', clean_name, re.IGNORECASE):
+        return True
+    
+    # Check for patterns like "GC1 - Something" or "OL1_Assignment"
+    if re.search(r'^(GC|OL)\d+[\s\-_]', clean_name, re.IGNORECASE):
+        return True
+    
+    return False
+
+def find_group_folders_directory(extracted_dir: str) -> str:
+    """
+    Recursively find the directory that contains group folders.
+    This handles nested directory structures like 3702ICT_AR/3702ICT_AR/GC1/...
+    """
+    import os
+    
+    def find_groups_recursive(current_dir: str, max_depth: int = 4) -> str:
+        """Recursively search for directory containing group folders."""
+        if max_depth <= 0:
+            return current_dir
+        
+        try:
+            # Check if current directory contains group folders
+            subdirs = [d for d in os.listdir(current_dir) 
+                      if os.path.isdir(os.path.join(current_dir, d)) and not d.startswith('.')]
+            
+            # Count how many subdirectories look like group folders
+            group_folder_count = sum(1 for d in subdirs if is_group_folder(d))
+            
+            if group_folder_count > 0:
+                print(f"Found {group_folder_count} group folders in: {current_dir}")
+                return current_dir
+            
+            # If no group folders found here, check subdirectories
+            # Sort subdirectories to prioritize course-like names
+            subdirs.sort(key=lambda x: (
+                # Prioritize directories that contain course codes or similar names
+                0 if any(keyword in x.lower() for keyword in ['ict', 'course', 'assignment']) else 1,
+                x
+            ))
+            
+            for subdir in subdirs:
+                subdir_path = os.path.join(current_dir, subdir)
+                try:
+                    # Recursively check this subdirectory
+                    deeper_result = find_groups_recursive(subdir_path, max_depth - 1)
+                    
+                    # Check if the deeper search found group folders
+                    if deeper_result != subdir_path:  # If deeper search found something different
+                        return deeper_result
+                    
+                    # Check the current result for group folders
+                    deeper_subdirs = [d for d in os.listdir(deeper_result) 
+                                    if os.path.isdir(os.path.join(deeper_result, d)) and not d.startswith('.')]
+                    deeper_group_count = sum(1 for d in deeper_subdirs if is_group_folder(d))
+                    
+                    if deeper_group_count > 0:
+                        return deeper_result
+                        
+                except (OSError, PermissionError):
+                    continue
+            
+        except (OSError, PermissionError):
+            pass
+        
+        return current_dir
+    
+    result = find_groups_recursive(extracted_dir)
+    print(f"Using course directory: {result}")
+    return result
 
 def main():
     """Run the assignment organizer on the specified zip file."""
@@ -782,27 +920,19 @@ def main():
     organizer.process_course_zip(ZIP_FILE_PATH)
     
     # After extraction, find the extracted folder and organize groups
-    zip_path = os.path.join(current_dir, ZIP_FILE_PATH)
-    zip_name = os.path.splitext(ZIP_FILE_PATH)[0]
+    zip_name = os.path.splitext(os.path.basename(ZIP_FILE_PATH))[0]  # Get just the filename without path
     extracted_dir = os.path.join(current_dir, zip_name)
     
     if os.path.exists(extracted_dir):
         print(f"\n🗂 Now organizing groups...")
         
-        # Look for the actual course folder inside extracted_dir
-        course_folders = [d for d in os.listdir(extracted_dir) 
-                         if os.path.isdir(os.path.join(extracted_dir, d)) and not d.startswith('.')]
+        # Smart detection of course directory structure
+        course_dir = find_group_folders_directory(extracted_dir)
         
-        if len(course_folders) == 1 and course_folders[0] == zip_name:
-            # Course folder is inside the extracted directory
-            course_dir = os.path.join(extracted_dir, course_folders[0])
-        else:
-            # Group folders are directly in extracted_dir
-            course_dir = extracted_dir
-        
-        # Find group folders
+        # Find group folders (looking for typical group naming patterns like GC1, GC2, OL1, etc.)
         group_folders = [d for d in os.listdir(course_dir) 
-                        if os.path.isdir(os.path.join(course_dir, d)) and not d.startswith('.')]
+                        if os.path.isdir(os.path.join(course_dir, d)) and not d.startswith('.') 
+                        and is_group_folder(d)]
         
         print(f"Found {len(group_folders)} groups to organize: {group_folders}")
         

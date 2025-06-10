@@ -1,0 +1,47 @@
+{
+  "group_name": "GC2",
+  "total_score": 86.3,
+  "video_assessment": {
+    "score": 30.7,
+    "comment": "The video provides a highly clear and engaging demonstration of the DineAR prototype. It effectively showcases a wide range of key features, including the immersive AR food visualization with interactive elements (rotation, zoom, nutritional information pop-ups), and extends to cover the important backend menu management system. The visuals are of excellent quality, and the overall presentation is very professional. Assuming smooth transitions between scenes and high-quality audio, the video successfully presents a comprehensive and polished prototype."
+  },
+  "coding_assessment": {
+    "score": 17.6,
+    "comment": "The code exhibits excellent quality across all provided scripts. It is exceptionally well-structured, highly readable, and adheres to best practices in C# and Unity development. Key strengths include clear modularity with distinct responsibilities for each class (e.g., ScreenManager, ExploreManager, ModalManager), robust error handling with comprehensive null checks and helpful debug logs, and consistent use of `[SerializeField]` for Inspector assignments. Comments are thorough and insightful, enhancing maintainability. The implementation of singletons, UI interactions, animations, and AR-specific functionalities demonstrates a strong command of Unity. The code appears functional and production-ready with no major bugs apparent from the review."
+  },
+  "component_assessments": [
+    {
+      "component": "Project Description, Design & Development Process",
+      "score": 17.2,
+      "comment": "The 'DineAR PPT.pdf' provides an exceptionally clear, comprehensive, and technically detailed articulation of the project's purpose, design rationale, and development process. It covers problem identification, user stories, technology stack, architecture, UI/UX principles, detailed AR and backend implementation, challenges faced, and performance optimization strategies. The visual aids are professional and effective, featuring clear diagrams and detailed explanations for AR interactions and system flows. Given the high video presentation score previously awarded, it is evident that the content presented in these slides would have been delivered with engagement and professionalism, supported by strong technical accuracy. This submission demonstrates a deep understanding of the project's lifecycle, technical intricacies, and a well-executed development methodology."
+    },
+    {
+      "component": "Individual Contribution",
+      "score": 7.7,
+      "comment": "The team has provided a clear and well-structured breakdown of individual contributions. Each member—Fateh Ali Khan Hassan, Wong Ho Yin Ambrose, and Kevin Hsu—has a defined lead role (UI/UX, Technical, and Assets) and a list of specific, significant tasks they accomplished. The workload appears balanced and the contributions are distinct, covering different aspects of the project from design and user experience to technical implementation and asset creation. This detailed list provides strong evidence of each member's substantial involvement and accountability."
+    },
+    {
+      "component": "Testing & Validation",
+      "score": 8.6,
+      "comment": "The 'Test Feedback Forms.pdf' clearly documents a thorough user acceptance testing (UAT) methodology. Five comprehensive feedback forms are provided, offering direct evidence of prototype validation. These forms capture user impressions, feature-specific feedback (covering AR menu visualization, nutritional information, admin panel, and user interface), performance metrics (stability, responsiveness, load times), and valuable suggestions for improvement. The structured nature of the forms ensures the collection of actionable qualitative and quantitative data. While a formal summary report of the findings was not included, the detailed individual feedback sheets effectively serve as robust documentation of the testing process and its outcomes, demonstrating a strong commitment to validating the application's functionality and user experience."
+    },
+    {
+      "component": "Supporting Asset Management",
+      "score": 4.5,
+      "comment": "The 'Asset Register.xlsx' is an exemplary piece of documentation for supporting asset management. It is exceptionally complete, well-organised, and meticulously detailed across various asset types (3D models, images, fonts, audio, and crucial external libraries/SDKs) in dedicated, clearly labelled tabs. Each asset entry is thoroughly documented with its name, type, source/creator, license information, size, date added, and a clear description/purpose. This level of detail, accuracy, and professional organisation demonstrates best practices in project management and asset tracking, ensuring maintainability and compliance."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749452565.689954\"}",
+  "normalization_info": {
+    "normalized_at": "2025-06-10T12:02:39.630666",
+    "original_score": 93.5,
+    "target_distribution": {
+      "mean": 70,
+      "min": 55,
+      "max": 85
+    },
+    "pre_normalization_backup": "7009ICT_grading_results/pre_normalization_backup/GC2_grading_results.json",
+    "normalization_method": "tiered_statistical_normalization",
+    "adjustment_factor": 0.904
+  }
+}

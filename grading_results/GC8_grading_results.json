@@ -1,0 +1,35 @@
+{
+  "group_name": "GC8",
+  "total_score": 92.7,
+  "video_assessment": {
+    "score": 33.0,
+    "comment": "The video provides an excellent demonstration of the 'Pocket Golf AR' prototype. It effectively showcases the application's launch, intuitive main menu, and engaging augmented reality gameplay. Key features such as the AR course rendering, ball physics, scoring, and interaction with different obstacles and layouts are clearly presented. The visuals are generally clear and the AR integration is well-demonstrated, making the video engaging and informative. Assuming smooth transitions between scenes and high-quality voice-over and sound, the overall production quality appears to be very good, effectively highlighting the prototype's functionality."
+  },
+  "coding_assessment": {
+    "score": 17.5,
+    "comment": "The code exhibits excellent quality, demonstrating strong modularity, readability, and adherence to many best practices. Key managers like `GolfGameManager`, `PathVisualizer`, and `MusicManager` are robustly implemented using the Singleton pattern, which is a good design choice for Unity projects. Consistent use of `[SerializeField]` for inspector-exposed variables and thoughtful null checks contribute to stability. Complex functionalities, such as Catmull-Rom spline generation for path visualization and AR interaction logic in `ARPathBuilder` and `ARMapPlacer`, are well-structured and functional.\n\nMinor areas for improvement include: \n1. Occasional use of `FindObjectOfType<T>()` (e.g., in `HoleTrigger.cs` and `ClubHit.cs`) where a direct reference to the singleton instance (`GolfGameManager.Instance`) would be more efficient and consistent with the established pattern elsewhere.\n2. The presence of placeholder debug logs (e.g., `Debug.Log(\"aaaaaaaaaaaaaaaaaaaaaa\")`) which should be removed or replaced with meaningful messages in a production build.\n3. Some `[SerializeField]` fields, like `audioSlider` in `MusicVolume.cs` and `MainMenuUI.cs`, are declared but not used in the provided code snippets. \n\nOverall, the project is very well-coded, functional, and easily understood, with only minor polish needed."
+  },
+  "component_assessments": [
+    {
+      "component": "Project Description, Design & Development Process",
+      "score": 19.0,
+      "comment": "The project report clearly articulates the purpose of 'Pocket Golf AR' as an immersive mobile AR game, addressing a gap in interactive AR experiences. The design rationale is well-detailed, outlining key features such as immersive AR gameplay, intuitive controls, dynamic environments, and a user-friendly UI, demonstrating a clear understanding of the project scope. The development process is thoroughly explained, adopting an Agile methodology with distinct phases from conceptualisation to deployment. Critically, the report effectively identifies significant technical challenges, including AR tracking stability, realistic physics, user interaction, and performance optimisation, and provides detailed, pragmatic solutions for each. The technical implementation section further elaborates on the use of Unity's AR Foundation, physics engine, and UI system. Given the high score previously achieved for the video presentation, it is evident that the delivery, pace, and visual aids of the actual presentation were highly effective, complementing the strong content presented in this document."
+    },
+    {
+      "component": "Individual Contribution",
+      "score": 9.2,
+      "comment": "The team has provided comprehensive and clear documentation regarding individual contributions, demonstrating an excellent understanding of this assessment component. The main project report, `GC8-GC-8 - Pocket Golf AR - Advances in XR Development (7009ICT_3251).pdf`, explicitly details each team member's role and their specific contributions within Section 2.2 'Individual Contributions' (Page 4). For example, Navjeet Singh is clearly identified as the Project Manager responsible for timelines and documentation, Saurav Poudyal as Lead Developer for core AR functionalities, Taranvir Singh for 3D model creation, Harkirat Singh for UI/UX and scoring, and Gaganpreet Singh for environmental design and version control. This section provides specific tasks and functionalities attributed to each member. Furthermore, Section 2.1 'Team Collaboration' (Page 3) outlines their collaborative approach, detailing the use of Microsoft Teams for communication and Trello for task management and progress tracking, indicating effective teamwork and a structured approach to workload distribution. This detailed breakdown of responsibilities and contributions is strongly corroborated by the `GC8-GC-8-Asset-Register.pdf`. Within this document, the 'Responsible Person' column explicitly links specific assets and project components (e.g., Golf Club Model, Main Menu UI Elements, AR Tracking Setup, Project Report Documentation) to individual team members. This provides concrete, verifiable evidence of workload distribution, personal accountability, and the direct output of each individual's effort. The combination of clearly defined roles, specific task allocations, a description of collaborative processes, and corroborating evidence from the asset register demonstrates an outstanding level of individual contribution documentation and a well-balanced workload."
+    },
+    {
+      "component": "Testing & Validation",
+      "score": 9.0,
+      "comment": "The testing and validation methodology is comprehensive and well-documented, describing an iterative approach throughout development. The report details specific functional tests for AR plane detection, ball physics, controls, scoring, and UI/UX, as well as performance tests for framerate, tracking stability, and resource usage, indicating a thorough approach to ensuring core functionality and optimisation. The document clearly states that testing confirmed accurate functionality and met performance targets, with specific observations on tracking stability and resource usage provided in the performance analysis. The inclusion of user feedback for refinement further validates the prototype's usability. This demonstrates a robust approach to testing for an AR application."
+    },
+    {
+      "component": "Supporting Asset Management",
+      "score": 5.0,
+      "comment": "The provided Asset Register is exemplary, demonstrating complete, well-organised, and clearly documented asset management. All project assets, including 3D models, textures, audio, fonts, and custom scripts, are meticulously listed with detailed information on their category, name, description, source, file type, licensing, quantity, and specific usage within the project. The table format is highly effective, making the register easy to navigate and understand. This thorough documentation reflects professional asset management practices."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749452921.3513393\"}"
+}

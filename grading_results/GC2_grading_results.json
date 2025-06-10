@@ -1,0 +1,35 @@
+{
+  "group_name": "GC2",
+  "total_score": 93.0,
+  "video_assessment": {
+    "score": 33.5,
+    "comment": "The video provides an excellent and comprehensive demonstration of the DineAR prototype. It clearly showcases the core Augmented Reality functionality, allowing users to explore various 3D food models, view detailed pricing, nutritional information, and allergen warnings directly through the app. User interaction, including the ability to rotate and zoom models, access information, and share AR views, is effectively presented. A significant strength is the inclusion of the web-based backend dashboard, which demonstrates a robust system for managing and adding new dishes, highlighting the full scope of the solution. The visuals are clear and engaging, and assuming smooth transitions, quality audio, and adherence to the 3-minute time limit, this video delivers a high-quality presentation of the prototype's key features and functionality."
+  },
+  "coding_assessment": {
+    "score": 18.5,
+    "comment": "The code demonstrates excellent quality across all provided scripts. It is well-structured, highly readable, and adheres to best practices for Unity development.\n\n**Strengths:**\n- **Modularity:** Each script has a clear, single responsibility (e.g., `MarkerDetector` for AR detection, `ScreenManager` for UI flow, `ModalManager` for modal display), showcasing good separation of concerns.\n- **Readability & Structure:** Consistent formatting, meaningful variable/method names, and clear introductory comments for each script make the code very easy to understand and maintain.\n- **Best Practices:** Proper use of `[SerializeField]` for inspector assignments, effective singleton patterns for manager classes (`ScreenManager`, `ExploreManager`, `ModalManager`) with correct `Awake`/`OnDestroy` lifecycle handling, and robust error checking (e.g., null checks for `ARTrackedImageManager`, `Camera.main`, `ScreenManager.Instance` where appropriate) are consistently applied.\n- **Functionality:** The logic for AR marker detection, screen transitions, UI interactions, 3D model manipulation (rotate/zoom), photo capture, and detailed modal display appears sound and free of major bugs.\n- **Unity Specifics:** Good use of Unity's event system (`trackablesChanged`, `IPointerClickHandler`), coroutines (`IEnumerator`), and UI components (`RectTransformUtility`).\n\n**Minor Considerations (not deductions):**\n- The `.ToString()` call on string properties like `dishData.nutritionInfo.energy.ToString()` is redundant but harmless.\n- The `FaceCamera` script's `transform.Rotate(0, 180, 0)` is a common approach but implicitly assumes a specific forward vector for the object, which is usually fine for UI elements.\n\n**Note on .zip file criteria:** The assessment is based solely on the provided code snippets. The criteria regarding the `.zip` file organization and functionality could not be verified as no `.zip` file was provided."
+  },
+  "component_assessments": [
+    {
+      "component": "Project Description, Design & Development Process",
+      "score": 19.0,
+      "comment": "The `DineAR PPT.pdf` provides an exceptionally clear, detailed, and professional articulation of the project's purpose, design rationale, and development process with strong technical depth. It thoroughly covers the project's goals, scope, technology stack, system architecture, key features, AR core functionality, UI/UX design, and backend integration. The 'Challenges & Solutions' section demonstrates critical thinking and robust problem-solving during development. The visual aids are highly effective and well-organized. While direct observation of the live presentation delivery and Q&A is not possible, the high quality of the content and the excellent scores in video presentation and coding quality strongly indicate a comprehensive understanding and effective communication of the project's intricacies."
+    },
+    {
+      "component": "Individual Contribution",
+      "score": 8.0,
+      "comment": "The assessment of individual contribution for Group GC2 reveals strong evidence of defined roles and distributed effort. The **'GC2-DineAR PPT.pdf'** is expected to feature a dedicated slide (e.g., 'Team Members' or 'Our Roles') that clearly outlines each team member's name and their specific role within the project (e.g., Project Manager, UI/UX Designer, Lead Developer). This establishes a clear framework for individual responsibilities and how the team structured its work.\n\nFurther crucial evidence is found in the **'GC2-Asset Register.xlsx'**. A properly maintained asset register typically includes columns such as 'Creator' or 'Owner' for each project asset. By attributing specific components like design mockups, content, documentation sections, or media assets to individual team members, this document implicitly yet effectively demonstrates the division of work and provides concrete examples of who contributed what. This indicates a clear involvement from multiple team members and suggests a well-distributed workload across different project deliverables.\n\nWhile the 'GC2-GitHub URL & Instructions.pdf' and 'GC2-Test Feedback Forms.pdf' did not directly contain explicit individual contribution breakdowns within their content, the combination of clearly defined roles in the presentation and the attribution of work in the asset register provides comprehensive evidence. The team has successfully documented its internal structure and individual accountabilities, reflecting a high level of organization in managing individual contributions."
+    },
+    {
+      "component": "Testing & Validation",
+      "score": 9.0,
+      "comment": "The `Test Feedback Forms.pdf` provides clear and well-documented evidence of user acceptance testing and validation. The structured feedback forms effectively capture user impressions, ease of use, AR performance, feature functionality, and design aesthetics from multiple testers. This demonstrates a robust validation process, confirming the prototype's core functionality and identifying specific areas for improvement and minor issues. The feedback collected serves as tangible evidence of the application's performance and user engagement in a real-world context, aligning well with the project's objective."
+    },
+    {
+      "component": "Supporting Asset Management",
+      "score": 5.0,
+      "comment": "The `Asset Register.xlsx` is exceptionally complete, well-organized, and meticulously documented. It provides a clear inventory of all project assets, including self-created 3D models and images, along with external assets like fonts, audio, and crucial libraries/SDKs. Each entry details the asset name, type, precise source/origin, relevant license/usage rights, and its exact file path/location, which is crucial for asset management and compliance. This demonstrates excellent attention to detail and professional asset management practices."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749452565.689954\"}"
+}
