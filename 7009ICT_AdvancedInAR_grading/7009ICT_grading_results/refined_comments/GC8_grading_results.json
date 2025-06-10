@@ -1,0 +1,53 @@
+{
+  "group_name": "GC8",
+  "total_score": 59.2,
+  "video_assessment": {
+    "score": 20.7,
+    "comment": "The video effectively showcases the core functionality of your Pocket Golf AR prototype, highlighting the AR integration, putting mechanics, obstacle interaction, and scoring progression. Assuming the video adheres to the time constraints and features good quality voice-over and sound with smooth transitions, it successfully communicates the game's concept. To further enhance the visual presentation, consider addressing the environmental glare and shadows that occasionally obscure the virtual elements, as well as eliminating any visual artifacts, such as those observed in frame 4. A bit more polish on the AR assets themselves would also contribute to a higher overall quality."
+  },
+  "coding_assessment": {
+    "score": 11.6,
+    "comment": "Your code is functional and well-structured, demonstrating a firm grasp of Unity's AR Foundation, physics, and UI systems. The implementation of key features like path visualization using Catmull-Rom splines, AR object placement, and core game management is effective. As you move forward, consider a few areas for refinement. First, ensure consistency in your input system; mixing the old and new systems can sometimes lead to unexpected behavior. Second, explore opportunities for performance optimization, perhaps by establishing direct references in `Awake` or `Start` methods instead of frequent use of `FindObjectOfType`. Finally, a little code polish, such as removing placeholder `Debug.Log` statements and unused serialized fields, along with a more consistent approach to commenting complex logic, would enhance readability for others."
+  },
+  "component_assessments": [
+    {
+      "component": "Project Description, Design & Development Process",
+      "score": 12.4,
+      "comment": "The main project document provides a clear, well-structured, and technically detailed overview of the project's purpose, design rationale, and development process. The 'Implementation Details' section further illustrates a solid understanding of the technical aspects. The video presentation, as previously assessed, effectively communicates the game concept and core functionality, reinforcing the clarity of the design. The strong coding quality also reflects a well-managed development process. While the overall communication is strong, the video's visual polish issues, such as glare, shadows, and artifacts, slightly detract from the 'effective visual aids' criterion."
+    },
+    {
+      "component": "Individual Contribution",
+      "score": 8.3,
+      "comment": "This is an excellent and detailed breakdown of individual contributions. The evidence provided is compelling, with each of the three team members having clearly defined roles and a substantial list of specific, significant tasks. Jay Savaliya and Chamika Wickranmarathne have exceptionally clear roles as the UI/UX Designer and Technical Lead, respectively, and their listed tasks demonstrate a high level of ownership. Kshemendra Jayathilaka contributed across a wide range of areas, including project management, 3D art, game physics, UI improvements, and quality assurance, demonstrating significant versatility and a heavy workload. While the role is less singular than the others, the specific tasks listed provide clear evidence of substantial work. Overall, the workload appears well-balanced, and the team has done a fantastic job of documenting individual contributions."
+    },
+    {
+      "component": "Testing & Validation",
+      "score": 2.5,
+      "comment": "The project document mentions various types of testing conducted, including Unit Testing, Integration Testing, User Acceptance Testing (UAT), and Performance Testing. However, the section describing these tests remains quite high-level and generic. I encourage you to provide more specific documentation, evidence, or detailed results in future work. For example, including test cases, expected/actual results, bug reports, or performance metrics would significantly strengthen this section. While functional validation is implicitly demonstrated in the video, the submission currently lacks the formal, documented testing and validation needed for a more complete assessment."
+    },
+    {
+      "component": "Supporting Asset Management",
+      "score": 3.7,
+      "comment": "The provided asset register is well-structured and clearly organized in a table format, listing asset name, type, source, description, and license. It comprehensively covers major assets such as 3D models, textures, UI elements, sound effects, background music, and core Unity packages, demonstrating excellent asset management. As a minor suggestion, consider specifying the exact Creative Commons licenses for each individual sound effect from Freesound.org, rather than 'Various CC Licenses', and potentially listing any other significant utility packages used. Despite these minor points, the register is highly complete and well-documented."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749452921.3513393\"}",
+  "normalization_info": {
+    "normalized_at": "2025-06-10T16:00:58.917652",
+    "original_score": 66.5,
+    "target_distribution": {
+      "mean": 70,
+      "min": 55,
+      "max": 85
+    },
+    "pre_normalization_backup": "/Users/mac/Library/CloudStorage/OneDrive-HanoiUniversityofScienceandTechnology/Study/Research/AIoT-Lab/grading-system/7009ICT_AdvancedInAR_grading/7009ICT_grading_results/pre_normalization_backup/GC8_grading_results.json",
+    "normalization_method": "tiered_statistical_normalization",
+    "adjustment_factor": 0.827
+  },
+  "refinement_info": {
+    "refined_at": "2025-06-10T17:11:52.066525",
+    "course_level": "graduate",
+    "original_file": "/Users/mac/Library/CloudStorage/OneDrive-HanoiUniversityofScienceandTechnology/Study/Research/AIoT-Lab/grading-system/7009ICT_AdvancedInAR_grading/7009ICT_grading_results/GC8_grading_results.json",
+    "refinement_method": "ai_comment_refinement"
+  }
+}

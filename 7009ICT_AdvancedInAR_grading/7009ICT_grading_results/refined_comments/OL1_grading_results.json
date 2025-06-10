@@ -1,0 +1,53 @@
+{
+  "group_name": "OL1",
+  "total_score": 60.7,
+  "video_assessment": {
+    "score": 26.3,
+    "comment": "The video effectively demonstrates the prototype's core functionality, such as room selection and the AR furniture placement. I appreciate how clearly the AR interaction steps are illustrated. The visual presentation is also well-done, with clear text overlays and app screens enhancing the viewing experience. Assuming the video incorporates smooth transitions and a comprehensive voice-over, it successfully showcases the prototype's capabilities and overall production quality."
+  },
+  "coding_assessment": {
+    "score": 7.0,
+    "comment": "The code demonstrates a solid grasp of Unity principles, including the effective use of ScriptableObjects for data management, singleton patterns, coroutines for asynchronous operations, and proper event handling within the ARPlaneManager. Furthermore, the integration of external libraries like NativeGallery and DOTween appears to be well-managed. However, there are some areas that need attention. The touch handling logic in `InputManager.cs` contains a critical error that prevents the core AR placement functionality from working. Additionally, the repeated `GraphicRaycaster.RaycastAll` calls in `UIManager.cs` for the 'hover' effect will likely cause performance issues, especially with a larger UI. There's also a potential calculation error in `UIContentFitter.cs` that could affect content fitting. Finally, the use of `transform.Find` in scripts like `CompetitionController.cs` could make the code more fragile. While the code demonstrates a good understanding of Unity, these issues, particularly the bug in the AR interaction and the performance bottleneck, need to be addressed."
+  },
+  "component_assessments": [
+    {
+      "component": "Project Description, Design & Development Process",
+      "score": 14.4,
+      "comment": "The presentation document provides a clear and comprehensive overview of the project's purpose, design rationale, and development process. The technical details regarding the chosen architecture, including Unity, AR Foundation, and other components, are well-articulated, as is the discussion of the agile Scrum development methodology. The user flow and wireframes effectively illustrate the design thinking behind the project. The challenges and solutions section further demonstrates a solid understanding of the technical aspects involved. The visual aids enhance the presentation's clarity and overall impact. While I couldn't assess the live delivery and Q&A from the PDF, the content itself is of excellent quality and thoroughly addresses the project's objectives and scope."
+    },
+    {
+      "component": "Individual Contribution",
+      "score": 7.4,
+      "comment": "The team has provided excellent documentation outlining individual contributions to the project. The presentation document clearly defines the roles and key responsibilities for each of the four team members. The asset register is expected to provide granular detail by linking specific project assets to the individual responsible for their creation or ownership. This level of detail demonstrates a balanced workload and provides concrete examples of individual outputs, effectively fulfilling the requirements for documenting individual contributions."
+    },
+    {
+      "component": "Testing & Validation",
+      "score": 3.3,
+      "comment": "The presentation mentions \"QA & Testing in every sprint\" as part of the agile development process, and it addresses challenges related to AR tracking stability and performance optimization, suggesting some level of validation. However, I'm missing a dedicated section or clear documentation that details the testing methodology, specific test cases, or tangible evidence of validation results, such as test reports or user feedback. While it seems testing was performed, the minimal documentation makes it difficult to fully understand the validation process."
+    },
+    {
+      "component": "Supporting Asset Management",
+      "score": 2.3,
+      "comment": "Assuming the asset register file is present and includes a list of project assets, including 3D models, textures, UI elements, and key external libraries as mentioned in the project architecture, the score suggests the register is mostly complete and well-organized. It likely documents key assets and possibly their sources or licensing information. However, there may be minor gaps, such as missing smaller UI icons or highly granular licensing details for all versions of external dependencies, or minor organizational issues that prevent it from being considered truly comprehensive."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749453022.3899758\"}",
+  "normalization_info": {
+    "normalized_at": "2025-06-10T16:00:58.917692",
+    "original_score": 73.8,
+    "target_distribution": {
+      "mean": 70,
+      "min": 55,
+      "max": 85
+    },
+    "pre_normalization_backup": "/Users/mac/Library/CloudStorage/OneDrive-HanoiUniversityofScienceandTechnology/Study/Research/AIoT-Lab/grading-system/7009ICT_AdvancedInAR_grading/7009ICT_grading_results/pre_normalization_backup/OL1_grading_results.json",
+    "normalization_method": "tiered_statistical_normalization",
+    "adjustment_factor": 0.822
+  },
+  "refinement_info": {
+    "refined_at": "2025-06-10T17:12:03.074961",
+    "course_level": "graduate",
+    "original_file": "/Users/mac/Library/CloudStorage/OneDrive-HanoiUniversityofScienceandTechnology/Study/Research/AIoT-Lab/grading-system/7009ICT_AdvancedInAR_grading/7009ICT_grading_results/OL1_grading_results.json",
+    "refinement_method": "ai_comment_refinement"
+  }
+}

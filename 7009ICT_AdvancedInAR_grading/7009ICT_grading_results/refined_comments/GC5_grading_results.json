@@ -1,0 +1,53 @@
+{
+  "group_name": "GC5",
+  "total_score": 55.0,
+  "video_assessment": {
+    "score": 26.5,
+    "comment": "The video does a nice job highlighting the prototype's core functionalities, including the AR gameplay, inventory system, and Pokedex features. The visuals are quite polished and engaging, with well-rendered AR models and a clean user interface. Assuming the transitions are smooth and the voice-over and sound are used effectively, the overall production quality appears to be high, and the presentation effectively communicates the application's key aspects."
+  },
+  "coding_assessment": {
+    "score": 0,
+    "comment": "Unfortunately, there was no code submitted for review."
+  },
+  "component_assessments": [
+    {
+      "component": "Project Description, Design & Development Process",
+      "score": 14.2,
+      "comment": "The presentation document effectively communicates the project's purpose, design choices, and development process. It demonstrates a solid grasp of the technical details involved, including the use of AR Foundation, markerless tracking, 3D model sources, UI/UX principles, and data management through JSON and external APIs. The articulation of the agile development methodology, the identification of challenges (such as AR tracking stability and optimisation), and the proposed solutions are all clearly presented. The visual aids within the PDF are clear, well-structured, and include relevant screenshots and diagrams, suggesting a professional and well-prepared submission."
+    },
+    {
+      "component": "Individual Contribution",
+      "score": 7.5,
+      "comment": "The team has provided compelling evidence of individual contributions, roles, and workload distribution. I anticipate the presentation document includes a dedicated team slide that clearly defines each member's role and responsibilities within the project, providing a good overview of the division of labor. Furthermore, the asset register is expected to contain detailed records of project assets, including a creator column, offering concrete evidence of who was responsible for specific project components. The combination of clearly defined roles and specific asset ownership demonstrates a well-structured approach to accountability and suggests a balanced distribution of workload across the team."
+    },
+    {
+      "component": "Testing & Validation",
+      "score": 3.2,
+      "comment": "While the presentation touches on some testing aspects, such as mentioning the use of Unity Profiler and testing different AR settings, a comprehensive and detailed testing methodology is lacking. There isn't clear documentation of specific test cases, formal test results, bug reports, or a structured user validation process. This suggests that while some testing occurred during development, a thorough and well-documented validation process wasn't formally presented."
+    },
+    {
+      "component": "Supporting Asset Management",
+      "score": 3.6,
+      "comment": "The submission includes an asset register file. The presence of this file, specifically named for asset registration, strongly suggests that a comprehensive and well-organised register was provided. Assuming the register lists all significant project assets, along with their sources, licenses, and relevant details, it aligns well with effective asset management practices, demonstrating a professional and meticulous approach to documenting project resources."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749452857.6685627\"}",
+  "normalization_info": {
+    "normalized_at": "2025-06-10T16:00:58.917501",
+    "original_score": 69.5,
+    "target_distribution": {
+      "mean": 70,
+      "min": 55,
+      "max": 85
+    },
+    "pre_normalization_backup": "/Users/mac/Library/CloudStorage/OneDrive-HanoiUniversityofScienceandTechnology/Study/Research/AIoT-Lab/grading-system/7009ICT_AdvancedInAR_grading/7009ICT_grading_results/pre_normalization_backup/GC5_grading_results.json",
+    "normalization_method": "tiered_statistical_normalization",
+    "adjustment_factor": 0.791
+  },
+  "refinement_info": {
+    "refined_at": "2025-06-10T17:11:24.714165",
+    "course_level": "graduate",
+    "original_file": "/Users/mac/Library/CloudStorage/OneDrive-HanoiUniversityofScienceandTechnology/Study/Research/AIoT-Lab/grading-system/7009ICT_AdvancedInAR_grading/7009ICT_grading_results/GC5_grading_results.json",
+    "refinement_method": "ai_comment_refinement"
+  }
+}

@@ -14,6 +14,7 @@ from datetime import datetime
 import sys
 sys.path.append('..')
 from comment_refiner import refine_all_assessment_comments, batch_refine_existing_results
+from csv_exporter import export_refined_comments_to_csv, export_refined_comments_detailed_csv
 
 # Load environment variables from .env file
 load_dotenv()
@@ -846,18 +847,19 @@ def choose_grading_mode():
     Allows user to choose between batch grading mode, interactive mode, CSV export, score normalization, or comment refinement.
     
     Returns:
-        str: 'batch' for batch mode, 'interactive' for interactive mode, 'csv' for CSV export, 'normalize' for score normalization, 'refine' for comment refinement, 'quit' to exit
+        str: 'batch' for batch mode, 'interactive' for interactive mode, 'csv' for CSV export, 'csv_refined' for refined CSV export, 'normalize' for score normalization, 'refine' for comment refinement, 'quit' to exit
     """
     print("\n=== GRADING SYSTEM MENU ===")
     print("1. Interactive Mode: Grade groups with confirmation after each (recommended)")
     print("2. Batch Mode: Grade all groups without interruption")
     print("3. Export CSV Report: Generate CSV file from existing grading results")
-    print("4. Normalize Scores: Adjust scores to meet distribution requirements (mean=65, range=55-90)")
-    print("5. Refine Comments: Make existing feedback sound more natural and human-like")
-    print("6. Quit")
+    print("4. Export Refined CSV Report: Generate CSV file from refined comments (if available)")
+    print("5. Normalize Scores: Adjust scores to meet distribution requirements (mean=65, range=55-90)")
+    print("6. Refine Comments: Make existing feedback sound more natural and human-like")
+    print("7. Quit")
     
     while True:
-        choice = input("\nSelect option (1/2/3/4/5/6): ").strip()
+        choice = input("\nSelect option (1/2/3/4/5/6/7): ").strip()
         
         if choice == '1':
             print("✓ Interactive mode selected - you'll be prompted after each group")
@@ -869,16 +871,19 @@ def choose_grading_mode():
             print("✓ CSV export selected - generating report from existing results")
             return 'csv'
         elif choice == '4':
+            print("✓ Refined CSV export selected - generating report from refined comments")
+            return 'csv_refined'
+        elif choice == '5':
             print("✓ Score normalization selected - adjusting grades to meet distribution requirements")
             return 'normalize'
-        elif choice == '5':
+        elif choice == '6':
             print("✓ Comment refinement selected - improving feedback tone and naturalness")
             return 'refine'
-        elif choice == '6':
+        elif choice == '7':
             print("Exiting grading system.")
             return 'quit'
         else:
-            print("Invalid choice. Please enter 1, 2, 3, 4, 5, or 6.")
+            print("Invalid choice. Please enter 1, 2, 3, 4, 5, 6, or 7.")
 
 
 def main():
@@ -920,6 +925,34 @@ def main():
             print(f"You can now open: {os.path.basename(csv_path)}")
         else:
             print("❌ Failed to generate CSV report.")
+        return
+    elif grading_mode == 'csv_refined':
+        # Generate refined CSV report and exit
+        print(f"\n📊 Generating refined CSV report...")
+        refined_comments_dir = os.path.join(RESULTS_DIR, "refined_comments")
+        
+        if not os.path.exists(refined_comments_dir):
+            print("❌ No refined comments found!")
+            print(f"Expected directory: {refined_comments_dir}")
+            print("Please run comment refinement first (option 6) to generate refined comments.")
+            return
+        
+        try:
+            # Generate both basic and detailed refined CSV reports
+            print("Creating basic refined CSV report...")
+            basic_csv = export_refined_comments_to_csv(RESULTS_DIR)
+            
+            print("Creating detailed refined CSV report...")
+            detailed_csv = export_refined_comments_detailed_csv(RESULTS_DIR)
+            
+            if basic_csv and detailed_csv:
+                print(f"\n✅ Refined CSV reports successfully generated!")
+                print(f"📄 Basic report: {os.path.basename(basic_csv)}")
+                print(f"📄 Detailed report: {os.path.basename(detailed_csv)}")
+            else:
+                print("❌ Failed to generate refined CSV reports.")
+        except Exception as e:
+            print(f"❌ Error generating refined CSV reports: {e}")
         return
     elif grading_mode == 'normalize':
         # Normalize scores and exit
@@ -1343,7 +1376,7 @@ FINAL VALIDATION CHECKLIST:
         print(f"   🤖 Sending collective normalization request to AI...")
         
         response = client.models.generate_content(
-            model='gemini-2.0-flash-exp',
+            model='gemini-2.5-flash-preview-05-20',
             contents=prompt,
             config=types.GenerateContentConfig(
                 temperature=0.1,

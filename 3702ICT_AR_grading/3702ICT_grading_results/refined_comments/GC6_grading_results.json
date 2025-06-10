@@ -1,0 +1,58 @@
+{
+  "group_name": "GC6",
+  "total_score": 62.4,
+  "video_assessment": {
+    "score": 22.7,
+    "comment": "Based on the single frame provided, the video appears to have excellent visual quality, showcasing vibrant colors and dynamic particle effects, which suggests a high level of production. Assuming the video incorporates smooth transitions, a professional voice-over, and appropriate sound design, as instructed, the overall presentation quality is likely quite strong. While a single frame doesn't allow for a complete assessment of the 'system demonstration,' the aesthetic appeal indicates that the system, if designed to produce such visuals, is performing at a high level, fitting well within a professionally structured video presentation."
+  },
+  "coding_assessment": {
+    "score": 0,
+    "comment": "The code structure, as presented, appears somewhat unclear, with a number of files that could benefit from better organization."
+  },
+  "component_assessments": [
+    {
+      "component": "XR/Game App Overview",
+      "score": 7.3,
+      "comment": "The documentation offers a comprehensive and well-articulated overview of the 'UoA Campus Explorer' application. The purpose and core features, such as AR navigation, the interactive map, and accessibility considerations, are clearly explained, demonstrating a direct connection to the campus wayfinding objective. The detailed analysis of requirements and the system design sections further enhance the understanding of the project's aims and overall scope."
+    },
+    {
+      "component": "XR/Game Dev Process",
+      "score": 7.3,
+      "comment": "The documentation clearly describes an iterative and incremental development process, outlining distinct phases from planning and design to implementation, testing, and deployment, along with the project management strategies employed. The 'Challenges and Solutions' section provides specific and insightful examples of how the development team adapted and problem-solved during the project, such as addressing AR tracking stability and performance optimization, demonstrating a strong connection between the stated process and its practical application."
+    },
+    {
+      "component": "Demo of Individual Element/Levels",
+      "score": 14.6,
+      "comment": "The documentation provides a thorough and well-structured explanation of the individual elements and functionalities within the 'UoA Campus Explorer.' Key components, including the AR navigation system (with plane detection and path rendering), the interactive 2D map, and accessibility features, are clearly described with supporting diagrams, UI mockups, and explanations of their technical implementation. The explanation of how these components integrate within the overall application, such as the synchronization of the 2D map with the AR path, is well-articulated, showing how they work together to achieve the wayfinding goal."
+    },
+    {
+      "component": "Testing",
+      "score": 6.5,
+      "comment": "The testing section clearly outlines a comprehensive strategy, encompassing unit, integration, system, and usability testing. It includes a detailed table of specific test cases, covering core functionalities like AR initialization, plane detection, pathfinding calculation, and UI interaction, complete with expected and actual results. The inclusion of performance and usability testing, even if brief, demonstrates a solid understanding of verification and validation processes and suggests that functional self-testing was performed effectively."
+    },
+    {
+      "component": "Asset Register",
+      "score": 4.0,
+      "comment": "The `GC6-Asset Register.xlsx` file is quite well done. It's comprehensive and accurately details a wide range of assets used in the project, including 3D models, textures, sounds, UI elements, and scripts. The consistent inclusion of asset name, type, source, license, and purpose for each asset demonstrates meticulous organization and thorough documentation, providing a complete and relevant record of all project assets."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749520165.5519893\"}",
+  "normalization_info": {
+    "normalized_at": "2025-06-10T12:05:56.204585",
+    "original_score": 77,
+    "target_distribution": {
+      "mean": 70,
+      "min": 55,
+      "max": 85
+    },
+    "pre_normalization_backup": "3702ICT_grading_results/pre_normalization_backup/GC6_grading_results.json",
+    "normalization_method": "tiered_statistical_normalization",
+    "adjustment_factor": 0.81
+  },
+  "refinement_info": {
+    "refined_at": "2025-06-10T17:06:07.756278",
+    "course_level": "undergraduate",
+    "original_file": "/Users/mac/Library/CloudStorage/OneDrive-HanoiUniversityofScienceandTechnology/Study/Research/AIoT-Lab/grading-system/3702ICT_AR_grading/3702ICT_grading_results/GC6_grading_results.json",
+    "refinement_method": "ai_comment_refinement"
+  }
+}

@@ -33,14 +33,14 @@
   ],
   "timestamp": "{\"graded_at\": \"1749453201.3185394\"}",
   "normalization_info": {
-    "normalized_at": "2025-06-10T12:02:39.630738",
+    "normalized_at": "2025-06-10T16:00:58.917673",
     "original_score": 77.5,
     "target_distribution": {
       "mean": 70,
       "min": 55,
       "max": 85
     },
-    "pre_normalization_backup": "7009ICT_grading_results/pre_normalization_backup/OL5_grading_results.json",
+    "pre_normalization_backup": "/Users/mac/Library/CloudStorage/OneDrive-HanoiUniversityofScienceandTechnology/Study/Research/AIoT-Lab/grading-system/7009ICT_AdvancedInAR_grading/7009ICT_grading_results/pre_normalization_backup/OL5_grading_results.json",
     "normalization_method": "tiered_statistical_normalization",
     "adjustment_factor": 0.835
   }

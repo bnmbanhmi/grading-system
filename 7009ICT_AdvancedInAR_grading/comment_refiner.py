@@ -246,10 +246,10 @@ def refine_comments_batch(client: genai.Client, comments_list: list, course_leve
     # Determine appropriate tone based on course level
     if course_level == "graduate":
         tone_guidance = """
-        - Use sophisticated academic language appropriate for graduate students
-        - Focus on research methodology, innovation, and advanced technical concepts
-        - Emphasize critical analysis and scholarly contribution
-        - Sound like a professor reviewing graduate research work
+        - Use encouraging yet professional academic language for graduate students
+        - Focus on learning outcomes, practical implementation, and skill development
+        - Balance constructive feedback with recognition of effort
+        - Sound like a supportive professor guiding graduate research work
         """
         professor_persona = "an experienced professor reviewing graduate-level research in Augmented Reality"
     else:  # undergraduate
@@ -270,19 +270,21 @@ REFINEMENT GUIDELINES:
 {tone_guidance}
 
 ESSENTIAL REQUIREMENTS FOR ALL COMMENTS:
-1. **Preserve ALL technical content** - Don't remove any specific technical details, examples, or findings
+1. **Mention technical content in a human way** - DO NOT include all specific technical details, examples, or findings. for example, DO NOT mention 'ABCPresentation.pdf', instead, refer to 'the presentation document' or 'the provided PDF'.
 2. **Maintain the same evaluation level** - Don't make comments more positive or negative than originals
 3. **Keep similar length** - Don't significantly shorten or lengthen comments
 4. **Sound like a human professor** - Use natural academic language, not robotic AI phrasing
 5. **Use conversational academic tone** - Replace phrases like "The documentation demonstrates..." with more natural alternatives
 6. **Add subtle personality** - Use varied sentence structures and natural transitions
 7. **Maintain professionalism** - Keep it academic and appropriate for formal assessment
+8. **Keep single paragraph format** - Each of the refined comments should be in the format of one single continuous paragraph without any additional formatting or metadata.
 
 AVOID:
 - Robotic phrases like "The system demonstrates", "The implementation shows", "The documentation indicates"
 - Overly formal or repetitive sentence structures
 - AI-typical phrasing that sounds mechanical
 - Changing the technical assessment or adding/removing factual content
+- Mentioning level of achievement explicitly like 'Excellent' or 'Satisfactory'
 
 COMMENTS TO REFINE:
 
@@ -331,13 +333,14 @@ REFINEMENT GUIDELINES:
 {tone_guidance}
 
 ESSENTIAL REQUIREMENTS FOR ALL COMMENTS:
-1. **Preserve ALL technical content** - Don't remove any specific technical details, examples, or findings
+1. **Mention technical content in a human way** - DO NOT include all specific technical details, examples, or findings. for example, DO NOT mention 'ABCPresentation.pdf', instead, refer to 'the presentation document' or 'the provided PDF'.
 2. **Maintain the same evaluation level** - Don't make comments more positive or negative than originals
 3. **Keep similar length** - Don't significantly shorten or lengthen comments
 4. **Sound like a human professor** - Use natural academic language, not robotic AI phrasing
 5. **Use conversational academic tone** - Replace phrases like "The documentation demonstrates..." with more natural alternatives
 6. **Add subtle personality** - Use varied sentence structures and natural transitions
 7. **Maintain professionalism** - Keep it academic and appropriate for formal assessment
+8. **Keep single paragraph format** - Each of the refined comments should be in the format of one single continuous paragraph without any additional formatting or metadata.
 
 COMMENTS TO REFINE:
 
@@ -359,7 +362,7 @@ REFINED COMMENT 2:
 
 [continue for all comments...]
 
-Respond with ONLY the refined comments in this format, no additional explanations."""
+Respond with ONLY the refined comments in this format, no additional explanations. The refined comments should be in the format of one single continuous paragraph without any additional formatting or metadata."""
         
         response = client.models.generate_content(
             model='gemini-2.0-flash-exp',

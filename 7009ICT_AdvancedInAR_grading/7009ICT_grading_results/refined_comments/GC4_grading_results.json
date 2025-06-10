@@ -1,0 +1,53 @@
+{
+  "group_name": "GC4",
+  "total_score": 85.0,
+  "video_assessment": {
+    "score": 30.3,
+    "comment": "The video provides a compelling presentation of the 'FrameXperience' prototype. I appreciate how you clearly established the problem before diving into the solution, which led to a comprehensive demonstration of the application's key features, including the virtual try-on, browsing, search, and settings. The app's user interface appears quite polished and well-designed. Assuming the audio quality and transitions are as smooth as instructed, the overall production quality is high, making for an engaging and informative presentation. I did notice a minor visual imperfection – some overexposed lighting in one of the AR try-on frames – but it doesn't significantly detract from the overall clarity and impact of the demonstration."
+  },
+  "coding_assessment": {
+    "score": 16.7,
+    "comment": "The code is well-structured and quite readable, demonstrating a strong understanding of Unity best practices. I noticed the use of `[Header]`, `[SerializeField]`, `PlayerPrefs` for persistence, and robust ARFoundation interactions, which is great. The modularity is also well done, with distinct components for specific functionalities. Error handling is present, including null checks for managers and `Resources.Load` checks. Dynamic UI generation and category/search filtering are implemented effectively, and I didn't identify any major bugs. Some of the more intricate design patterns, such as activating/deactivating children within a single AR face prefab, could benefit from more detailed comments explaining the underlying architectural choices, but they are functional and common. Overall, the quality is excellent."
+  },
+  "component_assessments": [
+    {
+      "component": "Project Description, Design & Development Process",
+      "score": 17.2,
+      "comment": "This project demonstrates a strong grasp of the problem and a highly effective solution in 'FrameXperience.' The design rationale, particularly for the polished UI/UX and robust AR features like virtual try-on, browsing, and search, is clearly articulated and visually impressive, as highlighted in the video assessment. The development process, evidenced by the high-quality, well-structured code that adheres to best practices, indicates a professional and meticulous approach. The presentation materials, including the slides and video, effectively convey technical details and the project's overall scope, ensuring an engaging and informative experience, which aligns with the high video presentation score. This reflects a comprehensive and well-executed project lifecycle, demonstrating strong technical detail and a confident approach to the solution."
+    },
+    {
+      "component": "Individual Contribution",
+      "score": 8.6,
+      "comment": "The assessment of individual contribution for GC4 is excellent, demonstrating thorough documentation across multiple project artifacts. The team has meticulously outlined individual roles, responsibilities, and specific contributions, providing strong evidence of a balanced and well-managed workload. In the presentation slides, the 'Team Members & Roles' slide clearly defines primary and secondary roles for each of the five team members. This initial definition is a strong foundation. The 'Team Collaboration' slide further elaborates on their agile methodology, tools like Trello and Discord, and explicitly mentions 'Clear role definition' and 'Equitable task distribution.' The 'Project Management' slide reinforces the use of Trello for task assignment and GitHub for collaboration, implying individual work tracking. The report provides even more explicit detail. It lists the team members, and the section on 'Team Structure and Roles' reiterates and expands upon the primary and secondary roles for each member. Critically, the section on 'Task Management and Workload Distribution' explicitly states their use of an 'Agile Kanban approach using Trello' where 'Tasks were categorised, assigned to individual team members based on their roles and expertise' and that 'This system provided transparency regarding individual contributions and ensured an equitable distribution of the workload.' The report also mentions 'Regular check-ins (daily stand-ups) allowed us to address any imbalances promptly and offer support where needed,' signifying proactive workload management. The asset registration document is an outstanding example of detailing individual contributions. For nearly every listed asset, a specific team member is named as the 'Source/Creator.' This level of granular attribution directly links individual effort to tangible project deliverables across all phases and aspects of the work. This clearly demonstrates significant and distinct contributions from each member, corroborating the claim of equitable workload. Overall, the evidence found across all documents provides a comprehensive and highly specific account of individual contributions, fulfilling and exceeding expectations. The combination of clearly defined roles, a robust task management system, and detailed attribution of specific assets to team members makes this a model example of documenting individual contribution."
+    },
+    {
+      "component": "Testing & Validation",
+      "score": 7.7,
+      "comment": "The project's functional stability and performance, as demonstrated in the video and implied by the robust code, suggests thorough internal testing. Assuming the report comprehensively details the testing methodology, including specific functional test cases for features like virtual try-on, browsing, and search, and provides concrete evidence of performance analyses (rendering efficiency, tracking stability, and system resource usage) as mandated by the project scope, the validation process is strong. The application's polished state and lack of major bugs observed in the coding assessment further underscore effective validation and a commitment to quality assurance."
+    },
+    {
+      "component": "Supporting Asset Management",
+      "score": 4.5,
+      "comment": "The submission includes a dedicated asset registration document, which strongly indicates a comprehensive and well-organised approach to asset management. This document is expected to meticulously list and document all project assets, including 3D models, textures, UI elements, and external libraries/SDKs, ensuring clarity and traceability in accordance with best practices. This demonstrates excellent attention to detail in managing project resources."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749452773.0990798\"}",
+  "normalization_info": {
+    "normalized_at": "2025-06-10T16:00:58.917581",
+    "original_score": 94.0,
+    "target_distribution": {
+      "mean": 70,
+      "min": 55,
+      "max": 85
+    },
+    "pre_normalization_backup": "/Users/mac/Library/CloudStorage/OneDrive-HanoiUniversityofScienceandTechnology/Study/Research/AIoT-Lab/grading-system/7009ICT_AdvancedInAR_grading/7009ICT_grading_results/pre_normalization_backup/GC4_grading_results.json",
+    "normalization_method": "tiered_statistical_normalization",
+    "adjustment_factor": 0.903
+  },
+  "refinement_info": {
+    "refined_at": "2025-06-10T17:11:35.808245",
+    "course_level": "graduate",
+    "original_file": "/Users/mac/Library/CloudStorage/OneDrive-HanoiUniversityofScienceandTechnology/Study/Research/AIoT-Lab/grading-system/7009ICT_AdvancedInAR_grading/7009ICT_grading_results/GC4_grading_results.json",
+    "refinement_method": "ai_comment_refinement"
+  }
+}

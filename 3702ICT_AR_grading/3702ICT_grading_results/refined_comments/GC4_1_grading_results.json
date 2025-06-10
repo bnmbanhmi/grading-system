@@ -1,0 +1,58 @@
+{
+  "group_name": "GC4_1",
+  "total_score": 66.1,
+  "video_assessment": {
+    "score": 24.6,
+    "comment": "The video offers a compelling and professional demonstration of your augmented reality navigation system. The AR elements, such as the footpath overlays, directional text, and integrated mini-map, are consistently presented and effectively highlight the system's capabilities. The visual quality is high, and the system appears stable in its real-time tracking and rendering. The progression through the waypoint mission is clearly shown, suggesting a well-thought-out structure and flow. Assuming smooth transitions, a helpful voice-over, and appropriate sound design, this video is a first-rate demonstration of the system."
+  },
+  "coding_assessment": {
+    "score": 0,
+    "comment": "API quota exceeded - partial grading completed"
+  },
+  "component_assessments": [
+    {
+      "component": "XR/Game App Overview",
+      "score": 7.6,
+      "comment": "The documentation provides a solid overview of the AR navigation system, clearly laying out the problem statement, project goals, and key features. The system design section effectively connects the app's functionality to the project's aims of making campus navigation more intuitive."
+    },
+    {
+      "component": "XR/Game Dev Process",
+      "score": 7.6,
+      "comment": "The development process is well-documented, detailing an Agile Scrum methodology with clear sprints, stand-ups, and backlog management. It includes a comprehensive list of tools, defined team roles, and a robust risk management plan, indicating a well-structured and carefully applied process."
+    },
+    {
+      "component": "Demo of Individual Element/Levels",
+      "score": 15.3,
+      "comment": "The documentation offers a detailed description of the individual system components and how they work together. The sections on 'System Architecture' and 'Core Features' break down elements like AR path visualization, waypoint navigation, and the dynamic UI, explaining their functionality and how they contribute to the overall system. This effectively demonstrates the components through clear and specific descriptions."
+    },
+    {
+      "component": "Testing",
+      "score": 6.8,
+      "comment": "The testing section outlines a thorough test plan, including unit, integration, system, and user acceptance testing. The functional test cases are well-detailed with pre-conditions, steps, expected results, and, importantly, actual results marked as 'Pass' with specific notes, providing good evidence of executed self-testing and verification."
+    },
+    {
+      "component": "Asset Register",
+      "score": 4.2,
+      "comment": "The attached Excel asset register is very well done. It's comprehensive, accurate, and highly relevant, listing a wide range of assets – models, textures, sounds, scripts, prefabs, and external frameworks – with clear asset IDs, types, detailed descriptions, sources, and license/usage rights where applicable. This demonstrates thorough asset management practices."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749519818.4472694\"}",
+  "normalization_info": {
+    "normalized_at": "2025-06-10T12:05:56.204140",
+    "original_score": 78,
+    "target_distribution": {
+      "mean": 70,
+      "min": 55,
+      "max": 85
+    },
+    "pre_normalization_backup": "3702ICT_grading_results/pre_normalization_backup/GC4_1_grading_results.json",
+    "normalization_method": "tiered_statistical_normalization",
+    "adjustment_factor": 0.848
+  },
+  "refinement_info": {
+    "refined_at": "2025-06-10T17:05:24.164572",
+    "course_level": "undergraduate",
+    "original_file": "/Users/mac/Library/CloudStorage/OneDrive-HanoiUniversityofScienceandTechnology/Study/Research/AIoT-Lab/grading-system/3702ICT_AR_grading/3702ICT_grading_results/GC4_1_grading_results.json",
+    "refinement_method": "ai_comment_refinement"
+  }
+}

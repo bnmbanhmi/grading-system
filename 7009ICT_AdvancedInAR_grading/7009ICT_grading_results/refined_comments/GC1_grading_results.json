@@ -1,0 +1,53 @@
+{
+  "group_name": "GC1",
+  "total_score": 69.6,
+  "video_assessment": {
+    "score": 29.3,
+    "comment": "The video provides a compelling demonstration of the 'Study with AR Flash Cards' prototype. The clarity of the visuals is particularly noteworthy, effectively showcasing the core AR functionality through detailed 3D models, such as the brain and heart, and intuitive labeling. The app's user interface appears clean and engaging, making the demonstration easy to follow. The presentation effectively highlights key features like interactive AR models, labeling, quizzes, and access to additional learning content. Assuming the transitions between scenes are smooth and the voice-over and sound are of high quality, the overall production quality seems excellent, successfully emphasizing the prototype's innovative potential."
+  },
+  "coding_assessment": {
+    "score": 11.5,
+    "comment": "The code exhibits a good overall structure and readability, generally adhering to best practices in Unity development. The 'NavigationManager' script stands out as a well-implemented example, demonstrating a solid singleton pattern and effective scene history management. The 'TrackedImageSpawner' and 'QuizManager' scripts are also well-structured and functional. However, there are areas where improvements could be made. The commenting is somewhat inconsistent; while key scripts like `NavigationManager` and `TrackedImageSpawner` are well-commented, others could benefit from more detailed explanations to enhance readability. In the `TrackedImageSpawner`, the use of hardcoded `GameObject.Find` calls could be made more robust by using public inspector references or dependency injection. Also, disabling the `ARTrackedImageManager` after the first spawn limits the application to tracking only one image. Finally, the `totalQuestion` count in the `QuizManager` score display remains static, which could be misleading, and some scripts directly use `SceneManager.LoadScene` instead of leveraging the `NavigationManager`. Lastly, the submitted ZIP file seems to have some organizational issues, potentially containing macOS-specific metadata that caused read errors."
+  },
+  "component_assessments": [
+    {
+      "component": "Project Description, Design & Development Process",
+      "score": 15.7,
+      "comment": "The presentation document thoroughly articulates the project's purpose, design rationale, and development process. It demonstrates a strong technical grasp, providing detailed explanations of the technology stack, architecture, UI/UX design, and implementation logic for the AR features, 3D models, and quiz system. The challenges encountered during development and the solutions implemented are well-addressed, reflecting a mature approach. The visual aids are highly effective and professionally structured. While I can't directly assess the Q&A engagement from the provided files, the detailed presentation content, along with the excellent video presentation, strongly suggests a compelling and professional delivery that clearly highlights the project's innovative capabilities."
+    },
+    {
+      "component": "Individual Contribution",
+      "score": 7.6,
+      "comment": "The team has provided compelling evidence of individual contributions, roles, and workload distribution, primarily through the detailed asset register. While the presentation document only lists team members on the title slide, the asset register comprehensively details individual contributions. The 'Source/Creator' column in the asset register explicitly attributes specific assets to individual team members by name, providing clear and specific examples of each person's responsibilities. This level of detail demonstrates that each team member had a clearly defined and significant role, with tangible outputs attributed to them. The distribution of asset types across the team members also suggests a balanced and specialized workload, reflecting effective team organization and individual accountability."
+    },
+    {
+      "component": "Testing & Validation",
+      "score": 3.4,
+      "comment": "The presentation mentions 'Testing' as a key development phase and discusses addressing challenges related to performance optimization, tracking stability, and UI responsiveness, suggesting that validation efforts were made. The excellent video presentation also provides strong evidence of the prototype's core functionality and successful validation. However, the submission could benefit from more specific and well-documented details regarding the testing methodology, defined test cases, and presentation of concrete test results. While functionality is clearly validated, the documentation of the testing process itself is somewhat minimal."
+    },
+    {
+      "component": "Supporting Asset Management",
+      "score": 2.1,
+      "comment": "The asset register is well-structured and attempts to provide a comprehensive list of project assets, including their types, sources, and licensing information, which is commendable for asset documentation. However, the 'File Path' entries are largely generic and could be improved by providing more specific, actionable paths within the submitted project structure. Furthermore, the external feedback regarding issues with the submitted ZIP file organization suggests that, while the register itself is good, the overall asset management and project submission structure could be improved for better clarity, consistency, and ease of access for external evaluation."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749452475.8251557\"}",
+  "normalization_info": {
+    "normalized_at": "2025-06-10T16:00:58.917613",
+    "original_score": 82.0,
+    "target_distribution": {
+      "mean": 70,
+      "min": 55,
+      "max": 85
+    },
+    "pre_normalization_backup": "/Users/mac/Library/CloudStorage/OneDrive-HanoiUniversityofScienceandTechnology/Study/Research/AIoT-Lab/grading-system/7009ICT_AdvancedInAR_grading/7009ICT_grading_results/pre_normalization_backup/GC1_grading_results.json",
+    "normalization_method": "tiered_statistical_normalization",
+    "adjustment_factor": 0.849
+  },
+  "refinement_info": {
+    "refined_at": "2025-06-10T17:11:41.646603",
+    "course_level": "graduate",
+    "original_file": "/Users/mac/Library/CloudStorage/OneDrive-HanoiUniversityofScienceandTechnology/Study/Research/AIoT-Lab/grading-system/7009ICT_AdvancedInAR_grading/7009ICT_grading_results/GC1_grading_results.json",
+    "refinement_method": "ai_comment_refinement"
+  }
+}

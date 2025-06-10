@@ -1,0 +1,58 @@
+{
+  "group_name": "GC9",
+  "total_score": 68.3,
+  "video_assessment": {
+    "score": 22.8,
+    "comment": "The video offers a compelling and polished demonstration of your Augmented Reality application, which appears to be a game, showcasing both its functionality and engaging elements. The visuals effectively highlight how the AR components, such as the pixelated eggs, 3D pillars, and interactive framed pictures, are integrated within real-world environments. The consistent pixel-art UI and narrative-driven pop-ups suggest a well-thought-out and immersive user experience. It's great that you've included frames showing the Unity development environment; this provides valuable insight into the technical aspects of the project. Assuming the video has smooth transitions, a clear voice-over, and effective sound, its structure seems well-balanced and professional, offering a comprehensive overview of the system."
+  },
+  "coding_assessment": {
+    "score": 5.9,
+    "comment": "Your code demonstrates a solid grasp of basic Unity component-based development, with several scripts focused on specific tasks, such as managing the HealthBar, TypeWriter, and SoundManager. I noticed some good practices, like using `[SerializeField]` for Inspector exposure, proper event subscriptions, and `DontDestroyOnLoad` for manager objects. However, there are some inconsistencies and structural issues that hold it back. I observed code duplication in classes like `PlayerHealth` vs `PlayerBossHealth`, `Boss` vs `Enemy`, and `BattleManager` vs `BossBattleManager`, suggesting a need for more consistent abstraction. The presence of two `BossAttack` classes, seemingly with different file names but referencing different player health scripts, points to potential copy-paste issues. Also, while some scripts like `Greeting` have XML documentation, others have minimal or obvious comments, and the scene transitions use hardcoded string names. While the code is functional and shows efforts in modularity, these inconsistencies in structure and standards suggest room for improvement."
+  },
+  "component_assessments": [
+    {
+      "component": "XR/Game App Overview",
+      "score": 7.6,
+      "comment": "The documentation provides a clear and comprehensive overview of the 'Griffith Pals' AR game, effectively articulating its objective as an AR wayfinding tool on campus. You've successfully mapped the game's design, core gameplay loop, and key features to the project's aims of enhancing navigation and creating an interactive experience, even with a gamified approach. The explicit mention of 'AR Waypoints' further emphasizes its relevance to the project's core objective."
+    },
+    {
+      "component": "XR/Game Dev Process",
+      "score": 7.6,
+      "comment": "The documentation demonstrates a strong understanding and application of development processes. You've detailed an 'Iterative Development Cycle' using a 'Scrum Approach', complete with a clear week-by-week breakdown of development stages. The inclusion of 'Design Principles', a detailed 'Technical Challenges & Solutions' section (including Unity practices like DontDestroyOnLoad, which aligns with previous code comments), and concrete evidence of 'User Testing & Feedback' (with iterative adjustments) provides detailed examples of applied processes, showing a good connection between theory and practice."
+    },
+    {
+      "component": "Demo of Individual Element/Levels",
+      "score": 13.5,
+      "comment": "The documentation offers a good description of the game's core elements and how they fit together. You've clearly defined contributions like 'Pal Encounters', the 'Battle System', and the 'Quest System', which align with the gameplay observed in the video and the functionality suggested by the code. Key AR elements like 'AR Waypoints' and 'Interactive Objects' are also explained, showing how they integrate into the wayfinding and exploration aspects. The inclusion of 'Demo Screenshots' visually supports these descriptions, illustrating how these components contribute to the overall application. While the documentation isn't a direct demo itself, it effectively complements the video by clearly defining and illustrating well-integrated components."
+    },
+    {
+      "component": "Testing",
+      "score": 6.7,
+      "comment": "The documentation provides good evidence of testing. The 'User Testing & Feedback' section details early prototype testing with specific user numbers, outlining the feedback gathered (usability, enjoyment, AR stability) and how it led to iterative adjustments. The 'Verification & Validation' section explicitly lists various testing methodologies employed, including unit, integration, system, and user acceptance testing. This demonstrates a structured approach to quality assurance, although specific detailed test cases or explicit bug reports beyond the general mention of 'identified bugs' are not included."
+    },
+    {
+      "component": "Asset Register",
+      "score": 4.2,
+      "comment": "The asset register is comprehensive and well-organized. The Excel spreadsheet provides a detailed list of all assets used, including their name, type, source, license, usage, description, and date added. The inclusion of specific licensing information and accurate sources demonstrates a professional and thorough approach to asset management, showing completeness and accuracy."
+    }
+  ],
+  "timestamp": "{\"graded_at\": \"1749520520.193532\"}",
+  "normalization_info": {
+    "normalized_at": "2025-06-10T12:05:56.204516",
+    "original_score": 81,
+    "target_distribution": {
+      "mean": 70,
+      "min": 55,
+      "max": 85
+    },
+    "pre_normalization_backup": "3702ICT_grading_results/pre_normalization_backup/GC9_grading_results.json",
+    "normalization_method": "tiered_statistical_normalization",
+    "adjustment_factor": 0.843
+  },
+  "refinement_info": {
+    "refined_at": "2025-06-10T17:05:58.488517",
+    "course_level": "undergraduate",
+    "original_file": "/Users/mac/Library/CloudStorage/OneDrive-HanoiUniversityofScienceandTechnology/Study/Research/AIoT-Lab/grading-system/3702ICT_AR_grading/3702ICT_grading_results/GC9_grading_results.json",
+    "refinement_method": "ai_comment_refinement"
+  }
+}
