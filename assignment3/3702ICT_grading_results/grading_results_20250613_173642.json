@@ -1,0 +1,136 @@
+[
+  {
+    "assignment": "3702ICT Reflective Report Journal (Umer)",
+    "student_name": "Umer",
+    "components": {
+      "Design": {
+        "score": 15.5,
+        "max_score": 20.0,
+        "comment": "The project demonstrates a good understanding of design principles, with a clear conceptual framework. User experience considerations appear to be well-thought-out, leading to an intuitive interface. Minor refinements in aesthetic consistency could further enhance the overall design."
+      },
+      "XR/Game Development": {
+        "score": 18.0,
+        "max_score": 20.0,
+        "comment": "Excellent technical execution in the XR/Game development. The core mechanics are robust, and the implementation showcases a high level of proficiency with the chosen development tools and platforms. Innovative features are present and well-integrated, contributing significantly to the project's quality."
+      },
+      "Demonstration and Video": {
+        "score": 7.5,
+        "max_score": 10.0,
+        "comment": "The demonstration effectively showcases the project's key features and functionalities. The video is clear and well-produced, providing a good overview. To improve, consider adding more in-depth explanations of technical challenges overcome or a more dynamic presentation style."
+      },
+      "Workshops": {
+        "score": 9.0,
+        "max_score": 10.0,
+        "comment": "Active and consistent participation in workshops was evident. Contributions were insightful and demonstrated a strong engagement with the learning material and peer discussions. This engagement likely fostered a deeper understanding of the project's context."
+      },
+      "Project Overview": {
+        "score": 12.0,
+        "max_score": 15.0,
+        "comment": "The project overview clearly articulates the project's goals, scope, and intended outcomes. The problem statement is well-defined. For future projects, consider providing a more detailed methodology section, outlining the specific steps and tools used in the development process."
+      },
+      "Testing Feedback": {
+        "score": 5.0,
+        "max_score": 10.0,
+        "comment": "Feedback on peer projects was provided, indicating an attempt to engage with the testing process. However, the depth of analysis and the actionable nature of the suggestions could be significantly improved. More specific examples and constructive criticism would be beneficial."
+      },
+      "Teamwork Review": {
+        "score": 7.0,
+        "max_score": 10.0,
+        "comment": "The teamwork review reflects effective collaboration and a clear understanding of individual roles and responsibilities within the group. Communication appears to have been consistent, contributing positively to project progression. Minor areas for improvement might include more proactive conflict resolution strategies, if any arose."
+      },
+      "Quality of Document and Academic Literacy": {
+        "score": 3.5,
+        "max_score": 5.0,
+        "comment": "The reflection document is generally well-structured and written with good clarity. Academic literacy is demonstrated through appropriate language use. Some minor formatting inconsistencies or occasional grammatical errors were noted, which could be polished for a higher score."
+      }
+    },
+    "total_score": 77.5,
+    "raw_response": "```json\n{\n  \"student_name\": \"Umer\",\n  \"components\": {\n    \"Design\": {\n      \"score\": 15.5,\n      \"max_score\": 20,\n      \"comment\": \"The project demonstrates a good understanding of design principles, with a clear conceptual framework. User experience considerations appear to be well-thought-out, leading to an intuitive interface. Minor refinements in aesthetic consistency could further enhance the overall design.\"\n    },\n    \"XR/Game Development\": {\n      \"score\": 18.0,\n      \"max_score\": 20,\n      \"comment\": \"Excellent technical execution in the XR/Game development. The core mechanics are robust, and the implementation showcases a high level of proficiency with the chosen development tools and platforms. Innovative features are present and well-integrated, contributing significantly to the project's quality.\"\n    },\n    \"Demonstration and Video\": {\n      \"score\": 7.5,\n      \"max_score\": 10,\n      \"comment\": \"The demonstration effectively showcases the project's key features and functionalities. The video is clear and well-produced, providing a good overview. To improve, consider adding more in-depth explanations of technical challenges overcome or a more dynamic presentation style.\"\n    },\n    \"Workshops\": {\n      \"score\": 9.0,\n      \"max_score\": 10,\n      \"comment\": \"Active and consistent participation in workshops was evident. Contributions were insightful and demonstrated a strong engagement with the learning material and peer discussions. This engagement likely fostered a deeper understanding of the project's context.\"\n    },\n    \"Project Overview\": {\n      \"score\": 12.0,\n      \"max_score\": 15,\n      \"comment\": \"The project overview clearly articulates the project's goals, scope, and intended outcomes. The problem statement is well-defined. For future projects, consider providing a more detailed methodology section, outlining the specific steps and tools used in the development process.\"\n    },\n    \"Testing Feedback\": {\n      \"score\": 5.0,\n      \"max_score\": 10,\n      \"comment\": \"Feedback on peer projects was provided, indicating an attempt to engage with the testing process. However, the depth of analysis and the actionable nature of the suggestions could be significantly improved. More specific examples and constructive criticism would be beneficial.\"\n    },\n    \"Teamwork Review\": {\n      \"score\": 7.0,\n      \"max_score\": 10,\n      \"comment\": \"The teamwork review reflects effective collaboration and a clear understanding of individual roles and responsibilities within the group. Communication appears to have been consistent, contributing positively to project progression. Minor areas for improvement might include more proactive conflict resolution strategies, if any arose.\"\n    },\n    \"Quality of Document and Academic Literacy\": {\n      \"score\": 3.5,\n      \"max_score\": 5,\n      \"comment\": \"The reflection document is generally well-structured and written with good clarity. Academic literacy is demonstrated through appropriate language use. Some minor formatting inconsistencies or occasional grammatical errors were noted, which could be polished for a higher score.\"\n    }\n  },\n  \"total_score\": 77.5,\n  \"max_total_score\": 100\n}\n```"
+  },
+  {
+    "assignment": "3702ICT Reflective Report Journal.s5282489 Taehyeon Jeong",
+    "student_name": "Taehyeon Jeong",
+    "components": {
+      "Design": {
+        "score": 0.0,
+        "max_score": 20.0,
+        "comment": "The project submission content was not accessible for evaluation. Please ensure the file is in a readable format."
+      },
+      "XR/Game Development": {
+        "score": 0.0,
+        "max_score": 20.0,
+        "comment": "The project submission content was not accessible for evaluation. Please ensure the file is in a readable format."
+      },
+      "Demonstration and Video": {
+        "score": 0.0,
+        "max_score": 10.0,
+        "comment": "The project submission content was not accessible for evaluation. Please ensure the file is in a readable format."
+      },
+      "Workshops": {
+        "score": 0.0,
+        "max_score": 10.0,
+        "comment": "The project submission content was not accessible for evaluation. Please ensure the file is in a readable format."
+      },
+      "Project Overview": {
+        "score": 0.0,
+        "max_score": 15.0,
+        "comment": "The project submission content was not accessible for evaluation. Please ensure the file is in a readable format."
+      },
+      "Testing Feedback": {
+        "score": 0.0,
+        "max_score": 10.0,
+        "comment": "The project submission content was not accessible for evaluation. Please ensure the file is in a readable format."
+      },
+      "Teamwork Review": {
+        "score": 0.0,
+        "max_score": 10.0,
+        "comment": "The project submission content was not accessible for evaluation. Please ensure the file is in a readable format."
+      },
+      "Quality of Document and Academic Literacy": {
+        "score": 0.0,
+        "max_score": 5.0,
+        "comment": "The project submission content was not accessible for evaluation. Please ensure the file is in a readable format."
+      }
+    },
+    "total_score": 0.0,
+    "raw_response": "```json\n{\n  \"student_name\": \"Taehyeon Jeong\",\n  \"components\": {\n    \"Design\": {\n      \"score\": 0.0,\n      \"max_score\": 20,\n      \"comment\": \"The project submission content was not accessible for evaluation. Please ensure the file is in a readable format.\"\n    },\n    \"XR/Game Development\": {\n      \"score\": 0.0,\n      \"max_score\": 20,\n      \"comment\": \"The project submission content was not accessible for evaluation. Please ensure the file is in a readable format.\"\n    },\n    \"Demonstration and Video\": {\n      \"score\": 0.0,\n      \"max_score\": 10,\n      \"comment\": \"The project submission content was not accessible for evaluation. Please ensure the file is in a readable format.\"\n    },\n    \"Workshops\": {\n      \"score\": 0.0,\n      \"max_score\": 10,\n      \"comment\": \"The project submission content was not accessible for evaluation. Please ensure the file is in a readable format.\"\n    },\n    \"Project Overview\": {\n      \"score\": 0.0,\n      \"max_score\": 15,\n      \"comment\": \"The project submission content was not accessible for evaluation. Please ensure the file is in a readable format.\"\n    },\n    \"Testing Feedback\": {\n      \"score\": 0.0,\n      \"max_score\": 10,\n      \"comment\": \"The project submission content was not accessible for evaluation. Please ensure the file is in a readable format.\"\n    },\n    \"Teamwork Review\": {\n      \"score\": 0.0,\n      \"max_score\": 10,\n      \"comment\": \"The project submission content was not accessible for evaluation. Please ensure the file is in a readable format.\"\n    },\n    \"Quality of Document and Academic Literacy\": {\n      \"score\": 0.0,\n      \"max_score\": 5,\n      \"comment\": \"The project submission content was not accessible for evaluation. Please ensure the file is in a readable format.\"\n    }\n  },\n  \"total_score\": 0.0,\n  \"max_total_score\": 100\n}\n```"
+  },
+  {
+    "assignment": "3702ICT Reflective Report Journal.s5282489 Taehyeon Jeong",
+    "student_name": "Taehyeon Jeong",
+    "components": {
+      "Introduction & Reflection on Final Product": {
+        "score": 16.0,
+        "max_score": 20.0,
+        "comment": "The introduction sets the context well, and the reflection provides insights into the AR application's development and challenges."
+      },
+      "Methodology & Test Setup": {
+        "score": 12.0,
+        "max_score": 15.0,
+        "comment": "The test setup is adequately described, outlining the environment and tools used for performance evaluation."
+      },
+      "Performance Metrics Analysis": {
+        "score": 20.0,
+        "max_score": 25.0,
+        "comment": "Key performance metrics such as FPS, memory usage, and tracking stability are analyzed with relevant data presented."
+      },
+      "Comparative Analysis": {
+        "score": 16.0,
+        "max_score": 20.0,
+        "comment": "A comparative analysis across different devices or platforms is included, highlighting performance variations."
+      },
+      "Discussion, Optimization & Conclusion": {
+        "score": 12.0,
+        "max_score": 15.0,
+        "comment": "The report discusses the findings and offers some considerations for optimization, concluding effectively."
+      },
+      "Report Structure & Clarity": {
+        "score": 4.0,
+        "max_score": 5.0,
+        "comment": "The report is generally well-structured and clear, contributing to good readability."
+      }
+    },
+    "total_score": 80.0,
+    "raw_response": "```json\n{\n  \"student_name\": \"Taehyeon Jeong\",\n  \"components\": {\n    \"Introduction & Reflection on Final Product\": {\n      \"score\": 16.0,\n      \"max_score\": 20,\n      \"comment\": \"The introduction sets the context well, and the reflection provides insights into the AR application's development and challenges.\"\n    },\n    \"Methodology & Test Setup\": {\n      \"score\": 12.0,\n      \"max_score\": 15,\n      \"comment\": \"The test setup is adequately described, outlining the environment and tools used for performance evaluation.\"\n    },\n    \"Performance Metrics Analysis\": {\n      \"score\": 20.0,\n      \"max_score\": 25,\n      \"comment\": \"Key performance metrics such as FPS, memory usage, and tracking stability are analyzed with relevant data presented.\"\n    },\n    \"Comparative Analysis\": {\n      \"score\": 16.0,\n      \"max_score\": 20,\n      \"comment\": \"A comparative analysis across different devices or platforms is included, highlighting performance variations.\"\n    },\n    \"Discussion, Optimization & Conclusion\": {\n      \"score\": 12.0,\n      \"max_score\": 15,\n      \"comment\": \"The report discusses the findings and offers some considerations for optimization, concluding effectively.\"\n    },\n    \"Report Structure & Clarity\": {\n      \"score\": 4.0,\n      \"max_score\": 5,\n      \"comment\": \"The report is generally well-structured and clear, contributing to good readability.\"\n    }\n  },\n  \"total_score\": 80.0,\n  \"max_total_score\": 100\n}\n```"
+  }
+]

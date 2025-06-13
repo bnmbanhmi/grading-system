@@ -1,0 +1,78 @@
+[
+  {
+    "assignment": "Assignment 3",
+    "student_name": "Student Name Not Found (Content not extractable from PDF binary)",
+    "components": {
+      "Introduction & Reflection on Final Product": {
+        "score": 0.0,
+        "max_score": 20.0,
+        "comment": "No report content was provided for evaluation in this section. Please ensure the report is submitted in an accessible format."
+      },
+      "Methodology & Test Setup": {
+        "score": 0.0,
+        "max_score": 15.0,
+        "comment": "No report content was provided for evaluation in this section. Please ensure the report is submitted in an accessible format."
+      },
+      "Performance Metrics Analysis": {
+        "score": 0.0,
+        "max_score": 25.0,
+        "comment": "No report content was provided for evaluation in this section. Please ensure the report is submitted in an accessible format."
+      },
+      "Comparative Analysis": {
+        "score": 0.0,
+        "max_score": 20.0,
+        "comment": "No report content was provided for evaluation in this section. Please ensure the report is submitted in an accessible format."
+      },
+      "Discussion, Optimization & Conclusion": {
+        "score": 0.0,
+        "max_score": 15.0,
+        "comment": "No report content was provided for evaluation in this section. Please ensure the report is submitted in an accessible format."
+      },
+      "Report Structure & Clarity": {
+        "score": 0.0,
+        "max_score": 5.0,
+        "comment": "No report content was provided for evaluation, thus structure and clarity could not be assessed. Please ensure the report is submitted in an accessible format."
+      }
+    },
+    "total_score": 0.0,
+    "raw_response": "```json\n{\n  \"student_name\": \"Student Name Not Found (Content not extractable from PDF binary)\",\n  \"components\": {\n    \"Introduction & Reflection on Final Product\": {\n      \"score\": 0.0,\n      \"max_score\": 20,\n      \"comment\": \"No report content was provided for evaluation in this section. Please ensure the report is submitted in an accessible format.\"\n    },\n    \"Methodology & Test Setup\": {\n      \"score\": 0.0,\n      \"max_score\": 15,\n      \"comment\": \"No report content was provided for evaluation in this section. Please ensure the report is submitted in an accessible format.\"\n    },\n    \"Performance Metrics Analysis\": {\n      \"score\": 0.0,\n      \"max_score\": 25,\n      \"comment\": \"No report content was provided for evaluation in this section. Please ensure the report is submitted in an accessible format.\"\n    },\n    \"Comparative Analysis\": {\n      \"score\": 0.0,\n      \"max_score\": 20,\n      \"comment\": \"No report content was provided for evaluation in this section. Please ensure the report is submitted in an accessible format.\"\n    },\n    \"Discussion, Optimization & Conclusion\": {\n      \"score\": 0.0,\n      \"max_score\": 15,\n      \"comment\": \"No report content was provided for evaluation in this section. Please ensure the report is submitted in an accessible format.\"\n    },\n    \"Report Structure & Clarity\": {\n      \"score\": 0.0,\n      \"max_score\": 5,\n      \"comment\": \"No report content was provided for evaluation, thus structure and clarity could not be assessed. Please ensure the report is submitted in an accessible format.\"\n    }\n  },\n  \"total_score\": 0.0,\n  \"max_total_score\": 100\n}\n```"
+  },
+  {
+    "assignment": "Assignment 3",
+    "student_name": "Luis Chaves Tequia",
+    "components": {
+      "Introduction & Reflection on Final Product": {
+        "score": 16.5,
+        "max_score": 20.0,
+        "comment": "The introduction clearly outlines the report's purpose. The reflection provides a good overview of the final product's performance, acknowledging challenges and design decisions. Strong identification of areas for improvement with thoughtful trade-offs."
+      },
+      "Methodology & Test Setup": {
+        "score": 12.0,
+        "max_score": 15.0,
+        "comment": "Detailed explanation of the test setup, including devices and Unity tools used. The methodology is clear and reproducible, demonstrating a solid understanding of the testing environment."
+      },
+      "Performance Metrics Analysis": {
+        "score": 21.0,
+        "max_score": 25.0,
+        "comment": "Excellent analysis of key performance metrics (FPS, memory, tracking stability). The inclusion of relevant graphs and screenshots significantly enhances the data presentation and interpretation."
+      },
+      "Comparative Analysis": {
+        "score": 17.0,
+        "max_score": 20.0,
+        "comment": "A thorough comparative analysis between different devices/platforms is presented. Key performance indicators are effectively used to highlight differences and similarities, supporting the overall evaluation."
+      },
+      "Discussion, Optimization & Conclusion": {
+        "score": 13.5,
+        "max_score": 15.0,
+        "comment": "Insightful interpretation of findings, leading to practical and well-justified optimization recommendations. The discussion of trade-offs is comprehensive. The conclusion effectively summarizes key takeaways and reflections."
+      },
+      "Report Structure & Clarity": {
+        "score": 4.5,
+        "max_score": 5.0,
+        "comment": "The report is exceptionally well-structured, logical, and easy to follow. The language is clear, concise, and professional throughout, contributing to high readability."
+      }
+    },
+    "total_score": 84.5,
+    "raw_response": "```json\n{\n  \"student_name\": \"Luis Chaves Tequia\",\n  \"components\": {\n    \"Introduction & Reflection on Final Product\": {\n      \"score\": 16.5,\n      \"max_score\": 20,\n      \"comment\": \"The introduction clearly outlines the report's purpose. The reflection provides a good overview of the final product's performance, acknowledging challenges and design decisions. Strong identification of areas for improvement with thoughtful trade-offs.\"\n    },\n    \"Methodology & Test Setup\": {\n      \"score\": 12.0,\n      \"max_score\": 15,\n      \"comment\": \"Detailed explanation of the test setup, including devices and Unity tools used. The methodology is clear and reproducible, demonstrating a solid understanding of the testing environment.\"\n    },\n    \"Performance Metrics Analysis\": {\n      \"score\": 21.0,\n      \"max_score\": 25,\n      \"comment\": \"Excellent analysis of key performance metrics (FPS, memory, tracking stability). The inclusion of relevant graphs and screenshots significantly enhances the data presentation and interpretation.\"\n    },\n    \"Comparative Analysis\": {\n      \"score\": 17.0,\n      \"max_score\": 20,\n      \"comment\": \"A thorough comparative analysis between different devices/platforms is presented. Key performance indicators are effectively used to highlight differences and similarities, supporting the overall evaluation.\"\n    },\n    \"Discussion, Optimization & Conclusion\": {\n      \"score\": 13.5,\n      \"max_score\": 15,\n      \"comment\": \"Insightful interpretation of findings, leading to practical and well-justified optimization recommendations. The discussion of trade-offs is comprehensive. The conclusion effectively summarizes key takeaways and reflections.\"\n    },\n    \"Report Structure & Clarity\": {\n      \"score\": 4.5,\n      \"max_score\": 5,\n      \"comment\": \"The report is exceptionally well-structured, logical, and easy to follow. The language is clear, concise, and professional throughout, contributing to high readability.\"\n    }\n  },\n  \"total_score\": 84.5,\n  \"max_total_score\": 100\n}\n```"
+  }
+]

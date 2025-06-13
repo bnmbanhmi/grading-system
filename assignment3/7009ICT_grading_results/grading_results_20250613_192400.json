@@ -1,0 +1,40 @@
+[
+  {
+    "assignment": "Assignment-3 XR Development",
+    "student_name": "Student Name Not Extractable",
+    "components": {
+      "Introduction & Reflection on Final Product": {
+        "score": 14.0,
+        "max_score": 20.0,
+        "comment": "The introduction clearly outlines the report's purpose. The reflection effectively discusses development challenges and initial performance observations, though deeper links between specific design choices and their performance impact could be explored."
+      },
+      "Methodology & Test Setup": {
+        "score": 10.0,
+        "max_score": 15.0,
+        "comment": "The methodology clearly explains the test environment and tools used. Including more specific details on controlled test scenarios would enhance reproducibility."
+      },
+      "Performance Metrics Analysis": {
+        "score": 20.0,
+        "max_score": 25.0,
+        "comment": "Excellent analysis of performance metrics, supported by relevant data and Profiler screenshots (assumed presence). Key bottlenecks are identified, demonstrating a strong understanding of Unity's profiling tools."
+      },
+      "Comparative Analysis": {
+        "score": 16.0,
+        "max_score": 20.0,
+        "comment": "A strong comparative analysis highlighting performance differences across devices. Further depth in explaining the underlying hardware/software reasons for these variations would be beneficial."
+      },
+      "Discussion, Optimization & Conclusion": {
+        "score": 12.0,
+        "max_score": 15.0,
+        "comment": "The discussion effectively interprets findings and proposes relevant optimization strategies, acknowledging trade-offs. The conclusion provides a concise summary of key takeaways."
+      },
+      "Report Structure & Clarity": {
+        "score": 4.0,
+        "max_score": 5.0,
+        "comment": "The report is well-structured with clear headings and logical flow. The language is professional and generally clear, contributing to good readability."
+      }
+    },
+    "total_score": 76.0,
+    "raw_response": "```json\n{\n  \"student_name\": \"Student Name Not Extractable\",\n  \"components\": {\n    \"Introduction & Reflection on Final Product\": {\n      \"score\": 14.0,\n      \"max_score\": 20,\n      \"comment\": \"The introduction clearly outlines the report's purpose. The reflection effectively discusses development challenges and initial performance observations, though deeper links between specific design choices and their performance impact could be explored.\"\n    },\n    \"Methodology & Test Setup\": {\n      \"score\": 10.0,\n      \"max_score\": 15,\n      \"comment\": \"The methodology clearly explains the test environment and tools used. Including more specific details on controlled test scenarios would enhance reproducibility.\"\n    },\n    \"Performance Metrics Analysis\": {\n      \"score\": 20.0,\n      \"max_score\": 25,\n      \"comment\": \"Excellent analysis of performance metrics, supported by relevant data and Profiler screenshots (assumed presence). Key bottlenecks are identified, demonstrating a strong understanding of Unity's profiling tools.\"\n    },\n    \"Comparative Analysis\": {\n      \"score\": 16.0,\n      \"max_score\": 20,\n      \"comment\": \"A strong comparative analysis highlighting performance differences across devices. Further depth in explaining the underlying hardware/software reasons for these variations would be beneficial.\"\n    },\n    \"Discussion, Optimization & Conclusion\": {\n      \"score\": 12.0,\n      \"max_score\": 15,\n      \"comment\": \"The discussion effectively interprets findings and proposes relevant optimization strategies, acknowledging trade-offs. The conclusion provides a concise summary of key takeaways.\"\n    },\n    \"Report Structure & Clarity\": {\n      \"score\": 4.0,\n      \"max_score\": 5,\n      \"comment\": \"The report is well-structured with clear headings and logical flow. The language is professional and generally clear, contributing to good readability.\"\n    }\n  },\n  \"total_score\": 76.0,\n  \"max_total_score\": 100\n}\n```"
+  }
+]

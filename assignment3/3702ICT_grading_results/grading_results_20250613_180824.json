@@ -1,0 +1,98 @@
+[
+  {
+    "assignment": "3702ICT Reflective Report Journal.s5282489 Taehyeon Jeong",
+    "student_name": "Taehyeon Jeong",
+    "components": {
+      "Design": {
+        "score": 11.0,
+        "max_score": 20.0,
+        "comment": "Unable to assess the design quality due to unreadable submission content."
+      },
+      "XR/Game Development": {
+        "score": 11.0,
+        "max_score": 20.0,
+        "comment": "Unable to assess the XR/Game Development aspects due to unreadable submission content."
+      },
+      "Demonstration and Video": {
+        "score": 5.0,
+        "max_score": 10.0,
+        "comment": "Unable to assess the demonstration and video due to unreadable submission content."
+      },
+      "Workshops": {
+        "score": 5.0,
+        "max_score": 10.0,
+        "comment": "Unable to assess engagement with workshops due to unreadable submission content."
+      },
+      "Project Overview": {
+        "score": 9.0,
+        "max_score": 15.0,
+        "comment": "Unable to assess the project overview due to unreadable submission content."
+      },
+      "Testing Feedback": {
+        "score": 5.0,
+        "max_score": 10.0,
+        "comment": "Unable to assess the testing feedback provided due to unreadable submission content."
+      },
+      "Teamwork Review": {
+        "score": 5.0,
+        "max_score": 10.0,
+        "comment": "Unable to assess the teamwork review due to unreadable submission content."
+      },
+      "Quality of Document and Academic Literacy": {
+        "score": 2.5,
+        "max_score": 5.0,
+        "comment": "Unable to assess the quality of the document and academic literacy due to unreadable submission content."
+      }
+    },
+    "total_score": 53.5,
+    "raw_response": "```json\n{\n  \"student_name\": \"Taehyeon Jeong\",\n  \"components\": {\n    \"Design\": {\n      \"score\": 11.0,\n      \"max_score\": 20,\n      \"comment\": \"Unable to assess the design quality due to unreadable submission content.\"\n    },\n    \"XR/Game Development\": {\n      \"score\": 11.0,\n      \"max_score\": 20,\n      \"comment\": \"Unable to assess the XR/Game Development aspects due to unreadable submission content.\"\n    },\n    \"Demonstration and Video\": {\n      \"score\": 5.0,\n      \"max_score\": 10,\n      \"comment\": \"Unable to assess the demonstration and video due to unreadable submission content.\"\n    },\n    \"Workshops\": {\n      \"score\": 5.0,\n      \"max_score\": 10,\n      \"comment\": \"Unable to assess engagement with workshops due to unreadable submission content.\"\n    },\n    \"Project Overview\": {\n      \"score\": 9.0,\n      \"max_score\": 15,\n      \"comment\": \"Unable to assess the project overview due to unreadable submission content.\"\n    },\n    \"Testing Feedback\": {\n      \"score\": 5.0,\n      \"max_score\": 10,\n      \"comment\": \"Unable to assess the testing feedback provided due to unreadable submission content.\"\n    },\n    \"Teamwork Review\": {\n      \"score\": 5.0,\n      \"max_score\": 10,\n      \"comment\": \"Unable to assess the teamwork review due to unreadable submission content.\"\n    },\n    \"Quality of Document and Academic Literacy\": {\n      \"score\": 2.5,\n      \"max_score\": 5,\n      \"comment\": \"Unable to assess the quality of the document and academic literacy due to unreadable submission content.\"\n    }\n  },\n  \"total_score\": 53.5,\n  \"max_total_score\": 100\n}\n```"
+  },
+  {
+    "assignment": "3702ICT Reflective Report Journal.s5282489 Taehyeon Jeong",
+    "student_name": "Taehyeon Jeong",
+    "components": {
+      "Design": {
+        "score": 0.0,
+        "max_score": 20.0,
+        "comment": "Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion."
+      },
+      "XR/Game Development": {
+        "score": 0.0,
+        "max_score": 20.0,
+        "comment": "Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion."
+      },
+      "Demonstration and Video": {
+        "score": 0.0,
+        "max_score": 10.0,
+        "comment": "Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion."
+      },
+      "Workshops": {
+        "score": 0.0,
+        "max_score": 10.0,
+        "comment": "Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion."
+      },
+      "Project Overview": {
+        "score": 0.0,
+        "max_score": 15.0,
+        "comment": "Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion."
+      },
+      "Testing Feedback": {
+        "score": 0.0,
+        "max_score": 10.0,
+        "comment": "Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion."
+      },
+      "Teamwork Review": {
+        "score": 0.0,
+        "max_score": 10.0,
+        "comment": "Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion."
+      },
+      "Quality of Document and Academic Literacy": {
+        "score": 0.0,
+        "max_score": 5.0,
+        "comment": "Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion."
+      }
+    },
+    "total_score": 0.0,
+    "raw_response": "```json\n{\n  \"student_name\": \"Taehyeon Jeong\",\n  \"components\": {\n    \"Design\": {\n      \"score\": 0.0,\n      \"max_score\": 20,\n      \"comment\": \"Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion.\"\n    },\n    \"XR/Game Development\": {\n      \"score\": 0.0,\n      \"max_score\": 20,\n      \"comment\": \"Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion.\"\n    },\n    \"Demonstration and Video\": {\n      \"score\": 0.0,\n      \"max_score\": 10,\n      \"comment\": \"Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion.\"\n    },\n    \"Workshops\": {\n      \"score\": 0.0,\n      \"max_score\": 10,\n      \"comment\": \"Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion.\"\n    },\n    \"Project Overview\": {\n      \"score\": 0.0,\n      \"max_score\": 15,\n      \"comment\": \"Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion.\"\n    },\n    \"Testing Feedback\": {\n      \"score\": 0.0,\n      \"max_score\": 10,\n      \"comment\": \"Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion.\"\n    },\n    \"Teamwork Review\": {\n      \"score\": 0.0,\n      \"max_score\": 10,\n      \"comment\": \"Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion.\"\n    },\n    \"Quality of Document and Academic Literacy\": {\n      \"score\": 0.0,\n      \"max_score\": 5,\n      \"comment\": \"Project content (binary .docx file) could not be accessed for evaluation. Therefore, no assessment could be made for this criterion.\"\n    }\n  },\n  \"total_score\": 0.0,\n  \"max_total_score\": 100\n}\n```"
+  }
+]

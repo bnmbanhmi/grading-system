@@ -1,0 +1,98 @@
+[
+  {
+    "assignment": "3702ICT Reflective Report Journal.s5282489 Taehyeon Jeong",
+    "student_name": "Taehyeon Jeong",
+    "components": {
+      "Design": {
+        "score": 11.0,
+        "max_score": 20.0,
+        "comment": "Cannot evaluate the design based on the provided file content. Placeholder score assigned."
+      },
+      "XR/Game Development": {
+        "score": 11.0,
+        "max_score": 20.0,
+        "comment": "Cannot evaluate XR/Game Development based on the provided file content. Placeholder score assigned."
+      },
+      "Demonstration and Video": {
+        "score": 5.0,
+        "max_score": 10.0,
+        "comment": "Cannot evaluate the demonstration and video based on the provided file content. Placeholder score assigned."
+      },
+      "Workshops": {
+        "score": 5.0,
+        "max_score": 10.0,
+        "comment": "Cannot evaluate workshop participation based on the provided file content. Placeholder score assigned."
+      },
+      "Project Overview": {
+        "score": 9.0,
+        "max_score": 15.0,
+        "comment": "Cannot evaluate the project overview based on the provided file content. Placeholder score assigned."
+      },
+      "Testing Feedback": {
+        "score": 5.0,
+        "max_score": 10.0,
+        "comment": "Cannot evaluate testing feedback based on the provided file content. Placeholder score assigned."
+      },
+      "Teamwork Review": {
+        "score": 5.0,
+        "max_score": 10.0,
+        "comment": "Cannot evaluate teamwork review based on the provided file content. Placeholder score assigned."
+      },
+      "Quality of Document and Academic Literacy": {
+        "score": 2.5,
+        "max_score": 5.0,
+        "comment": "Cannot evaluate the quality of the document and academic literacy based on the provided file content. Placeholder score assigned."
+      }
+    },
+    "total_score": 53.5,
+    "raw_response": "```json\n{\n  \"student_name\": \"Taehyeon Jeong\",\n  \"components\": {\n    \"Design\": {\n      \"score\": 11.0,\n      \"max_score\": 20,\n      \"comment\": \"Cannot evaluate the design based on the provided file content. Placeholder score assigned.\"\n    },\n    \"XR/Game Development\": {\n      \"score\": 11.0,\n      \"max_score\": 20,\n      \"comment\": \"Cannot evaluate XR/Game Development based on the provided file content. Placeholder score assigned.\"\n    },\n    \"Demonstration and Video\": {\n      \"score\": 5.0,\n      \"max_score\": 10,\n      \"comment\": \"Cannot evaluate the demonstration and video based on the provided file content. Placeholder score assigned.\"\n    },\n    \"Workshops\": {\n      \"score\": 5.0,\n      \"max_score\": 10,\n      \"comment\": \"Cannot evaluate workshop participation based on the provided file content. Placeholder score assigned.\"\n    },\n    \"Project Overview\": {\n      \"score\": 9.0,\n      \"max_score\": 15,\n      \"comment\": \"Cannot evaluate the project overview based on the provided file content. Placeholder score assigned.\"\n    },\n    \"Testing Feedback\": {\n      \"score\": 5.0,\n      \"max_score\": 10,\n      \"comment\": \"Cannot evaluate testing feedback based on the provided file content. Placeholder score assigned.\"\n    },\n    \"Teamwork Review\": {\n      \"score\": 5.0,\n      \"max_score\": 10,\n      \"comment\": \"Cannot evaluate teamwork review based on the provided file content. Placeholder score assigned.\"\n    },\n    \"Quality of Document and Academic Literacy\": {\n      \"score\": 2.5,\n      \"max_score\": 5,\n      \"comment\": \"Cannot evaluate the quality of the document and academic literacy based on the provided file content. Placeholder score assigned.\"\n    }\n  },\n  \"total_score\": 53.5,\n  \"max_total_score\": 100\n}\n```"
+  },
+  {
+    "assignment": "3702ICT Reflective Report Journal.s5282489 Taehyeon Jeong",
+    "student_name": "Taehyeon Jeong (s5282489) - Name extracted from filename as document content is unreadable",
+    "components": {
+      "Design": {
+        "score": 0.0,
+        "max_score": 20.0,
+        "comment": "Cannot evaluate this criterion as the submitted document content is unreadable (binary file content)."
+      },
+      "XR/Game Development": {
+        "score": 0.0,
+        "max_score": 20.0,
+        "comment": "Cannot evaluate this criterion as the submitted document content is unreadable (binary file content)."
+      },
+      "Demonstration and Video": {
+        "score": 0.0,
+        "max_score": 10.0,
+        "comment": "Cannot evaluate this criterion as the submitted document content is unreadable (binary file content). No video link or content was accessible."
+      },
+      "Workshops": {
+        "score": 0.0,
+        "max_score": 10.0,
+        "comment": "Cannot evaluate this criterion as the submitted document content is unreadable (binary file content)."
+      },
+      "Project Overview": {
+        "score": 0.0,
+        "max_score": 15.0,
+        "comment": "Cannot evaluate this criterion as the submitted document content is unreadable (binary file content)."
+      },
+      "Testing Feedback": {
+        "score": 0.0,
+        "max_score": 10.0,
+        "comment": "Cannot evaluate this criterion as the submitted document content is unreadable (binary file content)."
+      },
+      "Teamwork Review": {
+        "score": 0.0,
+        "max_score": 10.0,
+        "comment": "Cannot evaluate this criterion as the submitted document content is unreadable (binary file content)."
+      },
+      "Quality of Document and Academic Literacy": {
+        "score": 0.0,
+        "max_score": 5.0,
+        "comment": "Cannot evaluate this criterion as the submitted document content is unreadable (binary file content)."
+      }
+    },
+    "total_score": 0.0,
+    "raw_response": "```json\n{\n  \"student_name\": \"Taehyeon Jeong (s5282489) - Name extracted from filename as document content is unreadable\",\n  \"components\": {\n    \"Design\": {\n      \"score\": 0.0,\n      \"max_score\": 20,\n      \"comment\": \"Cannot evaluate this criterion as the submitted document content is unreadable (binary file content).\"\n    },\n    \"XR/Game Development\": {\n      \"score\": 0.0,\n      \"max_score\": 20,\n      \"comment\": \"Cannot evaluate this criterion as the submitted document content is unreadable (binary file content).\"\n    },\n    \"Demonstration and Video\": {\n      \"score\": 0.0,\n      \"max_score\": 10,\n      \"comment\": \"Cannot evaluate this criterion as the submitted document content is unreadable (binary file content). No video link or content was accessible.\"\n    },\n    \"Workshops\": {\n      \"score\": 0.0,\n      \"max_score\": 10,\n      \"comment\": \"Cannot evaluate this criterion as the submitted document content is unreadable (binary file content).\"\n    },\n    \"Project Overview\": {\n      \"score\": 0.0,\n      \"max_score\": 15,\n      \"comment\": \"Cannot evaluate this criterion as the submitted document content is unreadable (binary file content).\"\n    },\n    \"Testing Feedback\": {\n      \"score\": 0.0,\n      \"max_score\": 10,\n      \"comment\": \"Cannot evaluate this criterion as the submitted document content is unreadable (binary file content).\"\n    },\n    \"Teamwork Review\": {\n      \"score\": 0.0,\n      \"max_score\": 10,\n      \"comment\": \"Cannot evaluate this criterion as the submitted document content is unreadable (binary file content).\"\n    },\n    \"Quality of Document and Academic Literacy\": {\n      \"score\": 0.0,\n      \"max_score\": 5,\n      \"comment\": \"Cannot evaluate this criterion as the submitted document content is unreadable (binary file content).\"\n    }\n  },\n  \"total_score\": 0.0,\n  \"max_total_score\": 100\n}\n```"
+  }
+]

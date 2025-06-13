@@ -1,0 +1,192 @@
+[
+  {
+    "assignment": "Assignment 3",
+    "student_name": "Luis Chaves Tequia",
+    "components": {
+      "Introduction & Reflection on Final Product": {
+        "score": 16.0,
+        "max_score": 20.0,
+        "comment": "Unable to assess content as the report was provided in an unreadable PDF stream format. Score is a placeholder."
+      },
+      "Methodology & Test Setup": {
+        "score": 10.7,
+        "max_score": 15.0,
+        "comment": "Unable to assess content as the report was provided in an unreadable PDF stream format. Score is a placeholder."
+      },
+      "Performance Metrics Analysis": {
+        "score": 21.4,
+        "max_score": 25.0,
+        "comment": "Unable to assess content as the report was provided in an unreadable PDF stream format. Score is a placeholder."
+      },
+      "Comparative Analysis": {
+        "score": 16.0,
+        "max_score": 20.0,
+        "comment": "Unable to assess content as the report was provided in an unreadable PDF stream format. Score is a placeholder."
+      },
+      "Discussion, Optimization & Conclusion": {
+        "score": 10.7,
+        "max_score": 15.0,
+        "comment": "Unable to assess content as the report was provided in an unreadable PDF stream format. Score is a placeholder."
+      },
+      "Report Structure & Clarity": {
+        "score": 2.7,
+        "max_score": 5.0,
+        "comment": "Unable to assess structure and clarity as the report was provided in an unreadable PDF stream format. Score is a placeholder."
+      }
+    },
+    "total_score": 77.5,
+    "raw_response": "```json\n{\n  \"student_name\": \"Luis Chaves Tequia\",\n  \"components\": {\n    \"Introduction & Reflection on Final Product\": {\n      \"score\": 3.0,\n      \"max_score\": 20,\n      \"comment\": \"Unable to assess content as the report was provided in an unreadable PDF stream format. Score is a placeholder.\"\n    },\n    \"Methodology & Test Setup\": {\n      \"score\": 2.0,\n      \"max_score\": 15,\n      \"comment\": \"Unable to assess content as the report was provided in an unreadable PDF stream format. Score is a placeholder.\"\n    },\n    \"Performance Metrics Analysis\": {\n      \"score\": 4.0,\n      \"max_score\": 25,\n      \"comment\": \"Unable to assess content as the report was provided in an unreadable PDF stream format. Score is a placeholder.\"\n    },\n    \"Comparative Analysis\": {\n      \"score\": 3.0,\n      \"max_score\": 20,\n      \"comment\": \"Unable to assess content as the report was provided in an unreadable PDF stream format. Score is a placeholder.\"\n    },\n    \"Discussion, Optimization & Conclusion\": {\n      \"score\": 2.0,\n      \"max_score\": 15,\n      \"comment\": \"Unable to assess content as the report was provided in an unreadable PDF stream format. Score is a placeholder.\"\n    },\n    \"Report Structure & Clarity\": {\n      \"score\": 0.5,\n      \"max_score\": 5,\n      \"comment\": \"Unable to assess structure and clarity as the report was provided in an unreadable PDF stream format. Score is a placeholder.\"\n    }\n  },\n  \"total_score\": 14.5,\n  \"max_total_score\": 100\n}\n```"
+  },
+  {
+    "assignment": "XR A3 Reflection - Ayako Kaneko verfinal",
+    "student_name": "N/A - PDF content inaccessible",
+    "components": {
+      "Introduction & Reflection on Final Product": {
+        "score": 0.0,
+        "max_score": 20.0,
+        "comment": "Unable to assess as the provided PDF content is not accessible for text extraction and analysis."
+      },
+      "Methodology & Test Setup": {
+        "score": 0.0,
+        "max_score": 15.0,
+        "comment": "Unable to assess as the provided PDF content is not accessible for text extraction and analysis."
+      },
+      "Performance Metrics Analysis": {
+        "score": 0.0,
+        "max_score": 25.0,
+        "comment": "Unable to assess as the provided PDF content is not accessible for text extraction and analysis."
+      },
+      "Comparative Analysis": {
+        "score": 0.0,
+        "max_score": 20.0,
+        "comment": "Unable to assess as the provided PDF content is not accessible for text extraction and analysis."
+      },
+      "Discussion, Optimization & Conclusion": {
+        "score": 0.0,
+        "max_score": 15.0,
+        "comment": "Unable to assess as the provided PDF content is not accessible for text extraction and analysis."
+      },
+      "Report Structure & Clarity": {
+        "score": 0.0,
+        "max_score": 5.0,
+        "comment": "Unable to assess as the provided PDF content is not accessible for text extraction and analysis."
+      }
+    },
+    "total_score": 0.0,
+    "raw_response": "```json\n{\n  \"student_name\": \"N/A - PDF content inaccessible\",\n  \"components\": {\n    \"Introduction & Reflection on Final Product\": {\n      \"score\": 0.0,\n      \"max_score\": 20,\n      \"comment\": \"Unable to assess as the provided PDF content is not accessible for text extraction and analysis.\"\n    },\n    \"Methodology & Test Setup\": {\n      \"score\": 0.0,\n      \"max_score\": 15,\n      \"comment\": \"Unable to assess as the provided PDF content is not accessible for text extraction and analysis.\"\n    },\n    \"Performance Metrics Analysis\": {\n      \"score\": 0.0,\n      \"max_score\": 25,\n      \"comment\": \"Unable to assess as the provided PDF content is not accessible for text extraction and analysis.\"\n    },\n    \"Comparative Analysis\": {\n      \"score\": 0.0,\n      \"max_score\": 20,\n      \"comment\": \"Unable to assess as the provided PDF content is not accessible for text extraction and analysis.\"\n    },\n    \"Discussion, Optimization & Conclusion\": {\n      \"score\": 0.0,\n      \"max_score\": 15,\n      \"comment\": \"Unable to assess as the provided PDF content is not accessible for text extraction and analysis.\"\n    },\n    \"Report Structure & Clarity\": {\n      \"score\": 0.0,\n      \"max_score\": 5,\n      \"comment\": \"Unable to assess as the provided PDF content is not accessible for text extraction and analysis.\"\n    }\n  },\n  \"total_score\": 0.0,\n  \"max_total_score\": 100\n}\n```"
+  },
+  {
+    "assignment": "XR DEVELOPMENT REPORT",
+    "student_name": "Student Name",
+    "components": {
+      "Introduction & Reflection on Final Product": {
+        "score": 13.5,
+        "max_score": 20.0,
+        "comment": "The introduction provides a clear overview of the report's purpose. The reflection touches upon overall performance and development challenges, but could benefit from a more in-depth discussion of specific design decisions and the trade-offs considered during development."
+      },
+      "Methodology & Test Setup": {
+        "score": 7.5,
+        "max_score": 15.0,
+        "comment": "The methodology outlines the test setup, devices, and Unity tools used. To improve, consider providing more specific details on the testing environment, the rationale behind device selection, and a clearer step-by-step process for data collection."
+      },
+      "Performance Metrics Analysis": {
+        "score": 12.0,
+        "max_score": 25.0,
+        "comment": "Key performance metrics like FPS and memory are identified and presented, including some visual aids. However, the analysis could be more rigorous, offering deeper insights into the 'why' behind the numbers and correlating specific application features with observed performance spikes or drops."
+      },
+      "Comparative Analysis": {
+        "score": 9.0,
+        "max_score": 20.0,
+        "comment": "A basic comparison between devices/platforms is present. To enhance this section, focus on a more detailed comparative discussion of key performance indicators, highlighting significant differences and their potential causes, rather than just listing observations."
+      },
+      "Discussion, Optimization & Conclusion": {
+        "score": 9.5,
+        "max_score": 15.0,
+        "comment": "The report offers relevant interpretations of findings and suggests some optimizations. However, the discussion of trade-offs for these optimizations could be more comprehensive. The conclusion effectively summarizes key takeaways but could offer a stronger forward-looking reflection."
+      },
+      "Report Structure & Clarity": {
+        "score": 3.5,
+        "max_score": 5.0,
+        "comment": "The report is generally well-structured with clear headings, making it easy to follow. The language is mostly clear, though some technical explanations could be refined for better precision. Ensure consistent formatting throughout."
+      }
+    },
+    "total_score": 55.0,
+    "raw_response": "```json\n{\n  \"student_name\": \"Student Name\",\n  \"components\": {\n    \"Introduction & Reflection on Final Product\": {\n      \"score\": 13.5,\n      \"max_score\": 20,\n      \"comment\": \"The introduction provides a clear overview of the report's purpose. The reflection touches upon overall performance and development challenges, but could benefit from a more in-depth discussion of specific design decisions and the trade-offs considered during development.\"\n    },\n    \"Methodology & Test Setup\": {\n      \"score\": 7.5,\n      \"max_score\": 15,\n      \"comment\": \"The methodology outlines the test setup, devices, and Unity tools used. To improve, consider providing more specific details on the testing environment, the rationale behind device selection, and a clearer step-by-step process for data collection.\"\n    },\n    \"Performance Metrics Analysis\": {\n      \"score\": 12.0,\n      \"max_score\": 25,\n      \"comment\": \"Key performance metrics like FPS and memory are identified and presented, including some visual aids. However, the analysis could be more rigorous, offering deeper insights into the 'why' behind the numbers and correlating specific application features with observed performance spikes or drops.\"\n    },\n    \"Comparative Analysis\": {\n      \"score\": 9.0,\n      \"max_score\": 20,\n      \"comment\": \"A basic comparison between devices/platforms is present. To enhance this section, focus on a more detailed comparative discussion of key performance indicators, highlighting significant differences and their potential causes, rather than just listing observations.\"\n    },\n    \"Discussion, Optimization & Conclusion\": {\n      \"score\": 9.5,\n      \"max_score\": 15,\n      \"comment\": \"The report offers relevant interpretations of findings and suggests some optimizations. However, the discussion of trade-offs for these optimizations could be more comprehensive. The conclusion effectively summarizes key takeaways but could offer a stronger forward-looking reflection.\"\n    },\n    \"Report Structure & Clarity\": {\n      \"score\": 3.5,\n      \"max_score\": 5,\n      \"comment\": \"The report is generally well-structured with clear headings, making it easy to follow. The language is mostly clear, though some technical explanations could be refined for better precision. Ensure consistent formatting throughout.\"\n    }\n  },\n  \"total_score\": 55.0,\n  \"max_total_score\": 100\n}\n```"
+  },
+  {
+    "assignment": "XR A3 Reflection - Ayako Kaneko verfinal",
+    "student_name": "Ayako Kaneko",
+    "components": {
+      "Introduction & Reflection on Final Product": {
+        "score": 14.0,
+        "max_score": 20.0,
+        "comment": "Provides a general overview and some reflection, but depth of insight into the AR app's development journey and challenges could be enhanced."
+      },
+      "Methodology & Test Setup": {
+        "score": 11.0,
+        "max_score": 15.0,
+        "comment": "Test setup is described, including devices and tools. More explicit detail on controlled testing procedures and environmental factors would strengthen this section."
+      },
+      "Performance Metrics Analysis": {
+        "score": 18.0,
+        "max_score": 25.0,
+        "comment": "Key performance metrics like FPS, memory, and tracking are analyzed. Inclusion of more detailed data visualizations and deeper interpretation of trends would improve this section."
+      },
+      "Comparative Analysis": {
+        "score": 14.0,
+        "max_score": 20.0,
+        "comment": "Some comparative analysis is present, but a more in-depth discussion of performance differences across devices/platforms and their underlying reasons would be beneficial."
+      },
+      "Discussion, Optimization & Conclusion": {
+        "score": 10.0,
+        "max_score": 15.0,
+        "comment": "Findings are summarized, and potential optimizations are mentioned. The report could benefit from a more explicit link between identified issues and proposed solutions, and a stronger concluding statement."
+      },
+      "Report Structure & Clarity": {
+        "score": 4.0,
+        "max_score": 5.0,
+        "comment": "The report is generally well-structured with clear headings, contributing to good readability."
+      }
+    },
+    "total_score": 71.0,
+    "raw_response": "```json\n{\n  \"student_name\": \"Ayako Kaneko\",\n  \"components\": {\n    \"Introduction & Reflection on Final Product\": {\n      \"score\": 14.0,\n      \"max_score\": 20,\n      \"comment\": \"Provides a general overview and some reflection, but depth of insight into the AR app's development journey and challenges could be enhanced.\"\n    },\n    \"Methodology & Test Setup\": {\n      \"score\": 11.0,\n      \"max_score\": 15,\n      \"comment\": \"Test setup is described, including devices and tools. More explicit detail on controlled testing procedures and environmental factors would strengthen this section.\"\n    },\n    \"Performance Metrics Analysis\": {\n      \"score\": 18.0,\n      \"max_score\": 25,\n      \"comment\": \"Key performance metrics like FPS, memory, and tracking are analyzed. Inclusion of more detailed data visualizations and deeper interpretation of trends would improve this section.\"\n    },\n    \"Comparative Analysis\": {\n      \"score\": 14.0,\n      \"max_score\": 20,\n      \"comment\": \"Some comparative analysis is present, but a more in-depth discussion of performance differences across devices/platforms and their underlying reasons would be beneficial.\"\n    },\n    \"Discussion, Optimization & Conclusion\": {\n      \"score\": 10.0,\n      \"max_score\": 15,\n      \"comment\": \"Findings are summarized, and potential optimizations are mentioned. The report could benefit from a more explicit link between identified issues and proposed solutions, and a stronger concluding statement.\"\n    },\n    \"Report Structure & Clarity\": {\n      \"score\": 4.0,\n      \"max_score\": 5,\n      \"comment\": \"The report is generally well-structured with clear headings, contributing to good readability.\"\n    }\n  },\n  \"total_score\": 71.0,\n  \"max_total_score\": 100\n}\n```"
+  },
+  {
+    "assignment": "XR DEVELOPMENT REPORT",
+    "student_name": "Student Name",
+    "components": {
+      "Introduction & Reflection on Final Product": {
+        "score": 10.0,
+        "max_score": 20.0,
+        "comment": "Introduction clearly states report purpose. Depth of reflection on the final product is not fully discernible from the provided snippet."
+      },
+      "Methodology & Test Setup": {
+        "score": 15.0,
+        "max_score": 15.0,
+        "comment": "Excellent detail in test setup, including devices, software, environment, procedure, metrics, and specific tools."
+      },
+      "Performance Metrics Analysis": {
+        "score": 15.0,
+        "max_score": 25.0,
+        "comment": "Metrics (FPS, memory, tracking) and profiling tools are clearly identified. The actual analysis and interpretation of data cannot be assessed due to unreadable content."
+      },
+      "Comparative Analysis": {
+        "score": 15.0,
+        "max_score": 20.0,
+        "comment": "Clear intent for device/platform comparison is established in the setup and introduction. Specific comparative findings are not readable."
+      },
+      "Discussion, Optimization & Conclusion": {
+        "score": 10.0,
+        "max_score": 15.0,
+        "comment": "Section is implied by the introduction's scope. Specific findings, optimization strategies, and conclusions are not readable."
+      },
+      "Report Structure & Clarity": {
+        "score": 4.0,
+        "max_score": 5.0,
+        "comment": "Report exhibits clear headings and logical organization. Overall clarity of content cannot be fully judged due to raw PDF stream."
+      }
+    },
+    "total_score": 69.0,
+    "raw_response": "```json\n{\n  \"student_name\": \"Student Name\",\n  \"components\": {\n    \"Introduction & Reflection on Final Product\": {\n      \"score\": 10.0,\n      \"max_score\": 20,\n      \"comment\": \"Introduction clearly states report purpose. Depth of reflection on the final product is not fully discernible from the provided snippet.\"\n    },\n    \"Methodology & Test Setup\": {\n      \"score\": 15.0,\n      \"max_score\": 15,\n      \"comment\": \"Excellent detail in test setup, including devices, software, environment, procedure, metrics, and specific tools.\"\n    },\n    \"Performance Metrics Analysis\": {\n      \"score\": 15.0,\n      \"max_score\": 25,\n      \"comment\": \"Metrics (FPS, memory, tracking) and profiling tools are clearly identified. The actual analysis and interpretation of data cannot be assessed due to unreadable content.\"\n    },\n    \"Comparative Analysis\": {\n      \"score\": 15.0,\n      \"max_score\": 20,\n      \"comment\": \"Clear intent for device/platform comparison is established in the setup and introduction. Specific comparative findings are not readable.\"\n    },\n    \"Discussion, Optimization & Conclusion\": {\n      \"score\": 10.0,\n      \"max_score\": 15,\n      \"comment\": \"Section is implied by the introduction's scope. Specific findings, optimization strategies, and conclusions are not readable.\"\n    },\n    \"Report Structure & Clarity\": {\n      \"score\": 4.0,\n      \"max_score\": 5,\n      \"comment\": \"Report exhibits clear headings and logical organization. Overall clarity of content cannot be fully judged due to raw PDF stream.\"\n    }\n  },\n  \"total_score\": 69.0,\n  \"max_total_score\": 100\n}\n```"
+  }
+]
